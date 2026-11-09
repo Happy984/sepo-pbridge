@@ -1,0 +1,3507 @@
+# Copyright (C) 2026 Euneolink Solutions
+# This file is distributed under the GPL-2.0-or-later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Sepo Bridge 1.8.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/sepo-bridge\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-11-09T14:49:59+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.11.0\n"
+"X-Domain: sepo-bridge\n"
+
+#. Plugin Name of the plugin
+#: sepo-bridge.php
+#: includes/Admin/views/panel.php:17
+#: includes/Site/ActivityPage.php:101
+msgid "Sepo Bridge"
+msgstr ""
+
+#. Plugin URI of the plugin
+#. Author URI of the plugin
+#: sepo-bridge.php
+msgid "https://edu.sepodesk.com/"
+msgstr ""
+
+#. Description of the plugin
+#: sepo-bridge.php
+msgid "Feature toggles, custom post types, taxonomies, meta-field groups, membership gates, a cookie consent banner, social sign-in with two-factor authentication, search appearance and sitemap, share buttons, tables of contents, activity tracking, custom roles, menu and block visibility, and security/performance hardening — one panel, no outside dependency."
+msgstr ""
+
+#. Author of the plugin
+#: sepo-bridge.php
+msgid "Euneolink Solutions"
+msgstr ""
+
+#: includes/Admin/AdminController.php:31
+msgid "Settings"
+msgstr ""
+
+#: includes/Admin/AdminController.php:36
+msgid "Sepo Bridge is in safe mode (SEPO_WB_SAFE_MODE): feature toggles are not being applied."
+msgstr ""
+
+#: includes/Admin/AdminController.php:44
+msgid "WordPress Configuration"
+msgstr ""
+
+#: includes/Admin/AdminController.php:45
+msgid "WP Bridge"
+msgstr ""
+
+#: includes/Admin/AdminController.php:87
+#: includes/Consent/Consent.php:407
+msgid "Access denied."
+msgstr ""
+
+#: includes/Admin/View.php:25
+#: includes/Site/ActivityPage.php:202
+msgid "Site"
+msgstr ""
+
+#: includes/Admin/View.php:26
+msgid "Content"
+msgstr ""
+
+#: includes/Admin/View.php:27
+#: includes/Admin/views/partials/roles.php:46
+#: includes/Site/Roles.php:63
+msgid "People"
+msgstr ""
+
+#: includes/Admin/View.php:28
+#: includes/Site/ActivityPage.php:163
+#: includes/Site/ActivityPage.php:189
+#: includes/Site/ActivityPage.php:195
+msgid "Visitors"
+msgstr ""
+
+#: includes/Admin/View.php:30
+msgid "Features"
+msgstr ""
+
+#: includes/Admin/View.php:30
+msgid "Security and performance switches for the whole site. Each one takes effect as soon as it is turned on."
+msgstr ""
+
+#: includes/Admin/View.php:31
+msgid "Search"
+msgstr ""
+
+#: includes/Admin/View.php:31
+msgid "How the site appears in search results and when links are shared: titles, descriptions, sitemaps and social previews."
+msgstr ""
+
+#: includes/Admin/View.php:32
+msgid "Post types"
+msgstr ""
+
+#: includes/Admin/View.php:32
+msgid "Kinds of content beyond posts and pages, such as sermons, courses or staff profiles."
+msgstr ""
+
+#: includes/Admin/View.php:33
+msgid "Taxonomies"
+msgstr ""
+
+#: includes/Admin/View.php:33
+msgid "Ways to group content, like categories and tags, for any post type."
+msgstr ""
+
+#: includes/Admin/View.php:34
+msgid "Meta fields"
+msgstr ""
+
+#: includes/Admin/View.php:34
+msgid "Extra fields shown in the editor, such as a speaker, a date or a download link."
+msgstr ""
+
+#: includes/Admin/View.php:35
+#: includes/Admin/views/partials/contents.php:34
+#: includes/Site/Toc.php:101
+msgid "Contents"
+msgstr ""
+
+#: includes/Admin/View.php:35
+msgid "A box listing the headings of long posts and pages, so readers can jump to a section."
+msgstr ""
+
+#: includes/Admin/View.php:36
+#: includes/Integration/MembershipAdmin.php:125
+msgid "Membership"
+msgstr ""
+
+#: includes/Admin/View.php:36
+msgid "Membership tiers and what each tier may see."
+msgstr ""
+
+#: includes/Admin/View.php:37
+#: includes/SignIn/Account.php:129
+msgid "Sign-in"
+msgstr ""
+
+#: includes/Admin/View.php:37
+msgid "The sign-in and registration pages, and the account page people see once signed in."
+msgstr ""
+
+#: includes/Admin/View.php:38
+#: includes/Integration/NavVisibility.php:341
+msgid "Roles"
+msgstr ""
+
+#: includes/Admin/View.php:38
+msgid "Roles and what each one is allowed to do."
+msgstr ""
+
+#: includes/Admin/View.php:39
+#: includes/Site/ActivityPage.php:22
+#: includes/Site/ActivityPage.php:101
+msgid "Activity"
+msgstr ""
+
+#: includes/Admin/View.php:39
+msgid "A record of sign-ins and changes made in the dashboard."
+msgstr ""
+
+#: includes/Admin/View.php:40
+#: includes/Admin/views/partials/cookies.php:28
+msgid "Cookies"
+msgstr ""
+
+#: includes/Admin/View.php:40
+msgid "The cookie banner, the choices visitors can make and the scripts that wait for consent."
+msgstr ""
+
+#: includes/Admin/View.php:41
+msgid "Sharing"
+msgstr ""
+
+#: includes/Admin/View.php:41
+msgid "Share buttons under posts and pages."
+msgstr ""
+
+#: includes/Admin/views/panel.php:18
+msgid "Site settings"
+msgstr ""
+
+#. translators: %s: plugin version number
+#: includes/Admin/views/panel.php:22
+msgid "Version %s"
+msgstr ""
+
+#: includes/Admin/views/panel.php:28
+msgid "Settings sections"
+msgstr ""
+
+#: includes/Admin/views/panel.php:30
+msgid "Section"
+msgstr ""
+
+#: includes/Admin/views/panel.php:41
+msgid "Sections"
+msgstr ""
+
+#: includes/Admin/views/partials/activity.php:10
+#: includes/Admin/views/partials/roles.php:48
+#: includes/Site/ActivityPage.php:72
+msgid "Visitors (not signed in)"
+msgstr ""
+
+#: includes/Admin/views/partials/activity.php:11
+msgid "Activity settings saved."
+msgstr ""
+
+#: includes/Admin/views/partials/activity.php:15
+msgid "Record activity (master switch)"
+msgstr ""
+
+#: includes/Admin/views/partials/activity.php:15
+msgid "Nothing is recorded while this is off. Visitors are counted without cookies, and no IP addresses are stored."
+msgstr ""
+
+#: includes/Admin/views/partials/activity.php:17
+#: includes/Site/ActivityPage.php:127
+#: includes/Site/ActivityPage.php:163
+msgid "Page views"
+msgstr ""
+
+#: includes/Admin/views/partials/activity.php:18
+msgid "Sign-ins, publishing, uploads, comments, account and plugin changes"
+msgstr ""
+
+#: includes/Admin/views/partials/activity.php:19
+msgid "Leave out page views by administrators"
+msgstr ""
+
+#: includes/Admin/views/partials/activity.php:21
+msgid "Roles to record"
+msgstr ""
+
+#: includes/Admin/views/partials/activity.php:23
+msgid "Keep records for"
+msgstr ""
+
+#. translators: %d: number of days
+#: includes/Admin/views/partials/activity.php:26
+msgid "%d days"
+msgstr ""
+
+#: includes/Admin/views/partials/activity.php:29
+msgid "Open the activity log and page views"
+msgstr ""
+
+#: includes/Admin/views/partials/activity.php:30
+msgid "Mention the page-view count in your privacy policy. Other plugins can add their own lines with do_action( 'sepo_wb_activity', $action, $type, $id, $title )."
+msgstr ""
+
+#: includes/Admin/views/partials/contents.php:9
+msgid "Contents settings saved."
+msgstr ""
+
+#: includes/Admin/views/partials/contents.php:13
+msgid "Add a table of contents on its own"
+msgstr ""
+
+#: includes/Admin/views/partials/contents.php:13
+msgid "Built from the headings in the text. Each heading gets an address, so a section can be linked to directly."
+msgstr ""
+
+#: includes/Admin/views/partials/contents.php:14
+#: includes/SignIn/Account.php:99
+#: includes/SignIn/Privacy.php:46
+msgid "On"
+msgstr ""
+
+#: includes/Admin/views/partials/contents.php:16
+#: includes/Admin/views/partials/sharing.php:25
+msgid "Position"
+msgstr ""
+
+#: includes/Admin/views/partials/contents.php:17
+msgid "Left of the text"
+msgstr ""
+
+#: includes/Admin/views/partials/contents.php:17
+msgid "Right of the text"
+msgstr ""
+
+#: includes/Admin/views/partials/contents.php:17
+msgid "Across the top"
+msgstr ""
+
+#: includes/Admin/views/partials/contents.php:22
+msgid "On phones the box always spans the full width, above the text."
+msgstr ""
+
+#: includes/Admin/views/partials/contents.php:24
+msgid "Show it when a post has at least"
+msgstr ""
+
+#. translators: %d: number of headings
+#: includes/Admin/views/partials/contents.php:25
+msgid "%d heading"
+msgid_plural "%d headings"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: %d: number of headings
+#: includes/Admin/views/partials/contents.php:26
+msgid "Headings to list"
+msgstr ""
+
+#: includes/Admin/views/partials/contents.php:28
+msgid "Main headings only (H2)"
+msgstr ""
+
+#: includes/Admin/views/partials/contents.php:29
+msgid "Main and sub-headings (H2–H3)"
+msgstr ""
+
+#: includes/Admin/views/partials/contents.php:30
+msgid "Three levels (H2–H4)"
+msgstr ""
+
+#: includes/Admin/views/partials/contents.php:33
+msgid "Box heading"
+msgstr ""
+
+#: includes/Admin/views/partials/contents.php:35
+msgid "Open when the page loads (readers can fold it away)"
+msgstr ""
+
+#: includes/Admin/views/partials/contents.php:36
+msgid "Let each post show or hide the box"
+msgstr ""
+
+#: includes/Admin/views/partials/contents.php:37
+msgid "Place [sepo_toc] in a post to put the box at that spot. Add data-no-toc to a heading to leave it out."
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:2
+#: includes/Admin/views/partials/cpts.php:6
+#: includes/Admin/views/partials/features.php:7
+#: includes/Admin/views/partials/membership.php:2
+#: includes/Admin/views/partials/metagroups.php:6
+#: includes/Admin/views/partials/signin.php:2
+#: includes/Admin/views/partials/taxonomies.php:6
+#: includes/SignIn/Account.php:69
+msgid "Loading…"
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:12
+msgid "Preview on the site"
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:13
+msgid "Scan site for cookies"
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:19
+msgid "Scanning…"
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:27
+msgid "Cookie banner sections"
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:29
+msgid "Banner"
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:30
+msgid "Blocking"
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:31
+msgid "Records"
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:32
+msgid "Settings link"
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:39
+msgid "Find a cookie…"
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:39
+msgid "Find a cookie"
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:40
+msgid "Add cookie"
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:49
+#: includes/Admin/views/partials/cookies.php:50
+msgid "Layout"
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:51
+msgid "Card in a corner"
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:52
+msgid "Bar along the bottom"
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:53
+msgid "Window in the centre"
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:56
+msgid "Side of the screen"
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:58
+#: includes/Integration/Elementor/FieldWidget.php:77
+msgid "Left"
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:59
+#: includes/Integration/Elementor/FieldWidget.php:79
+msgid "Right"
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:61
+msgid "For the card and the cookie settings button."
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:63
+msgid "Cookie settings button"
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:65
+msgid "Small round button in the corner"
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:66
+msgid "None (I add my own link)"
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:68
+msgid "Shown after a visitor chooses, so they can change their mind."
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:70
+#: includes/Admin/views/partials/cookies.php:72
+msgid "Button colour"
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:73
+msgid "Use the theme’s colour"
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:75
+msgid "The theme’s colour follows its light and dark modes."
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:77
+msgid "Remember a choice for"
+msgstr ""
+
+#. translators: %d: months
+#: includes/Admin/views/partials/cookies.php:80
+#: includes/Consent/CookieCatalog.php:25
+msgid "%d month"
+msgid_plural "%d months"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/Admin/views/partials/cookies.php:83
+msgid "Visitors are asked again after this. Most regulators expect 6 to 12 months."
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:89
+msgid "Wording"
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:90
+msgid "Leave a box empty to use the default wording shown in it."
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:91
+#: includes/Integration/FieldDisplay.php:390
+#: assets/js/editor.js:16
+msgid "Title"
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:92
+msgid "Message"
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:94
+msgid "Accept button"
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:95
+msgid "Reject button"
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:96
+msgid "Choose button"
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:97
+msgid "Save choices button"
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:98
+msgid "Settings button and link"
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:99
+msgid "Policy link"
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:101
+msgid "Choices window title"
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:102
+msgid "Choices window introduction"
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:104
+msgid "Blocked video or map"
+msgstr ""
+
+#. translators: Shown as help text. %1$s and %2$s are typed literally by the site owner.
+#: includes/Admin/views/partials/cookies.php:106
+msgid "%1$s is the service, %2$s its kind of cookies."
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:107
+msgid "Blocked content button"
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:112
+#: includes/Consent/ConsentSettings.php:32
+msgid "Cookie policy"
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:114
+msgid "Policy page"
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:115
+msgid "Or an address"
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:117
+msgid "With neither set, the site’s privacy policy page is used (Settings → Privacy). Put [sepo_cookie_list] on the page to show the cookie table and each visitor’s current choice."
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:121
+msgid "Categories"
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:122
+msgid "What visitors read in the choices window. Leave a box empty for the default."
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:132
+msgid "Hold back tracking scripts and embeds until visitors agree"
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:133
+msgid "Known analytics and advertising scripts, and videos, maps and posts from other sites, wait for the visitor’s permission. Embedded content shows a short notice with a button to allow it."
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:137
+msgid "Google Consent Mode v2"
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:138
+msgid "Tells Google tags what the visitor allowed. Required to keep Google Ads measurement in the EEA and UK."
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:142
+msgid "Notice new cookies while I browse the site"
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:143
+msgid "When an administrator visits the site, cookies that are not on the list yet are added as unclassified."
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:148
+msgid "My own rules"
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:149
+msgid "Hold back any script or embed whose address or code contains the text below. Use this for services the plugin does not know yet."
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:152
+msgid "Address or code contains"
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:153
+msgid "Service name"
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:154
+msgid "Category"
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:159
+msgid "Add rule"
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:163
+msgid "Services the plugin recognises"
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:164
+msgid "Services found by the last scan are marked."
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:174
+msgid "Keep a record of each choice"
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:175
+msgid "Proof of consent: the consent ID, what was allowed, the banner version and a shortened IP address. Nothing that names the visitor."
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:177
+msgid "Delete records after (days)"
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:181
+#: includes/Site/ActivityPage.php:153
+msgid "Last 30 days"
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:184
+msgid "Latest choices"
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:187
+msgid "Download all records (CSV)"
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:192
+msgid "Ask everyone again"
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:193
+msgid "After you add a new kind of cookie or change what one is used for, visitors should choose again. This shows the banner to everyone on their next visit."
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:202
+msgid "Let visitors change their mind from anywhere"
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:203
+msgid "Any of these opens the cookie choices window. Use as many as you like."
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:206
+msgid "Menu or footer link"
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:207
+msgid "In Appearance → Menus (or the site editor’s navigation block), add a custom link with this address:"
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:208
+#: includes/Admin/views/partials/cookies.php:213
+#: includes/Admin/views/partials/cookies.php:214
+#: includes/Admin/views/partials/cookies.php:220
+#: includes/Admin/views/partials/cookies.php:225
+#: includes/Admin/views/partials/cookies.php:226
+msgid "Copy"
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:211
+msgid "Shortcode"
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:212
+msgid "In any post, page or widget. Add style=\"button\" for a button instead of a link."
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:215
+msgid "The second one lists every cookie, for your cookie policy page."
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:218
+msgid "Any element in a theme or page builder"
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:219
+msgid "Give a button or link this CSS class:"
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:223
+msgid "From a script"
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:224
+msgid "Open the window, or check a choice before running your own code:"
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:229
+msgid "Holding back your own scripts"
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:230
+msgid "A script you add by hand can wait for a category: give it type=\"text/plain\" and data-sepo-consent with the category name."
+msgstr ""
+
+#: includes/Admin/views/partials/cookies.php:237
+msgid "Save settings"
+msgstr ""
+
+#: includes/Admin/views/partials/cpts.php:3
+msgid "Filter post types…"
+msgstr ""
+
+#: includes/Admin/views/partials/cpts.php:4
+msgid "Add post type"
+msgstr ""
+
+#: includes/Admin/views/partials/cpts.php:7
+msgid "No custom post types yet."
+msgstr ""
+
+#: includes/Admin/views/partials/features.php:3
+msgid "Filter features…"
+msgstr ""
+
+#: includes/Admin/views/partials/features.php:4
+msgid "Restore defaults"
+msgstr ""
+
+#: includes/Admin/views/partials/features.php:5
+msgid "Add feature"
+msgstr ""
+
+#: includes/Admin/views/partials/features.php:8
+msgid "No features registered yet."
+msgstr ""
+
+#. translators: %s: constant
+#: includes/Admin/views/partials/features.php:12
+msgid "Locked yourself out with a feature? Add %s to wp-config.php to skip all features until you fix it."
+msgstr ""
+
+#: includes/Admin/views/partials/membership.php:4
+msgid "Tiers"
+msgstr ""
+
+#: includes/Admin/views/partials/membership.php:5
+msgid "A higher rank includes every lower one: Gold members can read Silver posts. Give users a tier on their profile (Users → Edit)."
+msgstr ""
+
+#: includes/Admin/views/partials/membership.php:8
+#: includes/Admin/views/partials/roles.php:34
+#: includes/Admin/views/partials/roles.php:80
+msgid "Name"
+msgstr ""
+
+#: includes/Admin/views/partials/membership.php:9
+msgid "Id"
+msgstr ""
+
+#: includes/Admin/views/partials/membership.php:10
+msgid "Rank"
+msgstr ""
+
+#: includes/Admin/views/partials/membership.php:11
+msgid "Members"
+msgstr ""
+
+#: includes/Admin/views/partials/membership.php:16
+msgid "Add tier"
+msgstr ""
+
+#: includes/Admin/views/partials/membership.php:18
+msgid "Site default"
+msgstr ""
+
+#: includes/Admin/views/partials/membership.php:20
+msgid "Posts with no tier of their own need"
+msgstr ""
+
+#: includes/Admin/views/partials/membership.php:23
+msgid "Applies to"
+msgstr ""
+
+#: includes/Admin/views/partials/membership.php:25
+msgid "Each post can set its own level in its \"Members only\" box. Pages are best left out so your join and login pages stay open."
+msgstr ""
+
+#: includes/Admin/views/partials/membership.php:27
+msgid "Links"
+msgstr ""
+
+#: includes/Admin/views/partials/membership.php:29
+msgid "Join / pricing page"
+msgstr ""
+
+#: includes/Admin/views/partials/membership.php:32
+msgid "Account page"
+msgstr ""
+
+#: includes/Admin/views/partials/membership.php:36
+msgid "Used by lock cards and by menu links pointing to #sp-join and #sp-account. Menu links to #sp-login, #sp-register and #sp-logout also work."
+msgstr ""
+
+#: includes/Admin/views/partials/membership.php:38
+msgid "Uninstall"
+msgstr ""
+
+#: includes/Admin/views/partials/membership.php:39
+msgid "Delete this plugin’s settings, post type and field definitions when it is deleted"
+msgstr ""
+
+#: includes/Admin/views/partials/membership.php:40
+msgid "Posts, terms and saved field values are never deleted."
+msgstr ""
+
+#: includes/Admin/views/partials/membership.php:42
+msgid "Save membership settings"
+msgstr ""
+
+#: includes/Admin/views/partials/metagroups.php:3
+msgid "Filter groups…"
+msgstr ""
+
+#: includes/Admin/views/partials/metagroups.php:4
+msgid "Add field group"
+msgstr ""
+
+#: includes/Admin/views/partials/metagroups.php:7
+msgid "No field groups yet."
+msgstr ""
+
+#: includes/Admin/views/partials/roles.php:17
+msgid "Role added. Tick what it may do, then save."
+msgstr ""
+
+#: includes/Admin/views/partials/roles.php:18
+msgid "Role saved."
+msgstr ""
+
+#: includes/Admin/views/partials/roles.php:19
+msgid "Role deleted. Its people were moved to the role you chose."
+msgstr ""
+
+#: includes/Admin/views/partials/roles.php:20
+msgid "A role with that name already exists."
+msgstr ""
+
+#: includes/Admin/views/partials/roles.php:21
+msgid "Give the role a name."
+msgstr ""
+
+#: includes/Admin/views/partials/roles.php:30
+msgid "Add a role"
+msgstr ""
+
+#: includes/Admin/views/partials/roles.php:34
+msgid "For example: Content reviewer"
+msgstr ""
+
+#: includes/Admin/views/partials/roles.php:35
+msgid "Start from"
+msgstr ""
+
+#: includes/Admin/views/partials/roles.php:36
+msgid "Nothing but reading"
+msgstr ""
+
+#: includes/Admin/views/partials/roles.php:39
+msgid "Adding…"
+msgstr ""
+
+#: includes/Admin/views/partials/roles.php:39
+msgid "Add role"
+msgstr ""
+
+#: includes/Admin/views/partials/roles.php:44
+msgid "Roles on this site"
+msgstr ""
+
+#: includes/Admin/views/partials/roles.php:46
+#: includes/Site/ActivityPage.php:156
+#: includes/Site/ActivityPage.php:195
+#: includes/Site/ActivityPage.php:212
+#: includes/Site/ActivityPage.php:247
+msgid "Role"
+msgstr ""
+
+#: includes/Admin/views/partials/roles.php:46
+msgid "Activity recorded"
+msgstr ""
+
+#: includes/Admin/views/partials/roles.php:46
+msgid "Actions"
+msgstr ""
+
+#: includes/Admin/views/partials/roles.php:50
+msgid "Made here"
+msgstr ""
+
+#. translators: %s: role name
+#: includes/Admin/views/partials/roles.php:56
+msgid "Record activity for %s"
+msgstr ""
+
+#. translators: %s: role name
+#: includes/Admin/views/partials/roles.php:57
+#: includes/Site/ActivityPage.php:120
+msgid "Save"
+msgstr ""
+
+#: includes/Admin/views/partials/roles.php:62
+msgid "Edit"
+msgstr ""
+
+#: includes/Admin/views/partials/roles.php:69
+msgid "WordPress's own roles and roles from other plugins can be copied but are not changed here."
+msgstr ""
+
+#. translators: %s: role name
+#: includes/Admin/views/partials/roles.php:78
+msgid "What %s may do"
+msgstr ""
+
+#: includes/Admin/views/partials/roles.php:81
+msgid "Find a permission"
+msgstr ""
+
+#: includes/Admin/views/partials/roles.php:81
+msgid "Type to filter…"
+msgstr ""
+
+#: includes/Admin/views/partials/roles.php:83
+msgid "Record this role's page views and actions"
+msgstr ""
+
+#: includes/Admin/views/partials/roles.php:87
+msgid "All"
+msgstr ""
+
+#: includes/Admin/views/partials/roles.php:87
+#: includes/Integration/MembershipAdmin.php:133
+#: includes/Integration/MembershipAdmin.php:139
+#: includes/SignIn/Account.php:108
+msgid "None"
+msgstr ""
+
+#: includes/Admin/views/partials/roles.php:97
+msgid "Permissions you do not have yourself are shown but cannot be given."
+msgstr ""
+
+#: includes/Admin/views/partials/roles.php:98
+#: includes/Site/SiteSettings.php:261
+msgid "Saving…"
+msgstr ""
+
+#: includes/Admin/views/partials/roles.php:98
+msgid "Save role"
+msgstr ""
+
+#: includes/Admin/views/partials/roles.php:103
+msgid "Move its people to"
+msgstr ""
+
+#. translators: 1: role name, 2: number of people
+#: includes/Admin/views/partials/roles.php:106
+msgid "Delete the role \"%1$s\"? Its %2$d people move to the role chosen beside the button."
+msgstr ""
+
+#. translators: 1: role name, 2: number of people
+#: includes/Admin/views/partials/roles.php:106
+msgid "Delete role"
+msgstr ""
+
+#. translators: 1: role name, 2: number of people
+#: includes/Admin/views/partials/roles.php:106
+msgid "Deleting…"
+msgstr ""
+
+#. translators: 1: role name, 2: number of people
+#: includes/Admin/views/partials/roles.php:106
+msgid "Delete this role"
+msgstr ""
+
+#: includes/Admin/views/partials/seo.php:13
+msgid "Search settings saved."
+msgstr ""
+
+#. translators: %s: name of another SEO plugin
+#: includes/Admin/views/partials/seo.php:16
+msgid "%s is active, so it writes the titles, descriptions and social tags. The sitemap choices below still apply to the WordPress sitemap."
+msgstr ""
+
+#: includes/Admin/views/partials/seo.php:21
+msgid "Write search and social tags"
+msgstr ""
+
+#: includes/Admin/views/partials/seo.php:21
+msgid "Titles, descriptions, canonical addresses, robots rules, social previews and structured data. Each post gets its own fields in the \"Search, sharing and contents\" box."
+msgstr ""
+
+#: includes/Admin/views/partials/seo.php:23
+msgid "Home page title"
+msgstr ""
+
+#: includes/Admin/views/partials/seo.php:25
+msgid "Title separator"
+msgstr ""
+
+#: includes/Admin/views/partials/seo.php:28
+msgid "Home page description"
+msgstr ""
+
+#: includes/Admin/views/partials/seo.php:30
+msgid "About 155 characters show in search results."
+msgstr ""
+
+#: includes/Admin/views/partials/seo.php:31
+msgid "Social image when a page has none"
+msgstr ""
+
+#: includes/Admin/views/partials/seo.php:35
+msgid "Choose image"
+msgstr ""
+
+#: includes/Admin/views/partials/seo.php:36
+msgid "Remove"
+msgstr ""
+
+#: includes/Admin/views/partials/seo.php:38
+msgid "1200 × 630 pixels suits most networks."
+msgstr ""
+
+#: includes/Admin/views/partials/seo.php:41
+msgid "Social previews (Open Graph and card tags)"
+msgstr ""
+
+#: includes/Admin/views/partials/seo.php:42
+msgid "Structured data for the site and articles"
+msgstr ""
+
+#: includes/Admin/views/partials/seo.php:43
+msgid "Keep search result pages out of search engines"
+msgstr ""
+
+#: includes/Admin/views/partials/seo.php:44
+msgid "Keep page 2 and later of archives out of search engines"
+msgstr ""
+
+#: includes/Admin/views/partials/seo.php:46
+msgid "Search engine verification"
+msgstr ""
+
+#: includes/Admin/views/partials/seo.php:47
+msgid "Paste only the code from the meta tag each service gives you."
+msgstr ""
+
+#: includes/Admin/views/partials/seo.php:49
+msgid "Google Search Console"
+msgstr ""
+
+#: includes/Admin/views/partials/seo.php:50
+msgid "Bing Webmaster Tools"
+msgstr ""
+
+#: includes/Admin/views/partials/seo.php:55
+msgid "XML sitemap"
+msgstr ""
+
+#: includes/Admin/views/partials/seo.php:55
+msgid "Lists the pages search engines should find, with the date each last changed. Posts hidden from search engines are left out."
+msgstr ""
+
+#: includes/Admin/views/partials/seo.php:58
+msgid "Settings → Reading asks search engines not to index this site, so WordPress serves no sitemap."
+msgstr ""
+
+#: includes/Admin/views/partials/seo.php:60
+msgid "Content types in the sitemap"
+msgstr ""
+
+#: includes/Admin/views/partials/seo.php:62
+msgid "Groupings in the sitemap"
+msgstr ""
+
+#: includes/Admin/views/partials/seo.php:64
+msgid "Author pages"
+msgstr ""
+
+#: includes/Admin/views/partials/sharing.php:14
+msgid "The phone's own share menu (where the browser offers it)"
+msgstr ""
+
+#: includes/Admin/views/partials/sharing.php:15
+msgid "Sharing settings saved."
+msgstr ""
+
+#: includes/Admin/views/partials/sharing.php:19
+msgid "Show share buttons"
+msgstr ""
+
+#: includes/Admin/views/partials/sharing.php:19
+msgid "Plain links to each network. Nothing loads from the networks, so no cookies are set until someone clicks."
+msgstr ""
+
+#: includes/Admin/views/partials/sharing.php:20
+msgid "Buttons"
+msgstr ""
+
+#: includes/Admin/views/partials/sharing.php:22
+msgid "Where"
+msgstr ""
+
+#: includes/Admin/views/partials/sharing.php:27
+msgid "After the content"
+msgstr ""
+
+#: includes/Admin/views/partials/sharing.php:27
+msgid "Before the content"
+msgstr ""
+
+#: includes/Admin/views/partials/sharing.php:27
+msgid "Before and after"
+msgstr ""
+
+#: includes/Admin/views/partials/sharing.php:27
+msgid "Only where [sepo_share] is placed"
+msgstr ""
+
+#: includes/Admin/views/partials/sharing.php:31
+msgid "Look"
+msgstr ""
+
+#: includes/Admin/views/partials/sharing.php:33
+msgid "Filled with each network's colour"
+msgstr ""
+
+#: includes/Admin/views/partials/sharing.php:34
+msgid "Outlined, in the text colour"
+msgstr ""
+
+#: includes/Admin/views/partials/sharing.php:37
+msgid "Heading before the buttons"
+msgstr ""
+
+#: includes/Admin/views/partials/sharing.php:38
+#: includes/Site/Share.php:102
+msgid "Share"
+msgstr ""
+
+#: includes/Admin/views/partials/sharing.php:39
+msgid "Site-wide or per post"
+msgstr ""
+
+#: includes/Admin/views/partials/sharing.php:40
+msgid "Let each post show or hide the buttons, whatever is set above"
+msgstr ""
+
+#: includes/Admin/views/partials/sharing.php:41
+msgid "When this is off, the choices above apply to every post. When it is on, the editing screen offers \"As set for the site\", \"Show\" and \"Hide\"."
+msgstr ""
+
+#: includes/Admin/views/partials/sharing.php:42
+msgid "Shortcode for anywhere: [sepo_share] or [sepo_share networks=\"whatsapp,facebook,copy\"]."
+msgstr ""
+
+#: includes/Admin/views/partials/signin.php:12
+msgid "Open the login page"
+msgstr ""
+
+#: includes/Admin/views/partials/signin.php:18
+msgid "Providers"
+msgstr ""
+
+#: includes/Admin/views/partials/signin.php:19
+msgid "For each provider you want: create an app in its developer console, add the redirect address shown below, then paste the client ID and client secret here and save. Secrets are stored encrypted and never shown again."
+msgstr ""
+
+#: includes/Admin/views/partials/signin.php:22
+msgid "Accounts"
+msgstr ""
+
+#: includes/Admin/views/partials/signin.php:24
+msgid "Show the buttons on the WordPress login page"
+msgstr ""
+
+#: includes/Admin/views/partials/signin.php:25
+msgid "For other pages, add [sepo_social_login] where the buttons should appear."
+msgstr ""
+
+#: includes/Admin/views/partials/signin.php:26
+msgid "Sign in to an existing account with the same email address"
+msgstr ""
+
+#: includes/Admin/views/partials/signin.php:27
+msgid "Only ever on an address the provider says it has verified; that check cannot be switched off. When this is off, people connect a provider from their own account security settings instead."
+msgstr ""
+
+#: includes/Admin/views/partials/signin.php:28
+msgid "Create an account when there is none for the address"
+msgstr ""
+
+#: includes/Admin/views/partials/signin.php:30
+msgid "Role for accounts created this way"
+msgstr ""
+
+#: includes/Admin/views/partials/signin.php:32
+msgid "Administrator is not offered: accounts made with nobody watching should not be able to change the site. Promote people from Users instead."
+msgstr ""
+
+#: includes/Admin/views/partials/signin.php:38
+#: includes/SignIn/Privacy.php:46
+msgid "Two-factor authentication"
+msgstr ""
+
+#: includes/Admin/views/partials/signin.php:40
+msgid "Let people add an authenticator app to their sign-in"
+msgstr ""
+
+#: includes/Admin/views/partials/signin.php:41
+msgid "Once someone turns it on, every sign-in to their account asks for a code, with a password or a provider. Application passwords for apps and scripts keep working."
+msgstr ""
+
+#: includes/Admin/views/partials/signin.php:43
+msgid "Name shown in the authenticator app"
+msgstr ""
+
+#: includes/Admin/views/partials/signin.php:45
+msgid "Left empty, the site title is used."
+msgstr ""
+
+#: includes/Admin/views/partials/signin.php:47
+msgid "Remember a device for (days)"
+msgstr ""
+
+#: includes/Admin/views/partials/signin.php:49
+msgid "0 asks for a code every time. Anything above 0 means a stolen laptop with the cookie skips the code until it expires."
+msgstr ""
+
+#: includes/Admin/views/partials/signin.php:52
+msgid "Require it for these roles"
+msgstr ""
+
+#: includes/Admin/views/partials/signin.php:53
+msgid "People in these roles are kept on their security settings until they have set it up. Start with Administrator."
+msgstr ""
+
+#: includes/Admin/views/partials/signin.php:55
+msgid "Front-end security page (optional)"
+msgstr ""
+
+#: includes/Admin/views/partials/signin.php:57
+msgid "A page with the [sepo_account_security] shortcode. Members in a required role are sent there instead of to their dashboard profile."
+msgstr ""
+
+#: includes/Admin/views/partials/signin.php:62
+msgid "Save sign-in settings"
+msgstr ""
+
+#: includes/Admin/views/partials/taxonomies.php:3
+msgid "Filter taxonomies…"
+msgstr ""
+
+#: includes/Admin/views/partials/taxonomies.php:4
+msgid "Add taxonomy"
+msgstr ""
+
+#: includes/Admin/views/partials/taxonomies.php:7
+msgid "No custom taxonomies yet."
+msgstr ""
+
+#: includes/Consent/Consent.php:281
+msgid "Close"
+msgstr ""
+
+#: includes/Consent/Consent.php:282
+msgid "Always on"
+msgstr ""
+
+#. translators: %d: number of cookies
+#: includes/Consent/Consent.php:284
+msgid "%d cookies"
+msgstr ""
+
+#: includes/Consent/Consent.php:285
+msgid "1 cookie"
+msgstr ""
+
+#: includes/Consent/Consent.php:286
+msgid "Show cookies"
+msgstr ""
+
+#: includes/Consent/Consent.php:287
+msgid "Hide cookies"
+msgstr ""
+
+#: includes/Consent/Consent.php:288
+msgid "No cookies of this kind are used at the moment."
+msgstr ""
+
+#: includes/Consent/Consent.php:289
+#: includes/Consent/Consent.php:342
+#: includes/SignIn/Privacy.php:35
+msgid "Provider"
+msgstr ""
+
+#: includes/Consent/Consent.php:290
+#: includes/Consent/Consent.php:342
+msgid "Purpose"
+msgstr ""
+
+#: includes/Consent/Consent.php:291
+#: includes/Consent/Consent.php:342
+msgid "Duration"
+msgstr ""
+
+#: includes/Consent/Consent.php:292
+msgid "Necessary only"
+msgstr ""
+
+#: includes/Consent/Consent.php:293
+msgid "You have not made a choice yet."
+msgstr ""
+
+#. translators: 1: list of categories, 2: date
+#: includes/Consent/Consent.php:295
+msgid "You allowed: %1$s. Chosen on %2$s."
+msgstr ""
+
+#. translators: %s: consent id
+#: includes/Consent/Consent.php:297
+msgid "Consent ID: %s"
+msgstr ""
+
+#: includes/Consent/Consent.php:298
+msgid "Allowed"
+msgstr ""
+
+#: includes/Consent/Consent.php:299
+msgid "Not allowed"
+msgstr ""
+
+#: includes/Consent/Consent.php:300
+msgid "Your cookie choices were saved."
+msgstr ""
+
+#: includes/Consent/Consent.php:301
+msgid "Preview: choices made here are not recorded."
+msgstr ""
+
+#: includes/Consent/Consent.php:333
+msgid "Your current choice is shown here once the page has loaded."
+msgstr ""
+
+#: includes/Consent/Consent.php:339
+msgid "No cookies of this kind are used."
+msgstr ""
+
+#: includes/Consent/Consent.php:342
+msgid "Cookie"
+msgstr ""
+
+#: includes/Consent/Consent.php:373
+msgid "Too many requests."
+msgstr ""
+
+#: includes/Consent/Consent.php:381
+msgid "Invalid consent record."
+msgstr ""
+
+#: includes/Consent/ConsentRest.php:51
+#: includes/Rest/RestController.php:81
+#: includes/SignIn/Rest.php:72
+msgid "Something went wrong. Nothing was changed."
+msgstr ""
+
+#: includes/Consent/ConsentRest.php:97
+msgid "No cookie list was sent."
+msgstr ""
+
+#: includes/Consent/ConsentSettings.php:24
+msgid "We value your privacy"
+msgstr ""
+
+#: includes/Consent/ConsentSettings.php:25
+msgid "We use necessary cookies to make this site work. With your permission we would also like to use cookies that remember your preferences, help us understand how the site is used and show you relevant content. You can change your mind at any time."
+msgstr ""
+
+#: includes/Consent/ConsentSettings.php:26
+msgid "Accept all"
+msgstr ""
+
+#: includes/Consent/ConsentSettings.php:27
+msgid "Reject all"
+msgstr ""
+
+#: includes/Consent/ConsentSettings.php:28
+msgid "Choose cookies"
+msgstr ""
+
+#: includes/Consent/ConsentSettings.php:29
+msgid "Save my choices"
+msgstr ""
+
+#: includes/Consent/ConsentSettings.php:30
+msgid "Cookie preferences"
+msgstr ""
+
+#: includes/Consent/ConsentSettings.php:31
+msgid "Choose which cookies this site may use. Necessary cookies are always on because the site cannot work without them. Rejecting the others does not stop you using the site."
+msgstr ""
+
+#: includes/Consent/ConsentSettings.php:33
+msgid "Cookie settings"
+msgstr ""
+
+#. translators: %1$s: value, %2$s: value.
+#: includes/Consent/ConsentSettings.php:35
+msgid "This content is from %1$s, which uses %2$s cookies."
+msgstr ""
+
+#: includes/Consent/ConsentSettings.php:36
+msgid "Allow and show it"
+msgstr ""
+
+#: includes/Consent/ConsentSettings.php:44
+msgid "Necessary"
+msgstr ""
+
+#: includes/Consent/ConsentSettings.php:44
+msgid "Needed for the site to work: keeping you signed in, your basket and checkout, security, and remembering your cookie choice. They cannot be switched off."
+msgstr ""
+
+#: includes/Consent/ConsentSettings.php:45
+msgid "Preferences"
+msgstr ""
+
+#: includes/Consent/ConsentSettings.php:45
+msgid "Remember choices such as your language or the details you entered in a comment form, and run features such as live chat."
+msgstr ""
+
+#: includes/Consent/ConsentSettings.php:46
+msgid "Analytics"
+msgstr ""
+
+#: includes/Consent/ConsentSettings.php:46
+msgid "Help us understand how visitors use the site, such as which pages are popular, so we can improve it."
+msgstr ""
+
+#: includes/Consent/ConsentSettings.php:47
+msgid "Marketing"
+msgstr ""
+
+#: includes/Consent/ConsentSettings.php:47
+msgid "Used by advertising and social media services to show you relevant adverts and measure campaigns. Embedded videos and maps also set these."
+msgstr ""
+
+#. translators: %d: years
+#: includes/Consent/CookieCatalog.php:24
+msgid "%d year"
+msgid_plural "%d years"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: %d: days
+#: includes/Consent/CookieCatalog.php:26
+msgid "%d day"
+msgid_plural "%d days"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: %d: minutes
+#: includes/Consent/CookieCatalog.php:27
+msgid "%d minute"
+msgid_plural "%d minutes"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: %d: minutes
+#: includes/Consent/CookieCatalog.php:28
+msgid "Session"
+msgstr ""
+
+#: includes/Consent/CookieCatalog.php:32
+msgid "Cookie consent"
+msgstr ""
+
+#: includes/Consent/CookieCatalog.php:32
+#: includes/Consent/CookieCatalog.php:37
+#: includes/Consent/CookieCatalog.php:51
+#: includes/Consent/CookieCatalog.php:60
+#: includes/Consent/CookieCatalog.php:71
+#: includes/Consent/CookieCatalog.php:76
+#: includes/Consent/CookieCatalog.php:103
+#: includes/Consent/CookieCatalog.php:108
+#: includes/Consent/CookieCatalog.php:225
+msgid "This site"
+msgstr ""
+
+#: includes/Consent/CookieCatalog.php:34
+msgid "Remembers your cookie choices."
+msgstr ""
+
+#: includes/Consent/CookieCatalog.php:40
+msgid "Keeps you signed in."
+msgstr ""
+
+#: includes/Consent/CookieCatalog.php:41
+msgid "Secures your sign-in."
+msgstr ""
+
+#: includes/Consent/CookieCatalog.php:42
+msgid "Secures your sign-in to the site’s admin area."
+msgstr ""
+
+#: includes/Consent/CookieCatalog.php:43
+msgid "Checks that your browser accepts cookies when you sign in."
+msgstr ""
+
+#: includes/Consent/CookieCatalog.php:44
+msgid "Remembers how you set up the admin screens (signed-in users)."
+msgstr ""
+
+#: includes/Consent/CookieCatalog.php:45
+msgid "Records when the admin screen settings were saved (signed-in users)."
+msgstr ""
+
+#: includes/Consent/CookieCatalog.php:46
+msgid "Lets you read a password-protected page after entering its password."
+msgstr ""
+
+#: includes/Consent/CookieCatalog.php:47
+msgid "Remembers the language chosen on the sign-in page."
+msgstr ""
+
+#: includes/Consent/CookieCatalog.php:51
+msgid "WordPress comments"
+msgstr ""
+
+#: includes/Consent/CookieCatalog.php:54
+msgid "Remembers your name for the next comment, when you ask it to."
+msgstr ""
+
+#: includes/Consent/CookieCatalog.php:55
+msgid "Remembers your email for the next comment, when you ask it to."
+msgstr ""
+
+#: includes/Consent/CookieCatalog.php:56
+msgid "Remembers your website for the next comment, when you ask it to."
+msgstr ""
+
+#: includes/Consent/CookieCatalog.php:63
+msgid "Tracks changes to your basket."
+msgstr ""
+
+#: includes/Consent/CookieCatalog.php:64
+msgid "Notes that your basket has items in it."
+msgstr ""
+
+#: includes/Consent/CookieCatalog.php:65
+msgid "Keeps your basket and checkout details between pages."
+msgstr ""
+
+#: includes/Consent/CookieCatalog.php:66
+msgid "Shows products you looked at recently."
+msgstr ""
+
+#: includes/Consent/CookieCatalog.php:67
+msgid "Remembers that you closed the store notice."
+msgstr ""
+
+#: includes/Consent/CookieCatalog.php:71
+msgid "WooCommerce order attribution"
+msgstr ""
+
+#: includes/Consent/CookieCatalog.php:73
+msgid "Records how you arrived at the shop (search, link or advert) to credit orders to their source."
+msgstr ""
+
+#: includes/Consent/CookieCatalog.php:78
+msgid "Keeps your session between pages."
+msgstr ""
+
+#: includes/Consent/CookieCatalog.php:84
+msgid "Tells people from automated traffic to protect the site."
+msgstr ""
+
+#: includes/Consent/CookieCatalog.php:85
+msgid "Remembers that you passed a security check."
+msgstr ""
+
+#: includes/Consent/CookieCatalog.php:86
+msgid "Applies fair rate limits between visitors."
+msgstr ""
+
+#: includes/Consent/CookieCatalog.php:93
+#: includes/Consent/CookieCatalog.php:94
+msgid "Prevents fraud when you pay by card."
+msgstr ""
+
+#: includes/Consent/CookieCatalog.php:100
+msgid "Protects forms from spam and abuse."
+msgstr ""
+
+#: includes/Consent/CookieCatalog.php:105
+#: includes/Consent/CookieCatalog.php:111
+#: includes/Consent/CookieCatalog.php:112
+msgid "Remembers your language."
+msgstr ""
+
+#: includes/Consent/CookieCatalog.php:120
+msgid "Tells visitors apart to count visits and page views."
+msgstr ""
+
+#: includes/Consent/CookieCatalog.php:121
+msgid "Keeps the state of your visit for Google Analytics."
+msgstr ""
+
+#: includes/Consent/CookieCatalog.php:122
+msgid "Tells visitors apart for the day."
+msgstr ""
+
+#: includes/Consent/CookieCatalog.php:123
+msgid "Limits how often data is sent to Google Analytics."
+msgstr ""
+
+#: includes/Consent/CookieCatalog.php:127
+msgid "Google Analytics (classic)"
+msgstr ""
+
+#: includes/Consent/CookieCatalog.php:129
+msgid "Count visits and where visitors came from."
+msgstr ""
+
+#: includes/Consent/CookieCatalog.php:141
+msgid "Measures which adverts lead to visits and purchases."
+msgstr ""
+
+#: includes/Consent/CookieCatalog.php:142
+msgid "Shows and measures Google adverts across sites."
+msgstr ""
+
+#: includes/Consent/CookieCatalog.php:143
+msgid "Checks whether your browser accepts cookies for advertising."
+msgstr ""
+
+#: includes/Consent/CookieCatalog.php:150
+msgid "Measures and targets Facebook and Instagram adverts."
+msgstr ""
+
+#: includes/Consent/CookieCatalog.php:151
+msgid "Records which Facebook advert you clicked to get here."
+msgstr ""
+
+#: includes/Consent/CookieCatalog.php:152
+msgid "Shows and measures Facebook adverts."
+msgstr ""
+
+#: includes/Consent/CookieCatalog.php:159
+#: includes/Consent/CookieCatalog.php:168
+msgid "Recognises returning visitors for usage heatmaps and recordings."
+msgstr ""
+
+#: includes/Consent/CookieCatalog.php:160
+#: includes/Consent/CookieCatalog.php:229
+msgid "Keeps the current visit together."
+msgstr ""
+
+#: includes/Consent/CookieCatalog.php:161
+msgid "Hotjar visit and sampling information."
+msgstr ""
+
+#: includes/Consent/CookieCatalog.php:169
+msgid "Joins page views into one visit."
+msgstr ""
+
+#: includes/Consent/CookieCatalog.php:170
+msgid "Recognises returning visitors across Clarity sites."
+msgstr ""
+
+#: includes/Consent/CookieCatalog.php:177
+msgid "Measures which Microsoft adverts lead to visits."
+msgstr ""
+
+#: includes/Consent/CookieCatalog.php:178
+msgid "Recognises returning visitors from Microsoft adverts."
+msgstr ""
+
+#: includes/Consent/CookieCatalog.php:179
+msgid "Recognises your browser across Microsoft sites."
+msgstr ""
+
+#: includes/Consent/CookieCatalog.php:186
+msgid "Measures which LinkedIn adverts lead to visits."
+msgstr ""
+
+#: includes/Consent/CookieCatalog.php:187
+msgid "Recognises your browser for LinkedIn."
+msgstr ""
+
+#: includes/Consent/CookieCatalog.php:188
+msgid "Routes requests to LinkedIn."
+msgstr ""
+
+#: includes/Consent/CookieCatalog.php:194
+msgid "Measures and targets TikTok adverts."
+msgstr ""
+
+#: includes/Consent/CookieCatalog.php:200
+msgid "Measures which Pinterest adverts lead to visits."
+msgstr ""
+
+#: includes/Consent/CookieCatalog.php:201
+msgid "Records which Pinterest advert you clicked to get here."
+msgstr ""
+
+#: includes/Consent/CookieCatalog.php:207
+msgid "Measures and targets X adverts."
+msgstr ""
+
+#: includes/Consent/CookieCatalog.php:212
+msgid "Recognises your browser when showing embedded posts."
+msgstr ""
+
+#: includes/Consent/CookieCatalog.php:218
+msgid "Tracks visits for HubSpot marketing."
+msgstr ""
+
+#: includes/Consent/CookieCatalog.php:219
+msgid "Recognises you when you fill in HubSpot forms."
+msgstr ""
+
+#: includes/Consent/CookieCatalog.php:220
+msgid "Counts pages in your current visit."
+msgstr ""
+
+#: includes/Consent/CookieCatalog.php:221
+msgid "Notes when you restart your browser."
+msgstr ""
+
+#: includes/Consent/CookieCatalog.php:228
+msgid "Tells visitors apart to count visits."
+msgstr ""
+
+#: includes/Consent/CookieCatalog.php:235
+msgid "Counts visits for site statistics."
+msgstr ""
+
+#: includes/Consent/CookieCatalog.php:241
+#: includes/Consent/CookieCatalog.php:249
+msgid "Counts views of embedded videos."
+msgstr ""
+
+#: includes/Consent/CookieCatalog.php:242
+msgid "Estimates your connection speed and recommends videos."
+msgstr ""
+
+#: includes/Consent/CookieCatalog.php:243
+msgid "Stores your privacy choices for YouTube."
+msgstr ""
+
+#: includes/Consent/CookieCatalog.php:254
+msgid "Remembers your Google preferences and shows relevant adverts."
+msgstr ""
+
+#: includes/Consent/CookieCatalog.php:259
+#: includes/Consent/CookieCatalog.php:264
+msgid "Keeps your live chat conversation."
+msgstr ""
+
+#: includes/FeatureRegistry.php:31
+msgid "Disable XML-RPC"
+msgstr ""
+
+#: includes/FeatureRegistry.php:31
+msgid "Turns off xmlrpc.php, a common target for password guessing. Jetpack and some old mobile apps need it."
+msgstr ""
+
+#: includes/FeatureRegistry.php:32
+msgid "Remove WordPress version tag"
+msgstr ""
+
+#: includes/FeatureRegistry.php:32
+msgid "Stops the page source and feeds from saying which WordPress version runs the site."
+msgstr ""
+
+#: includes/FeatureRegistry.php:33
+msgid "Block dangerous uploads"
+msgstr ""
+
+#: includes/FeatureRegistry.php:33
+msgid "Refuses PHP, script and executable files in the media library, even for administrators."
+msgstr ""
+
+#: includes/FeatureRegistry.php:34
+msgid "Hide login error details"
+msgstr ""
+
+#: includes/FeatureRegistry.php:34
+msgid "Shows \"Login failed.\" instead of saying whether the username or the password was wrong."
+msgstr ""
+
+#: includes/FeatureRegistry.php:35
+msgid "Block user enumeration"
+msgstr ""
+
+#: includes/FeatureRegistry.php:35
+msgid "Stops signed-out visitors listing usernames through ?author=N, the REST users endpoint and author sitemaps."
+msgstr ""
+
+#: includes/FeatureRegistry.php:36
+msgid "Limit login attempts"
+msgstr ""
+
+#: includes/FeatureRegistry.php:36
+msgid "Locks an IP address out after too many failed sign-ins."
+msgstr ""
+
+#: includes/FeatureRegistry.php:37
+msgid "Require strong passwords"
+msgstr ""
+
+#: includes/FeatureRegistry.php:37
+msgid "New passwords need upper and lower case, a number and a symbol."
+msgstr ""
+
+#: includes/FeatureRegistry.php:38
+msgid "Disable application passwords"
+msgstr ""
+
+#: includes/FeatureRegistry.php:38
+msgid "Turns off REST API application passwords. Leave on if an app or service signs in with one."
+msgstr ""
+
+#: includes/FeatureRegistry.php:39
+msgid "Restrict REST API to signed-in users"
+msgstr ""
+
+#: includes/FeatureRegistry.php:39
+msgid "Signed-out visitors get 401 from the REST API, except the routes listed. Breaks plugins whose public pages call the API — list their namespaces."
+msgstr ""
+
+#: includes/FeatureRegistry.php:40
+msgid "Rate-limit visitors"
+msgstr ""
+
+#: includes/FeatureRegistry.php:40
+msgid "Answers 429 to an IP address that makes too many page requests in a short time. Signed-in users are not limited."
+msgstr ""
+
+#: includes/FeatureRegistry.php:41
+msgid "Disable automatic updates"
+msgstr ""
+
+#: includes/FeatureRegistry.php:41
+msgid "Stops WordPress, plugins and themes updating themselves. You must then update by hand."
+msgstr ""
+
+#: includes/FeatureRegistry.php:44
+msgid "Disable emoji scripts"
+msgstr ""
+
+#: includes/FeatureRegistry.php:44
+msgid "Removes the emoji detection script and styles; browsers show emoji natively."
+msgstr ""
+
+#: includes/FeatureRegistry.php:45
+msgid "Disable oEmbed"
+msgstr ""
+
+#: includes/FeatureRegistry.php:45
+msgid "Stops other sites embedding your posts and removes the embed script. Embedding YouTube etc. in your own posts still works."
+msgstr ""
+
+#: includes/FeatureRegistry.php:46
+msgid "Limit the Heartbeat API"
+msgstr ""
+
+#: includes/FeatureRegistry.php:46
+msgid "Turns off the background Heartbeat everywhere except the post editor, where it saves drafts and locks posts."
+msgstr ""
+
+#: includes/FeatureRegistry.php:49
+msgid "Clean dashboard widgets"
+msgstr ""
+
+#: includes/FeatureRegistry.php:49
+msgid "Removes WordPress news, quick draft, activity and site health from the dashboard."
+msgstr ""
+
+#: includes/FeatureRegistry.php:50
+msgid "Hide admin bar on the site"
+msgstr ""
+
+#: includes/FeatureRegistry.php:50
+msgid "Hides the toolbar on the front end for everyone."
+msgstr ""
+
+#: includes/FeatureRegistry.php:51
+msgid "Hide admin bar for some roles"
+msgstr ""
+
+#: includes/FeatureRegistry.php:51
+msgid "Hides the front-end toolbar for the roles listed."
+msgstr ""
+
+#: includes/FeatureRegistry.php:52
+msgid "Remove WordPress logo from toolbar"
+msgstr ""
+
+#: includes/FeatureRegistry.php:52
+msgid "Removes the W menu from the toolbar."
+msgstr ""
+
+#: includes/FeatureRegistry.php:53
+msgid "Hide admin notices for non-admins"
+msgstr ""
+
+#: includes/FeatureRegistry.php:53
+msgid "Hides plugin and update notices for users who cannot manage the site. Administrators still see them."
+msgstr ""
+
+#: includes/FeatureRegistry.php:56
+msgid "Styled login page"
+msgstr ""
+
+#: includes/FeatureRegistry.php:56
+msgid "Turns the log in, lost password and register screens into one clean card in your colours, with your logo and a footer line. Logo: leave empty to use the Site Icon or the theme logo. Footer: {year} and {site} are filled in."
+msgstr ""
+
+#: includes/FeatureRegistry.php:59
+msgid "Allow WebP uploads"
+msgstr ""
+
+#: includes/FeatureRegistry.php:59
+msgid "Lets the media library accept .webp images on servers that refuse them."
+msgstr ""
+
+#: includes/FeatureRegistry.php:60
+msgid "Allow SVG uploads (administrators)"
+msgstr ""
+
+#: includes/FeatureRegistry.php:60
+msgid "Lets administrators upload SVG. Files containing scripts or event handlers are refused."
+msgstr ""
+
+#: includes/FeatureRegistry.php:61
+msgid "Clean upload file names"
+msgstr ""
+
+#: includes/FeatureRegistry.php:61
+msgid "Lower-cases file names and replaces spaces and accents, e.g. \"Rapport Été.pdf\" → \"rapport-ete.pdf\"."
+msgstr ""
+
+#: includes/FeatureRegistry.php:62
+msgid "Lazy-load images"
+msgstr ""
+
+#: includes/FeatureRegistry.php:62
+msgid "Images and iframes load as they scroll into view (WordPress default)."
+msgstr ""
+
+#: includes/FeatureRegistry.php:63
+msgid "Turn off lazy loading"
+msgstr ""
+
+#: includes/FeatureRegistry.php:63
+msgid "Loads every image at once. Use instead of the option above, not with it."
+msgstr ""
+
+#: includes/FeatureRegistry.php:64
+msgid "Keep full-size uploads"
+msgstr ""
+
+#: includes/FeatureRegistry.php:64
+msgid "Stops WordPress shrinking images wider than 2560px on upload."
+msgstr ""
+
+#: includes/FeatureRegistry.php:65
+msgid "Set JPEG quality"
+msgstr ""
+
+#: includes/FeatureRegistry.php:65
+msgid "Quality WordPress uses when it makes resized copies of JPEG images (1–100)."
+msgstr ""
+
+#: includes/FeatureRegistry.php:117
+msgid "Key: use lower-case letters, numbers, - and _."
+msgstr ""
+
+#: includes/FeatureRegistry.php:122
+msgid "Choose a handler from the list."
+msgstr ""
+
+#: includes/FeatureRegistry.php:126
+msgid "Give the feature a label."
+msgstr ""
+
+#: includes/Features/Handlers.php:190
+msgid "The REST API is only available to signed-in users."
+msgstr ""
+
+#: includes/Features/Handlers.php:210
+msgid "Login failed."
+msgstr ""
+
+#. translators: %d: minutes
+#: includes/Features/Handlers.php:258
+msgid "Too many failed sign-ins. Try again in %d minute."
+msgid_plural "Too many failed sign-ins. Try again in %d minutes."
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: %d: characters
+#: includes/Features/Handlers.php:286
+msgid "Use at least %d characters, with upper and lower case letters, a number and a symbol."
+msgstr ""
+
+#: includes/Features/Handlers.php:303
+msgid "This file type is not allowed for security reasons."
+msgstr ""
+
+#: includes/Features/Handlers.php:320
+msgid "Too many requests. Please wait a moment and try again."
+msgstr ""
+
+#: includes/Features/Handlers.php:390
+msgid "This SVG contains scripts or external links and was refused."
+msgstr ""
+
+#: includes/Features/Handlers.php:486
+msgid "Reset your password"
+msgstr ""
+
+#: includes/Features/Handlers.php:490
+msgid "Choose a new password"
+msgstr ""
+
+#: includes/Features/Handlers.php:493
+#: includes/Integration/MembershipGate.php:224
+msgid "Create an account"
+msgstr ""
+
+#: includes/Features/Handlers.php:496
+#: includes/SignIn/TwoFactor.php:200
+msgid "Verification code"
+msgstr ""
+
+#: includes/Features/Handlers.php:504
+msgid "Welcome back"
+msgstr ""
+
+#: includes/Integration/Blocks.php:27
+#: includes/Integration/Elementor/FieldWidget.php:22
+#: assets/js/editor.js:29
+msgid "Post field"
+msgstr ""
+
+#: includes/Integration/Blocks.php:40
+#: includes/Integration/Elementor/FieldGroupWidget.php:22
+#: assets/js/editor.js:74
+#: assets/js/editor.js:91
+#: assets/js/editor.js:134
+msgid "Field group"
+msgstr ""
+
+#: includes/Integration/Elementor.php:34
+msgid "Sepo fields"
+msgstr ""
+
+#: includes/Integration/Elementor.php:47
+#: includes/Schema/SchemaManager.php:376
+#: includes/Schema/SchemaManager.php:584
+msgid "Custom fields"
+msgstr ""
+
+#: includes/Integration/Elementor/FieldGroupWidget.php:50
+#: assets/js/editor.js:96
+msgid "Fields"
+msgstr ""
+
+#: includes/Integration/Elementor/FieldGroupWidget.php:52
+#: includes/Rest/RestController.php:244
+#: assets/js/editor.js:98
+msgid "Group"
+msgstr ""
+
+#: includes/Integration/Elementor/FieldGroupWidget.php:54
+#: assets/js/editor.js:70
+msgid "Every group for this post type"
+msgstr ""
+
+#: includes/Integration/Elementor/FieldGroupWidget.php:58
+#: assets/js/editor.js:102
+msgid "Style"
+msgstr ""
+
+#: includes/Integration/Elementor/FieldGroupWidget.php:60
+#: assets/js/editor.js:105
+msgid "Table"
+msgstr ""
+
+#: includes/Integration/Elementor/FieldGroupWidget.php:60
+#: assets/js/editor.js:106
+msgid "Grid"
+msgstr ""
+
+#: includes/Integration/Elementor/FieldGroupWidget.php:60
+#: assets/js/editor.js:107
+msgid "Inline"
+msgstr ""
+
+#: includes/Integration/Elementor/FieldGroupWidget.php:64
+msgid "Show the group title"
+msgstr ""
+
+#: includes/Integration/Elementor/FieldGroupWidget.php:70
+#: assets/js/editor.js:121
+msgid "List empty fields too"
+msgstr ""
+
+#: includes/Integration/Elementor/FieldGroupWidget.php:76
+msgid "Smallest tile width"
+msgstr ""
+
+#: includes/Integration/Elementor/FieldGroupWidget.php:84
+msgid "Label column width"
+msgstr ""
+
+#: includes/Integration/Elementor/FieldGroupWidget.php:93
+msgid "Rows and tiles"
+msgstr ""
+
+#: includes/Integration/Elementor/FieldGroupWidget.php:94
+msgid "Label / tile background"
+msgstr ""
+
+#: includes/Integration/Elementor/FieldGroupWidget.php:95
+msgid "Lines"
+msgstr ""
+
+#: includes/Integration/Elementor/FieldGroupWidget.php:97
+msgid "Corner radius"
+msgstr ""
+
+#: includes/Integration/Elementor/FieldGroupWidget.php:104
+msgid "Space between tiles"
+msgstr ""
+
+#: includes/Integration/Elementor/FieldGroupWidget.php:112
+msgid "Padding"
+msgstr ""
+
+#: includes/Integration/Elementor/FieldGroupWidget.php:120
+#: assets/js/editor.js:112
+msgid "Group title"
+msgstr ""
+
+#: includes/Integration/Elementor/FieldGroupWidget.php:121
+#: includes/Integration/Elementor/FieldGroupWidget.php:126
+#: includes/Integration/Elementor/FieldGroupWidget.php:131
+#: includes/Integration/Elementor/FieldWidget.php:91
+#: includes/Integration/Elementor/FieldWidget.php:103
+msgid "Colour"
+msgstr ""
+
+#: includes/Integration/Elementor/FieldGroupWidget.php:125
+msgid "Labels"
+msgstr ""
+
+#: includes/Integration/Elementor/FieldGroupWidget.php:130
+msgid "Values"
+msgstr ""
+
+#: includes/Integration/Elementor/FieldGroupWidget.php:148
+msgid "Field group — no values for this post yet, or the group is not assigned to this post type."
+msgstr ""
+
+#: includes/Integration/Elementor/FieldTag.php:22
+msgid "Custom field"
+msgstr ""
+
+#: includes/Integration/Elementor/FieldTag.php:44
+#: includes/Integration/Elementor/FieldUrlTag.php:51
+#: includes/Integration/Elementor/FieldWidget.php:50
+#: includes/Rest/RestController.php:254
+#: assets/js/editor.js:44
+msgid "Field"
+msgstr ""
+
+#: includes/Integration/Elementor/FieldTag.php:50
+msgid "Show as"
+msgstr ""
+
+#: includes/Integration/Elementor/FieldTag.php:52
+msgid "Formatted (links, line breaks)"
+msgstr ""
+
+#: includes/Integration/Elementor/FieldTag.php:52
+msgid "Plain text"
+msgstr ""
+
+#: includes/Integration/Elementor/FieldUrlTag.php:22
+msgid "Custom field link"
+msgstr ""
+
+#: includes/Integration/Elementor/FieldUrlTag.php:43
+msgid "Link to the post"
+msgstr ""
+
+#: includes/Integration/Elementor/FieldWidget.php:52
+#: includes/Site/ActivityPage.php:160
+#: includes/Site/PostBox.php:66
+#: assets/js/editor.js:46
+#: assets/js/editor.js:115
+msgid "Show"
+msgstr ""
+
+#: includes/Integration/Elementor/FieldWidget.php:58
+#: assets/js/editor.js:50
+msgid "Label before the value"
+msgstr ""
+
+#: includes/Integration/Elementor/FieldWidget.php:60
+msgid "Price:"
+msgstr ""
+
+#: includes/Integration/Elementor/FieldWidget.php:63
+msgid "Label position"
+msgstr ""
+
+#: includes/Integration/Elementor/FieldWidget.php:66
+msgid "Beside the value"
+msgstr ""
+
+#: includes/Integration/Elementor/FieldWidget.php:67
+msgid "Above the value"
+msgstr ""
+
+#: includes/Integration/Elementor/FieldWidget.php:74
+msgid "Alignment"
+msgstr ""
+
+#: includes/Integration/Elementor/FieldWidget.php:78
+msgid "Centre"
+msgstr ""
+
+#: includes/Integration/Elementor/FieldWidget.php:84
+msgid "When empty, show"
+msgstr ""
+
+#: includes/Integration/Elementor/FieldWidget.php:86
+msgid "Leave empty to hide the widget on posts without a value."
+msgstr ""
+
+#: includes/Integration/Elementor/FieldWidget.php:90
+msgid "Label"
+msgstr ""
+
+#: includes/Integration/Elementor/FieldWidget.php:94
+msgid "Space after"
+msgstr ""
+
+#: includes/Integration/Elementor/FieldWidget.php:102
+msgid "Value"
+msgstr ""
+
+#. translators: %s: field name
+#: includes/Integration/Elementor/FieldWidget.php:117
+msgid "%s — empty for this post"
+msgstr ""
+
+#: includes/Integration/FieldDisplay.php:112
+msgid "Yes"
+msgstr ""
+
+#: includes/Integration/FieldDisplay.php:112
+msgid "No"
+msgstr ""
+
+#: includes/Integration/FieldDisplay.php:391
+#: assets/js/editor.js:17
+msgid "Published date"
+msgstr ""
+
+#: includes/Integration/FieldDisplay.php:392
+#: assets/js/editor.js:18
+msgid "Updated date"
+msgstr ""
+
+#: includes/Integration/FieldDisplay.php:393
+#: assets/js/editor.js:19
+msgid "Author"
+msgstr ""
+
+#: includes/Integration/FieldDisplay.php:394
+#: assets/js/editor.js:20
+msgid "Excerpt"
+msgstr ""
+
+#: includes/Integration/FieldDisplay.php:395
+#: assets/js/editor.js:21
+msgid "Link"
+msgstr ""
+
+#: includes/Integration/MembershipAdmin.php:37
+msgid "Members only"
+msgstr ""
+
+#: includes/Integration/MembershipAdmin.php:53
+msgid "Who can read this"
+msgstr ""
+
+#. translators: %s: tier label
+#: includes/Integration/MembershipAdmin.php:59
+msgid "Site default (%s members)"
+msgstr ""
+
+#: includes/Integration/MembershipAdmin.php:60
+msgid "Everyone (site default)"
+msgstr ""
+
+#: includes/Integration/MembershipAdmin.php:64
+#: includes/Integration/NavVisibility.php:335
+#: includes/Site/ActivityPage.php:156
+#: includes/Site/ActivityPage.php:212
+#: assets/js/editor.js:167
+msgid "Everyone"
+msgstr ""
+
+#. translators: %s: tier label
+#: includes/Integration/MembershipAdmin.php:70
+msgid "%s members and above"
+msgstr ""
+
+#: includes/Integration/MembershipAdmin.php:77
+msgid "Message for locked-out readers"
+msgstr ""
+
+#: includes/Integration/MembershipAdmin.php:78
+msgid "Optional"
+msgstr ""
+
+#: includes/Integration/MembershipAdmin.php:81
+msgid "Or send them to"
+msgstr ""
+
+#: includes/Integration/MembershipAdmin.php:83
+msgid "Optional. An address on this site, e.g. your pricing page."
+msgstr ""
+
+#: includes/Integration/MembershipAdmin.php:128
+#: includes/Integration/MembershipAdmin.php:163
+msgid "Tier"
+msgstr ""
+
+#. translators: %s: tier label
+#: includes/Integration/MembershipGate.php:121
+msgid "For %s members."
+msgstr ""
+
+#. translators: %s: tier label
+#: includes/Integration/MembershipGate.php:204
+msgid "This content is for %s members and above."
+msgstr ""
+
+#. translators: %s: tier label
+#: includes/Integration/MembershipGate.php:213
+msgid "Become a %s member"
+msgstr ""
+
+#: includes/Integration/MembershipGate.php:214
+msgid "Log in to continue"
+msgstr ""
+
+#. translators: %s: tier label
+#: includes/Integration/MembershipGate.php:220
+msgid "%s members only"
+msgstr ""
+
+#. translators: %s: tier label
+#: includes/Integration/NavVisibility.php:141
+msgid "For %s members — sign in or join to see this."
+msgstr ""
+
+#: includes/Integration/NavVisibility.php:330
+#: assets/js/editor.js:163
+msgid "Visibility"
+msgstr ""
+
+#: includes/Integration/NavVisibility.php:334
+#: assets/js/editor.js:165
+msgid "Show to"
+msgstr ""
+
+#: includes/Integration/NavVisibility.php:335
+#: assets/js/editor.js:168
+msgid "Signed-in users only"
+msgstr ""
+
+#: includes/Integration/NavVisibility.php:335
+#: assets/js/editor.js:169
+msgid "Signed-out visitors only"
+msgstr ""
+
+#: includes/Integration/NavVisibility.php:341
+msgid "(none ticked = any role)"
+msgstr ""
+
+#: includes/Integration/NavVisibility.php:354
+#: assets/js/editor.js:186
+msgid "Members of tier"
+msgstr ""
+
+#: includes/Integration/NavVisibility.php:355
+#: assets/js/editor.js:187
+msgid "Any (no tier needed)"
+msgstr ""
+
+#. translators: %s: tier label
+#: includes/Integration/NavVisibility.php:359
+msgid "%s and above"
+msgstr ""
+
+#: includes/Integration/NavVisibility.php:370
+msgid "Show it with a lock to people without the tier (instead of hiding it)"
+msgstr ""
+
+#. translators: %s: item
+#: includes/Rest/RestController.php:95
+msgid "%s not found."
+msgstr ""
+
+#: includes/Rest/RestController.php:142
+#: includes/Rest/RestController.php:159
+msgid "Feature"
+msgstr ""
+
+#: includes/Rest/RestController.php:192
+msgid "Post type"
+msgstr ""
+
+#: includes/Rest/RestController.php:218
+msgid "Taxonomy"
+msgstr ""
+
+#: includes/Schema/SchemaManager.php:123
+msgid "Add New"
+msgstr ""
+
+#. translators: %s: value.
+#. translators: %s: singular name
+#: includes/Schema/SchemaManager.php:125
+#: includes/Schema/SchemaManager.php:262
+msgid "Add New %s"
+msgstr ""
+
+#. translators: %s: value.
+#. translators: %s: singular name
+#: includes/Schema/SchemaManager.php:127
+#: includes/Schema/SchemaManager.php:260
+msgid "Edit %s"
+msgstr ""
+
+#. translators: %s: value.
+#: includes/Schema/SchemaManager.php:129
+msgid "New %s"
+msgstr ""
+
+#. translators: %s: value.
+#: includes/Schema/SchemaManager.php:131
+msgid "View %s"
+msgstr ""
+
+#. translators: %s: value.
+#. translators: %s: plural name
+#: includes/Schema/SchemaManager.php:133
+#: includes/Schema/SchemaManager.php:258
+msgid "All %s"
+msgstr ""
+
+#. translators: %s: value.
+#. translators: %s: plural name
+#: includes/Schema/SchemaManager.php:135
+#: includes/Schema/SchemaManager.php:264
+msgid "Search %s"
+msgstr ""
+
+#. translators: %s: value.
+#. translators: %s: plural name
+#: includes/Schema/SchemaManager.php:137
+#: includes/Schema/SchemaManager.php:266
+msgid "No %s found."
+msgstr ""
+
+#. translators: %s: value.
+#: includes/Schema/SchemaManager.php:139
+msgid "No %s found in Trash."
+msgstr ""
+
+#. translators: %s: value.
+#: includes/Schema/SchemaManager.php:141
+msgid "%s Archives"
+msgstr ""
+
+#: includes/Schema/SchemaManager.php:178
+msgid "Slug: 1–20 lower-case letters, numbers, - or _."
+msgstr ""
+
+#. translators: %s: slug
+#: includes/Schema/SchemaManager.php:182
+#: includes/Schema/SchemaManager.php:285
+msgid "\"%s\" is already used by WordPress or another plugin."
+msgstr ""
+
+#: includes/Schema/SchemaManager.php:281
+msgid "Slug: 1–32 lower-case letters, numbers, - or _."
+msgstr ""
+
+#: includes/Schema/SchemaManager.php:289
+msgid "Assign the taxonomy to at least one post type."
+msgstr ""
+
+#: includes/Schema/SchemaManager.php:511
+msgid "Group id: 1–40 lower-case letters, numbers, - or _."
+msgstr ""
+
+#: includes/Schema/SchemaManager.php:515
+msgid "Assign the group to at least one post type."
+msgstr ""
+
+#. translators: %s: field id
+#: includes/Schema/SchemaManager.php:538
+msgid "Field id \"%s\" starts with _ — those keys belong to WordPress and other plugins."
+msgstr ""
+
+#. translators: %s: field id
+#: includes/Schema/SchemaManager.php:546
+msgid "Field id \"%s\" must start with a letter (ids starting with _ are WordPress’s own)."
+msgstr ""
+
+#. translators: %s: field id
+#: includes/Schema/SchemaManager.php:549
+msgid "Field id \"%s\" is used twice."
+msgstr ""
+
+#. translators: %s: field id
+#: includes/Schema/SchemaManager.php:553
+msgid "Field id \"%s\" is already a different type in another group."
+msgstr ""
+
+#. translators: %s: field id
+#: includes/Schema/SchemaManager.php:570
+msgid "Give the select field \"%s\" at least one option."
+msgstr ""
+
+#: includes/SignIn/Account.php:68
+#: includes/SignIn/Account.php:97
+#: includes/SignIn/Privacy.php:12
+#: includes/SignIn/Privacy.php:16
+#: includes/SignIn/Privacy.php:32
+#: includes/SignIn/Privacy.php:44
+msgid "Sign-in security"
+msgstr ""
+
+#: includes/SignIn/Account.php:70
+msgid "This section needs JavaScript."
+msgstr ""
+
+#: includes/SignIn/Account.php:99
+msgid "Two-factor"
+msgstr ""
+
+#: includes/SignIn/Account.php:99
+#: includes/SignIn/Privacy.php:46
+msgid "Off"
+msgstr ""
+
+#: includes/SignIn/Account.php:101
+msgid "Reset two-factor"
+msgstr ""
+
+#: includes/SignIn/Account.php:102
+msgid "For someone who has lost both their phone and their recovery codes. It turns two-factor off; they set it up again from their own profile. Your name is recorded against the reset."
+msgstr ""
+
+#: includes/SignIn/Account.php:103
+msgid "Reset two-factor for this user? They will be able to sign in with just their password until they set it up again."
+msgstr ""
+
+#: includes/SignIn/Account.php:104
+msgid "Yes, reset it"
+msgstr ""
+
+#: includes/SignIn/Account.php:104
+#: assets/js/site-admin.js:22
+msgid "Cancel"
+msgstr ""
+
+#: includes/SignIn/Account.php:108
+msgid "Connected providers"
+msgstr ""
+
+#: includes/SignIn/Account.php:111
+msgid "Recent activity"
+msgstr ""
+
+#. translators: %s: name
+#: includes/SignIn/Account.php:116
+msgid "by %s"
+msgstr ""
+
+#: includes/SignIn/Account.php:142
+msgid "2FA"
+msgstr ""
+
+#: includes/SignIn/Account.php:164
+msgid "Sign in to manage your sign-in security."
+msgstr ""
+
+#: includes/SignIn/Account.php:165
+msgid "Sign in"
+msgstr ""
+
+#. translators: %s: provider name
+#: includes/SignIn/Account.php:202
+msgid "%s is now connected."
+msgstr ""
+
+#: includes/SignIn/Auth.php:21
+msgid "Sign-in was cancelled."
+msgstr ""
+
+#: includes/SignIn/Auth.php:22
+msgid "That sign-in took too long or was started in another browser. Please try again."
+msgstr ""
+
+#: includes/SignIn/Auth.php:23
+msgid "That took too long. Please sign in again."
+msgstr ""
+
+#: includes/SignIn/Auth.php:24
+msgid "That sign-in method is not available."
+msgstr ""
+
+#: includes/SignIn/Auth.php:25
+msgid "The sign-in provider could not be reached. Please try again."
+msgstr ""
+
+#: includes/SignIn/Auth.php:26
+msgid "The sign-in provider refused the request."
+msgstr ""
+
+#: includes/SignIn/Auth.php:27
+msgid "Your profile could not be read from the provider."
+msgstr ""
+
+#: includes/SignIn/Auth.php:28
+msgid "That account has no verified email address, so it cannot be matched to an account here."
+msgstr ""
+
+#: includes/SignIn/Auth.php:29
+msgid "An account already exists for that address. Sign in with your password, then connect the provider from your account security settings."
+msgstr ""
+
+#: includes/SignIn/Auth.php:30
+msgid "There is no account for that address here. Please contact the site administrator."
+msgstr ""
+
+#: includes/SignIn/Auth.php:31
+msgid "Your account could not be created."
+msgstr ""
+
+#: includes/SignIn/Auth.php:32
+msgid "That account cannot sign in at the moment."
+msgstr ""
+
+#: includes/SignIn/Auth.php:33
+msgid "That provider account is already connected to a different account here."
+msgstr ""
+
+#: includes/SignIn/Auth.php:34
+msgid "Too many incorrect codes. Please sign in again."
+msgstr ""
+
+#: includes/SignIn/Auth.php:35
+msgid "This account uses two-factor authentication. Please sign in on the login page."
+msgstr ""
+
+#: includes/SignIn/Auth.php:37
+msgid "That sign-in could not be completed."
+msgstr ""
+
+#: includes/SignIn/Buttons.php:20
+msgid "Sign in with"
+msgstr ""
+
+#. translators: %s: provider name, e.g. Google
+#: includes/SignIn/Buttons.php:23
+msgid "Continue with %s"
+msgstr ""
+
+#: includes/SignIn/LoginPage.php:31
+msgid "or use your password"
+msgstr ""
+
+#: includes/SignIn/Privacy.php:36
+msgid "Provider account id"
+msgstr ""
+
+#: includes/SignIn/Privacy.php:37
+msgid "Email at the provider"
+msgstr ""
+
+#: includes/SignIn/Privacy.php:38
+msgid "Connected"
+msgstr ""
+
+#: includes/SignIn/Qr.php:78
+msgid "QR code"
+msgstr ""
+
+#. translators: %s: provider name
+#: includes/SignIn/Rest.php:165
+msgid "%s is now connected. You can use it to sign in."
+msgstr ""
+
+#: includes/SignIn/Rest.php:175
+msgid "Two-factor authentication is switched off for this site."
+msgstr ""
+
+#: includes/SignIn/Rest.php:178
+msgid "This server cannot store the secret safely (OpenSSL with AES-256-GCM is needed), so setup is unavailable."
+msgstr ""
+
+#: includes/SignIn/Rest.php:181
+msgid "Two-factor is already on for this account."
+msgstr ""
+
+#: includes/SignIn/Rest.php:185
+msgid "The setup could not be saved. Please try again."
+msgstr ""
+
+#: includes/SignIn/Rest.php:191
+msgid "QR code to scan with your authenticator app"
+msgstr ""
+
+#: includes/SignIn/Rest.php:202
+msgid "The setup has expired. Start again."
+msgstr ""
+
+#: includes/SignIn/Rest.php:206
+msgid "That code did not match. Check the app shows this site, then try the current code."
+msgstr ""
+
+#: includes/SignIn/Rest.php:210
+msgid "Two-factor could not be switched on. Please try again."
+msgstr ""
+
+#: includes/SignIn/Rest.php:224
+msgid "Two-factor is required for your role, so it cannot be switched off."
+msgstr ""
+
+#: includes/SignIn/Rest.php:228
+msgid "Enter a current code from your app, or one of your recovery codes."
+msgstr ""
+
+#: includes/SignIn/Rest.php:239
+msgid "Two-factor is not on for this account."
+msgstr ""
+
+#: includes/SignIn/Rest.php:244
+msgid "Enter a current code from your app to make new recovery codes."
+msgstr ""
+
+#: includes/SignIn/Rest.php:257
+msgid "That provider is not connected."
+msgstr ""
+
+#: includes/SignIn/Rest.php:268
+msgid "That user was not found."
+msgstr ""
+
+#: includes/SignIn/Rest.php:271
+msgid "Turn your own two-factor off from your profile, with a code."
+msgstr ""
+
+#: includes/SignIn/Store.php:298
+msgid "Two-factor turned on"
+msgstr ""
+
+#: includes/SignIn/Store.php:299
+msgid "Two-factor turned off"
+msgstr ""
+
+#: includes/SignIn/Store.php:300
+msgid "Two-factor reset by an administrator"
+msgstr ""
+
+#: includes/SignIn/Store.php:301
+msgid "Signed in with a recovery code"
+msgstr ""
+
+#: includes/SignIn/Store.php:302
+msgid "New recovery codes made"
+msgstr ""
+
+#: includes/SignIn/Store.php:303
+msgid "Too many wrong codes at sign-in"
+msgstr ""
+
+#: includes/SignIn/TwoFactor.php:141
+msgid "The page had expired. Please enter the code again."
+msgstr ""
+
+#. translators: %d: attempts left
+#: includes/SignIn/TwoFactor.php:165
+msgid "That code was not right. %d attempt left."
+msgid_plural "That code was not right. %d attempts left."
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/SignIn/TwoFactor.php:205
+msgid "Enter the six-digit code from your authenticator app."
+msgstr ""
+
+#: includes/SignIn/TwoFactor.php:207
+msgid "Code"
+msgstr ""
+
+#: includes/SignIn/TwoFactor.php:210
+msgid "Lost your phone? Enter one of your recovery codes instead. Each one works once."
+msgstr ""
+
+#. translators: %d: days
+#: includes/SignIn/TwoFactor.php:214
+msgid "Don’t ask again on this device for %d day"
+msgid_plural "Don’t ask again on this device for %d days"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/SignIn/TwoFactor.php:217
+msgid "Verify"
+msgstr ""
+
+#: includes/SignIn/TwoFactor.php:219
+msgid "Cancel and sign in again"
+msgstr ""
+
+#: includes/SignIn/TwoFactor.php:326
+msgid "Two-factor authentication is required for your account."
+msgstr ""
+
+#: includes/SignIn/TwoFactor.php:327
+msgid "Set it up below under Sign-in security. The rest of the dashboard opens once it is on."
+msgstr ""
+
+#: includes/Site/Activity.php:244
+msgid "Signed in"
+msgstr ""
+
+#: includes/Site/Activity.php:245
+msgid "Signed out"
+msgstr ""
+
+#: includes/Site/Activity.php:246
+msgid "Sign-in failed"
+msgstr ""
+
+#: includes/Site/Activity.php:247
+msgid "Account created"
+msgstr ""
+
+#: includes/Site/Activity.php:248
+msgid "Profile updated"
+msgstr ""
+
+#: includes/Site/Activity.php:249
+msgid "Role changed"
+msgstr ""
+
+#: includes/Site/Activity.php:250
+msgid "Account deleted"
+msgstr ""
+
+#: includes/Site/Activity.php:251
+msgid "Published"
+msgstr ""
+
+#: includes/Site/Activity.php:252
+msgid "Updated"
+msgstr ""
+
+#: includes/Site/Activity.php:253
+msgid "Moved to the bin"
+msgstr ""
+
+#: includes/Site/Activity.php:254
+msgid "Deleted for good"
+msgstr ""
+
+#: includes/Site/Activity.php:255
+msgid "Uploaded a file"
+msgstr ""
+
+#: includes/Site/Activity.php:256
+msgid "Commented"
+msgstr ""
+
+#: includes/Site/Activity.php:257
+msgid "Plugin activated"
+msgstr ""
+
+#: includes/Site/Activity.php:258
+msgid "Plugin deactivated"
+msgstr ""
+
+#: includes/Site/Activity.php:259
+msgid "Theme changed"
+msgstr ""
+
+#: includes/Site/ActivityPage.php:46
+#: includes/Site/ActivityPage.php:61
+msgid "You cannot change this."
+msgstr ""
+
+#: includes/Site/ActivityPage.php:78
+msgid "You cannot see the activity log."
+msgstr ""
+
+#: includes/Site/ActivityPage.php:102
+msgid "Page views and what people did on the site, by role. Visitors are counted without cookies, and no addresses are stored."
+msgstr ""
+
+#: includes/Site/ActivityPage.php:105
+msgid "Recording is on."
+msgstr ""
+
+#: includes/Site/ActivityPage.php:107
+msgid "Recording is off. What was already recorded stays until it is cleared or ages out."
+msgstr ""
+
+#: includes/Site/ActivityPage.php:109
+msgid "The activity log and page views were cleared."
+msgstr ""
+
+#: includes/Site/ActivityPage.php:118
+#: includes/Site/ActivityPage.php:122
+msgid "Recording is on"
+msgstr ""
+
+#: includes/Site/ActivityPage.php:118
+#: includes/Site/ActivityPage.php:122
+msgid "Recording is off"
+msgstr ""
+
+#: includes/Site/ActivityPage.php:119
+msgid "Turns page views and the activity log on or off for the whole site. Which roles are recorded is set on the Activity and Roles tabs."
+msgstr ""
+
+#: includes/Site/ActivityPage.php:126
+msgid "Activity views"
+msgstr ""
+
+#: includes/Site/ActivityPage.php:128
+msgid "Activity log"
+msgstr ""
+
+#: includes/Site/ActivityPage.php:139
+msgid "Delete every recorded page view and activity line? This cannot be undone."
+msgstr ""
+
+#: includes/Site/ActivityPage.php:139
+msgid "Clear everything"
+msgstr ""
+
+#: includes/Site/ActivityPage.php:139
+msgid "Clearing…"
+msgstr ""
+
+#: includes/Site/ActivityPage.php:140
+msgid "Clear all activity"
+msgstr ""
+
+#. translators: %d: number of days
+#: includes/Site/ActivityPage.php:142
+msgid "Older lines are removed on their own after %d days."
+msgstr ""
+
+#: includes/Site/ActivityPage.php:152
+msgid "Period"
+msgstr ""
+
+#: includes/Site/ActivityPage.php:153
+msgid "Last 7 days"
+msgstr ""
+
+#: includes/Site/ActivityPage.php:153
+msgid "Last 90 days"
+msgstr ""
+
+#: includes/Site/ActivityPage.php:153
+msgid "Last year"
+msgstr ""
+
+#: includes/Site/ActivityPage.php:163
+msgid "Signed-in people"
+msgstr ""
+
+#. translators: 1: number of page views, 2: number of days
+#: includes/Site/ActivityPage.php:182
+msgid "%1$s page views over %2$d days"
+msgstr ""
+
+#: includes/Site/ActivityPage.php:183
+msgid "Views per day"
+msgstr ""
+
+#: includes/Site/ActivityPage.php:189
+msgid "Most viewed"
+msgstr ""
+
+#: includes/Site/ActivityPage.php:189
+msgid "Page"
+msgstr ""
+
+#: includes/Site/ActivityPage.php:189
+#: includes/Site/ActivityPage.php:195
+#: includes/Site/ActivityPage.php:201
+#: includes/Site/ActivityPage.php:202
+msgid "Views"
+msgstr ""
+
+#: includes/Site/ActivityPage.php:195
+msgid "By role"
+msgstr ""
+
+#: includes/Site/ActivityPage.php:195
+msgid "Activity lines"
+msgstr ""
+
+#: includes/Site/ActivityPage.php:200
+msgid "Phone"
+msgstr ""
+
+#: includes/Site/ActivityPage.php:200
+msgid "Tablet"
+msgstr ""
+
+#: includes/Site/ActivityPage.php:200
+msgid "Computer"
+msgstr ""
+
+#: includes/Site/ActivityPage.php:201
+msgid "Devices"
+msgstr ""
+
+#: includes/Site/ActivityPage.php:201
+msgid "Device"
+msgstr ""
+
+#: includes/Site/ActivityPage.php:202
+msgid "Coming from"
+msgstr ""
+
+#: includes/Site/ActivityPage.php:216
+#: includes/Site/ActivityPage.php:247
+msgid "What"
+msgstr ""
+
+#: includes/Site/ActivityPage.php:216
+msgid "Everything"
+msgstr ""
+
+#: includes/Site/ActivityPage.php:220
+msgid "From"
+msgstr ""
+
+#: includes/Site/ActivityPage.php:221
+msgid "To"
+msgstr ""
+
+#: includes/Site/ActivityPage.php:222
+msgid "Filter"
+msgstr ""
+
+#: includes/Site/ActivityPage.php:230
+msgid "Visitor"
+msgstr ""
+
+#: includes/Site/ActivityPage.php:247
+msgid "When"
+msgstr ""
+
+#: includes/Site/ActivityPage.php:247
+msgid "Who"
+msgstr ""
+
+#: includes/Site/ActivityPage.php:247
+msgid "Item"
+msgstr ""
+
+#: includes/Site/ActivityPage.php:247
+msgid "Details"
+msgstr ""
+
+#: includes/Site/ActivityPage.php:266
+msgid "Nothing recorded yet."
+msgstr ""
+
+#: includes/Site/PostBox.php:38
+msgid "Search, sharing and contents"
+msgstr ""
+
+#: includes/Site/PostBox.php:49
+msgid "In search results"
+msgstr ""
+
+#: includes/Site/PostBox.php:50
+msgid "Search title"
+msgstr ""
+
+#: includes/Site/PostBox.php:52
+msgid "Empty uses the post title. About 60 characters show in results."
+msgstr ""
+
+#: includes/Site/PostBox.php:53
+msgid "Description"
+msgstr ""
+
+#: includes/Site/PostBox.php:55
+msgid "Empty uses the excerpt or the opening text. About 155 characters show in results."
+msgstr ""
+
+#: includes/Site/PostBox.php:56
+msgid "Canonical address"
+msgstr ""
+
+#: includes/Site/PostBox.php:58
+msgid "Only when this text first appeared at another address."
+msgstr ""
+
+#: includes/Site/PostBox.php:59
+msgid "Social image (media ID)"
+msgstr ""
+
+#: includes/Site/PostBox.php:61
+msgid "Empty uses the featured image."
+msgstr ""
+
+#: includes/Site/PostBox.php:63
+msgid "Hide from search engines and the sitemap"
+msgstr ""
+
+#: includes/Site/PostBox.php:66
+msgid "As set for the site"
+msgstr ""
+
+#: includes/Site/PostBox.php:66
+#: assets/js/editor.js:116
+msgid "Hide"
+msgstr ""
+
+#: includes/Site/PostBox.php:74
+msgid "On this page"
+msgstr ""
+
+#: includes/Site/PostBox.php:76
+msgid "Share buttons"
+msgstr ""
+
+#: includes/Site/PostBox.php:79
+msgid "Contents box"
+msgstr ""
+
+#: includes/Site/Roles.php:32
+msgid "Posts"
+msgstr ""
+
+#: includes/Site/Roles.php:33
+msgid "Open the dashboard and their profile"
+msgstr ""
+
+#: includes/Site/Roles.php:34
+msgid "Write posts"
+msgstr ""
+
+#: includes/Site/Roles.php:35
+msgid "Publish posts"
+msgstr ""
+
+#: includes/Site/Roles.php:36
+msgid "Edit their published posts"
+msgstr ""
+
+#: includes/Site/Roles.php:37
+msgid "Delete their drafts"
+msgstr ""
+
+#: includes/Site/Roles.php:38
+msgid "Delete their published posts"
+msgstr ""
+
+#: includes/Site/Roles.php:39
+msgid "Edit other people's posts"
+msgstr ""
+
+#: includes/Site/Roles.php:40
+msgid "Delete other people's posts"
+msgstr ""
+
+#: includes/Site/Roles.php:41
+msgid "Read private posts"
+msgstr ""
+
+#: includes/Site/Roles.php:42
+msgid "Edit private posts"
+msgstr ""
+
+#: includes/Site/Roles.php:43
+msgid "Delete private posts"
+msgstr ""
+
+#: includes/Site/Roles.php:45
+msgid "Pages"
+msgstr ""
+
+#: includes/Site/Roles.php:46
+msgid "Write pages"
+msgstr ""
+
+#: includes/Site/Roles.php:47
+msgid "Publish pages"
+msgstr ""
+
+#: includes/Site/Roles.php:48
+msgid "Edit published pages"
+msgstr ""
+
+#: includes/Site/Roles.php:49
+msgid "Delete their draft pages"
+msgstr ""
+
+#: includes/Site/Roles.php:50
+msgid "Delete published pages"
+msgstr ""
+
+#: includes/Site/Roles.php:51
+msgid "Edit other people's pages"
+msgstr ""
+
+#: includes/Site/Roles.php:52
+msgid "Delete other people's pages"
+msgstr ""
+
+#: includes/Site/Roles.php:53
+msgid "Read private pages"
+msgstr ""
+
+#: includes/Site/Roles.php:54
+msgid "Edit private pages"
+msgstr ""
+
+#: includes/Site/Roles.php:55
+msgid "Delete private pages"
+msgstr ""
+
+#: includes/Site/Roles.php:57
+msgid "Media, comments and terms"
+msgstr ""
+
+#: includes/Site/Roles.php:58
+msgid "Upload files"
+msgstr ""
+
+#: includes/Site/Roles.php:59
+msgid "Approve and remove comments"
+msgstr ""
+
+#: includes/Site/Roles.php:60
+msgid "Manage categories and tags"
+msgstr ""
+
+#: includes/Site/Roles.php:61
+msgid "Use any HTML, including scripts"
+msgstr ""
+
+#: includes/Site/Roles.php:64
+msgid "See the list of users"
+msgstr ""
+
+#: includes/Site/Roles.php:65
+msgid "Add users"
+msgstr ""
+
+#: includes/Site/Roles.php:66
+msgid "Edit users"
+msgstr ""
+
+#: includes/Site/Roles.php:67
+msgid "Change users' roles"
+msgstr ""
+
+#: includes/Site/Roles.php:68
+msgid "Remove users from the site"
+msgstr ""
+
+#: includes/Site/Roles.php:69
+msgid "Delete users"
+msgstr ""
+
+#: includes/Site/Roles.php:71
+msgid "Appearance and site"
+msgstr ""
+
+#: includes/Site/Roles.php:72
+msgid "Menus, widgets and the customiser"
+msgstr ""
+
+#: includes/Site/Roles.php:73
+msgid "Change the theme"
+msgstr ""
+
+#: includes/Site/Roles.php:74
+msgid "Change settings"
+msgstr ""
+
+#: includes/Site/Roles.php:75
+msgid "Import content"
+msgstr ""
+
+#: includes/Site/Roles.php:76
+msgid "Export content"
+msgstr ""
+
+#: includes/Site/Roles.php:77
+msgid "Activate plugins"
+msgstr ""
+
+#: includes/Site/Roles.php:78
+msgid "Install plugins"
+msgstr ""
+
+#: includes/Site/Roles.php:79
+msgid "Update plugins"
+msgstr ""
+
+#: includes/Site/Roles.php:80
+msgid "Update WordPress"
+msgstr ""
+
+#: includes/Site/Roles.php:82
+msgid "Reports"
+msgstr ""
+
+#: includes/Site/Roles.php:83
+msgid "See the activity log and page views"
+msgstr ""
+
+#: includes/Site/Roles.php:101
+msgid "From other plugins"
+msgstr ""
+
+#: includes/Site/Roles.php:126
+msgid "You cannot change roles."
+msgstr ""
+
+#: includes/Site/Share.php:28
+msgid "Facebook"
+msgstr ""
+
+#: includes/Site/Share.php:29
+msgid "X"
+msgstr ""
+
+#: includes/Site/Share.php:30
+msgid "WhatsApp"
+msgstr ""
+
+#: includes/Site/Share.php:31
+msgid "LinkedIn"
+msgstr ""
+
+#: includes/Site/Share.php:32
+msgid "Telegram"
+msgstr ""
+
+#: includes/Site/Share.php:33
+msgid "Email"
+msgstr ""
+
+#: includes/Site/Share.php:34
+msgid "Copy link"
+msgstr ""
+
+#: includes/Site/Share.php:35
+msgid "More…"
+msgstr ""
+
+#: includes/Site/Share.php:113
+msgid "Link copied"
+msgstr ""
+
+#. translators: %s: a network such as Facebook
+#: includes/Site/Share.php:118
+msgid "Share on %s (opens in a new tab)"
+msgstr ""
+
+#: includes/Site/Share.php:120
+msgid "Share by email"
+msgstr ""
+
+#: includes/Site/SiteSettings.php:147
+msgid "You cannot change these settings."
+msgstr ""
+
+#: includes/Site/SiteSettings.php:261
+msgid "Save changes"
+msgstr ""
+
+#: sepo-bridge.php:21
+msgid "Sepo Bridge needs PHP 8.0 or newer. The plugin is installed but not running."
+msgstr ""
+
+#: assets/js/editor.js:24
+msgid "Custom field:"
+msgstr ""
+
+#: assets/js/editor.js:30
+msgid "Shows one value of the current post: title, date, author, link or a custom field."
+msgstr ""
+
+#: assets/js/editor.js:61
+msgid "— empty for this post"
+msgstr ""
+
+#: assets/js/editor.js:75
+msgid "Shows all the fields of a group for the current post, as a table, a grid or inline."
+msgstr ""
+
+#: assets/js/editor.js:78
+msgid "custom fields"
+msgstr ""
+
+#: assets/js/editor.js:78
+msgid "meta"
+msgstr ""
+
+#: assets/js/editor.js:78
+msgid "details"
+msgstr ""
+
+#: assets/js/editor.js:92
+msgid "Create a field group under WP Bridge → Meta fields first."
+msgstr ""
+
+#: assets/js/editor.js:104
+#: assets/js/editor.js:114
+msgid "As set for the group"
+msgstr ""
+
+#: assets/js/editor.js:132
+msgid "Field group — no values for this post yet. Fill them in the field box below the editor."
+msgstr ""
+
+#: assets/js/editor.js:174
+msgid "Roles (none = any)"
+msgstr ""
+
+#: assets/js/editor.js:188
+msgid "and above"
+msgstr ""
+
+#: assets/js/editor.js:193
+msgid "Show a lock instead of hiding it"
+msgstr ""
+
+#: assets/js/editor.js:198
+msgid "The editor always shows the block; the rule applies on the site."
+msgstr ""
+
+#: assets/js/site-admin.js:21
+msgid "Are you sure?"
+msgstr ""
+
+#: assets/js/site-admin.js:24
+msgid "Continue"
+msgstr ""
+
+#: assets/js/site-admin.js:95
+msgid "Social image"
+msgstr ""
+
+#: assets/js/site-admin.js:95
+msgid "Use this image"
+msgstr ""
