@@ -34,7 +34,7 @@ final class MembershipAdmin
         $types = get_post_types(['public' => true]);
         unset($types['attachment']);
         foreach ($types as $type) {
-            add_meta_box('sepo_wb_membership', __('Members only', 'sepo-wp-bridge'), [__CLASS__, 'renderBox'], $type, 'side', 'default');
+            add_meta_box('sepo_wb_membership', __('Members only', 'sepo-bridge'), [__CLASS__, 'renderBox'], $type, 'side', 'default');
         }
     }
 
@@ -50,37 +50,37 @@ final class MembershipAdmin
         wp_nonce_field('sepo_wb_membership_' . $post->ID, 'sepo_wb_membership_nonce');
         ?>
         <p>
-            <label for="sepo-wb-tier" style="display:block;font-weight:600;margin-bottom:3px"><?php esc_html_e('Who can read this', 'sepo-wp-bridge'); ?></label>
+            <label for="sepo-wb-tier" style="display:block;font-weight:600;margin-bottom:3px"><?php esc_html_e('Who can read this', 'sepo-bridge'); ?></label>
             <select id="sepo-wb-tier" name="sepo_wb_tier" class="widefat">
                 <option value="" <?php selected($tier, ''); ?>>
                     <?php
                     echo esc_html($follows
                         /* translators: %s: tier label */
-                        ? sprintf(__('Site default (%s members)', 'sepo-wp-bridge'), $store->label($default))
-                        : __('Everyone (site default)', 'sepo-wp-bridge'));
+                        ? sprintf(__('Site default (%s members)', 'sepo-bridge'), $store->label($default))
+                        : __('Everyone (site default)', 'sepo-bridge'));
                     ?>
                 </option>
                 <?php if ($follows) : ?>
-                    <option value="<?php echo esc_attr(MembershipGate::PUBLIC); ?>" <?php selected($tier, MembershipGate::PUBLIC); ?>><?php esc_html_e('Everyone', 'sepo-wp-bridge'); ?></option>
+                    <option value="<?php echo esc_attr(MembershipGate::PUBLIC); ?>" <?php selected($tier, MembershipGate::PUBLIC); ?>><?php esc_html_e('Everyone', 'sepo-bridge'); ?></option>
                 <?php endif; ?>
                 <?php foreach ($store->tiers() as $t) : ?>
                     <option value="<?php echo esc_attr($t['id']); ?>" <?php selected($tier, $t['id']); ?>>
                         <?php
                         /* translators: %s: tier label */
-                        echo esc_html(sprintf(__('%s members and above', 'sepo-wp-bridge'), $t['label']));
+                        echo esc_html(sprintf(__('%s members and above', 'sepo-bridge'), $t['label']));
                         ?>
                     </option>
                 <?php endforeach; ?>
             </select>
         </p>
         <p>
-            <label for="sepo-wb-msg" style="display:block;font-weight:600;margin-bottom:3px"><?php esc_html_e('Message for locked-out readers', 'sepo-wp-bridge'); ?></label>
-            <textarea id="sepo-wb-msg" name="sepo_wb_message" class="widefat" rows="3" placeholder="<?php esc_attr_e('Optional', 'sepo-wp-bridge'); ?>"><?php echo esc_textarea($message); ?></textarea>
+            <label for="sepo-wb-msg" style="display:block;font-weight:600;margin-bottom:3px"><?php esc_html_e('Message for locked-out readers', 'sepo-bridge'); ?></label>
+            <textarea id="sepo-wb-msg" name="sepo_wb_message" class="widefat" rows="3" placeholder="<?php esc_attr_e('Optional', 'sepo-bridge'); ?>"><?php echo esc_textarea($message); ?></textarea>
         </p>
         <p>
-            <label for="sepo-wb-to" style="display:block;font-weight:600;margin-bottom:3px"><?php esc_html_e('Or send them to', 'sepo-wp-bridge'); ?></label>
+            <label for="sepo-wb-to" style="display:block;font-weight:600;margin-bottom:3px"><?php esc_html_e('Or send them to', 'sepo-bridge'); ?></label>
             <input id="sepo-wb-to" type="url" name="sepo_wb_redirect" class="widefat" value="<?php echo esc_attr($to); ?>" placeholder="https://">
-            <span class="description"><?php esc_html_e('Optional. An address on this site, e.g. your pricing page.', 'sepo-wp-bridge'); ?></span>
+            <span class="description"><?php esc_html_e('Optional. An address on this site, e.g. your pricing page.', 'sepo-bridge'); ?></span>
         </p>
         <?php
     }
@@ -98,7 +98,7 @@ final class MembershipAdmin
             $tier = '';
         }
         $message = isset($_POST['sepo_wb_message']) ? sanitize_textarea_field(wp_unslash((string) $_POST['sepo_wb_message'])) : '';
-        $to      = isset($_POST['sepo_wb_redirect']) ? esc_url_raw(trim(wp_unslash((string) $_POST['sepo_wb_redirect']))) : '';
+        $to      = isset($_POST['sepo_wb_redirect']) ? esc_url_raw(trim(sanitize_text_field(wp_unslash((string) $_POST['sepo_wb_redirect'])))) : '';
         // Only addresses on this site, so a post cannot bounce readers elsewhere.
         if ($to !== '' && wp_validate_redirect($to, '') === '') {
             $to = '';
@@ -122,21 +122,21 @@ final class MembershipAdmin
         $held = $store->userTier((int) $user->ID);
         $can = current_user_can('edit_users');
         ?>
-        <h2><?php esc_html_e('Membership', 'sepo-wp-bridge'); ?></h2>
+        <h2><?php esc_html_e('Membership', 'sepo-bridge'); ?></h2>
         <table class="form-table" role="presentation">
             <tr>
-                <th><label for="sepo-wb-user-tier"><?php esc_html_e('Tier', 'sepo-wp-bridge'); ?></label></th>
+                <th><label for="sepo-wb-user-tier"><?php esc_html_e('Tier', 'sepo-bridge'); ?></label></th>
                 <td>
                     <?php if ($can) : ?>
                         <?php wp_nonce_field('sepo_wb_user_tier_' . $user->ID, 'sepo_wb_user_tier_nonce'); ?>
                         <select id="sepo-wb-user-tier" name="sepo_wb_user_tier">
-                            <option value=""><?php esc_html_e('None', 'sepo-wp-bridge'); ?></option>
+                            <option value=""><?php esc_html_e('None', 'sepo-bridge'); ?></option>
                             <?php foreach ($store->tiers() as $t) : ?>
                                 <option value="<?php echo esc_attr($t['id']); ?>" <?php selected($held, $t['id']); ?>><?php echo esc_html($t['label']); ?></option>
                             <?php endforeach; ?>
                         </select>
                     <?php else : ?>
-                        <strong><?php echo esc_html($held !== '' ? $store->label($held) : __('None', 'sepo-wp-bridge')); ?></strong>
+                        <strong><?php echo esc_html($held !== '' ? $store->label($held) : __('None', 'sepo-bridge')); ?></strong>
                     <?php endif; ?>
                 </td>
             </tr>
@@ -160,7 +160,7 @@ final class MembershipAdmin
     public static function userColumn(array $cols): array
     {
         if (MembershipGate::store()->tiers() !== []) {
-            $cols['sepo_wb_tier'] = __('Tier', 'sepo-wp-bridge');
+            $cols['sepo_wb_tier'] = __('Tier', 'sepo-bridge');
         }
         return $cols;
     }

@@ -118,7 +118,7 @@ final class MembershipGate
         }
         return sprintf(
             /* translators: %s: tier label */
-            esc_html__('For %s members.', 'sepo-wp-bridge'),
+            esc_html__('For %s members.', 'sepo-bridge'),
             self::store()->label(self::tierFor($id))
         );
     }
@@ -201,7 +201,7 @@ final class MembershipGate
         if ($message === '') {
             $message = sprintf(
                 /* translators: %s: tier label */
-                __('This content is for %s members and above.', 'sepo-wp-bridge'),
+                __('This content is for %s members and above.', 'sepo-bridge'),
                 $label
             );
         }
@@ -210,18 +210,18 @@ final class MembershipGate
         $href  = $loggedIn ? Settings::joinUrl() : wp_login_url((string) get_permalink($postId));
         $cta   = $loggedIn
             /* translators: %s: tier label */
-            ? sprintf(__('Become a %s member', 'sepo-wp-bridge'), $label)
-            : __('Log in to continue', 'sepo-wp-bridge');
+            ? sprintf(__('Become a %s member', 'sepo-bridge'), $label)
+            : __('Log in to continue', 'sepo-bridge');
 
         $html = '<div class="sp-membership-lock" style="max-width:560px;margin:2rem auto;text-align:center;padding:2.25rem 1.5rem;border:1px dashed rgba(128,128,128,.4);border-radius:12px">'
             . '<div style="font-size:2rem;line-height:1;margin-bottom:.6rem" aria-hidden="true">&#128274;</div>'
             . '<h2 style="margin:.2rem 0 .5rem;font-size:1.3rem">'
             /* translators: %s: tier label */
-            . esc_html(sprintf(__('%s members only', 'sepo-wp-bridge'), $label)) . '</h2>'
+            . esc_html(sprintf(__('%s members only', 'sepo-bridge'), $label)) . '</h2>'
             . '<p style="opacity:.8;line-height:1.55;margin:0 0 1rem">' . esc_html($message) . '</p>'
             . '<p style="margin:0"><a class="sp-membership-cta wp-element-button" href="' . esc_url($href) . '">' . esc_html($cta) . '</a></p>';
         if (!$loggedIn && get_option('users_can_register')) {
-            $html .= '<p style="margin:.75rem 0 0;font-size:.9em"><a href="' . esc_url(wp_registration_url()) . '">' . esc_html__('Create an account', 'sepo-wp-bridge') . '</a></p>';
+            $html .= '<p style="margin:.75rem 0 0;font-size:.9em"><a href="' . esc_url(wp_registration_url()) . '">' . esc_html__('Create an account', 'sepo-bridge') . '</a></p>';
         }
         $html .= '</div>';
 

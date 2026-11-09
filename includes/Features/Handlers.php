@@ -187,7 +187,7 @@ class Handlers
                     return $result;
                 }
             }
-            return new \WP_Error('rest_forbidden', __('The REST API is only available to signed-in users.', 'sepo-wp-bridge'), ['status' => 401]);
+            return new \WP_Error('rest_forbidden', __('The REST API is only available to signed-in users.', 'sepo-bridge'), ['status' => 401]);
         });
     }
 
@@ -199,17 +199,15 @@ class Handlers
 
     public function disableAutoUpdates(): void
     {
+        // Switches off every background update: core, plugins, themes and translations.
         add_filter('automatic_updater_disabled', '__return_true');
-        add_filter('auto_update_plugin', '__return_false');
-        add_filter('auto_update_theme', '__return_false');
-        add_filter('auto_update_core', '__return_false');
     }
 
     public function hideLoginErrors(): void
     {
         // Sign-in step messages (expired, wrong code, cancelled) say nothing about
         // whether an account exists, so they are kept; everything else is replaced.
-        add_filter('login_errors', static fn($msg) => str_contains((string) $msg, 'sepo-si-msg') ? $msg : esc_html__('Login failed.', 'sepo-wp-bridge'));
+        add_filter('login_errors', static fn($msg) => str_contains((string) $msg, 'sepo-si-msg') ? $msg : esc_html__('Login failed.', 'sepo-bridge'));
     }
 
     public function disableUserEnumeration(): void
@@ -257,7 +255,7 @@ class Handlers
             if ((int) get_transient($key) >= $max) {
                 return new \WP_Error('too_many_attempts', sprintf(
                     /* translators: %d: minutes */
-                    _n('Too many failed sign-ins. Try again in %d minute.', 'Too many failed sign-ins. Try again in %d minutes.', $lock, 'sepo-wp-bridge'),
+                    _n('Too many failed sign-ins. Try again in %d minute.', 'Too many failed sign-ins. Try again in %d minutes.', $lock, 'sepo-bridge'),
                     $lock
                 ));
             }
@@ -285,7 +283,7 @@ class Handlers
             if ($pw !== '' && !$check($pw)) {
                 $errors->add('weak_password', sprintf(
                     /* translators: %d: characters */
-                    __('Use at least %d characters, with upper and lower case letters, a number and a symbol.', 'sepo-wp-bridge'),
+                    __('Use at least %d characters, with upper and lower case letters, a number and a symbol.', 'sepo-bridge'),
                     $minLength
                 ));
             }
@@ -302,7 +300,7 @@ class Handlers
             // Every dotted part, so "photo.php.jpg" is caught too.
             $parts = array_slice(explode('.', strtolower((string) ($file['name'] ?? ''))), 1);
             if (array_intersect($parts, $blocked) !== [] || str_starts_with((string) ($file['name'] ?? ''), '.')) {
-                $file['error'] = __('This file type is not allowed for security reasons.', 'sepo-wp-bridge');
+                $file['error'] = __('This file type is not allowed for security reasons.', 'sepo-bridge');
             }
             return $file;
         });
@@ -319,7 +317,7 @@ class Handlers
             if ($count > max(1, $max)) {
                 status_header(429);
                 header('Retry-After: ' . max(1, $window));
-                wp_die(esc_html__('Too many requests. Please wait a moment and try again.', 'sepo-wp-bridge'), '', ['response' => 429]);
+                wp_die(esc_html__('Too many requests. Please wait a moment and try again.', 'sepo-bridge'), '', ['response' => 429]);
             }
             set_transient($key, $count, max(1, $window));
         }, 0);
@@ -389,7 +387,7 @@ class Handlers
             }
             $svg = is_readable((string) ($file['tmp_name'] ?? '')) ? (string) file_get_contents($file['tmp_name']) : '';
             if ($svg === '' || preg_match('/<script|\son[a-z]+\s*=|javascript:|<foreignObject|<!ENTITY|xlink:href\s*=\s*["\']\s*(?!#)/i', $svg)) {
-                $file['error'] = __('This SVG contains scripts or external links and was refused.', 'sepo-wp-bridge');
+                $file['error'] = __('This SVG contains scripts or external links and was refused.', 'sepo-bridge');
             }
             return $file;
         });
@@ -485,17 +483,17 @@ class Handlers
             switch ($action) {
                 case 'lostpassword':
                 case 'retrievepassword':
-                    $title = __('Reset your password', 'sepo-wp-bridge');
+                    $title = __('Reset your password', 'sepo-bridge');
                     break;
                 case 'rp':
                 case 'resetpass':
-                    $title = __('Choose a new password', 'sepo-wp-bridge');
+                    $title = __('Choose a new password', 'sepo-bridge');
                     break;
                 case 'register':
-                    $title = __('Create an account', 'sepo-wp-bridge');
+                    $title = __('Create an account', 'sepo-bridge');
                     break;
                 case 'sepo_2fa':
-                    $title = __('Verification code', 'sepo-wp-bridge');
+                    $title = __('Verification code', 'sepo-bridge');
                     break;
                 case 'confirm_admin_email':
                 case 'postpass':
@@ -503,7 +501,7 @@ class Handlers
                 case 'confirmaction':
                     return $message;
                 default:
-                    $title = $heading !== '' ? $heading : __('Welcome back', 'sepo-wp-bridge');
+                    $title = $heading !== '' ? $heading : __('Welcome back', 'sepo-bridge');
             }
             return '<h2 class="sepo-login-title">' . esc_html($title) . '</h2>' . $message;
         }, 5);

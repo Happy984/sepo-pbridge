@@ -1,4 +1,4 @@
-/* Sepo WordPress Bridge — block editor: Post field block + Visibility panel. No build step. */
+/* Sepo Bridge — block editor: Post field block + Visibility panel. No build step. */
 (function (wp, cfg) {
   if (!wp || !wp.blocks || !wp.element) return;
   var el = wp.element.createElement;
@@ -13,21 +13,21 @@
 
   // ------------------------------------------------------------ Post field block
   var core = [
-    { value: 'post_title', label: __('Title', 'sepo-wp-bridge') },
-    { value: 'post_date', label: __('Published date', 'sepo-wp-bridge') },
-    { value: 'post_modified', label: __('Updated date', 'sepo-wp-bridge') },
-    { value: 'post_author', label: __('Author', 'sepo-wp-bridge') },
-    { value: 'post_excerpt', label: __('Excerpt', 'sepo-wp-bridge') },
-    { value: 'permalink', label: __('Link', 'sepo-wp-bridge') }
+    { value: 'post_title', label: __('Title', 'sepo-bridge') },
+    { value: 'post_date', label: __('Published date', 'sepo-bridge') },
+    { value: 'post_modified', label: __('Updated date', 'sepo-bridge') },
+    { value: 'post_author', label: __('Author', 'sepo-bridge') },
+    { value: 'post_excerpt', label: __('Excerpt', 'sepo-bridge') },
+    { value: 'permalink', label: __('Link', 'sepo-bridge') }
   ];
   var options = core.concat(cfg.fields.map(function (f) {
-    return { value: f.value, label: __('Custom field:', 'sepo-wp-bridge') + ' ' + f.label };
+    return { value: f.value, label: __('Custom field:', 'sepo-bridge') + ' ' + f.label };
   }));
 
   wp.blocks.registerBlockType('sepo/dynamic-field', {
     apiVersion: 2,
-    title: __('Post field', 'sepo-wp-bridge'),
-    description: __('Shows one value of the current post: title, date, author, link or a custom field.', 'sepo-wp-bridge'),
+    title: __('Post field', 'sepo-bridge'),
+    description: __('Shows one value of the current post: title, date, author, link or a custom field.', 'sepo-bridge'),
     icon: 'database',
     category: 'theme',
     usesContext: ['postId', 'postType'],
@@ -41,13 +41,13 @@
       var postId = props.context && props.context.postId;
       return el('div', blockProps,
         el(InspectorControls, null,
-          el(C.PanelBody, { title: __('Field', 'sepo-wp-bridge'), initialOpen: true },
+          el(C.PanelBody, { title: __('Field', 'sepo-bridge'), initialOpen: true },
             el(C.SelectControl, {
-              label: __('Show', 'sepo-wp-bridge'), value: a.field, options: options,
+              label: __('Show', 'sepo-bridge'), value: a.field, options: options,
               onChange: function (v) { props.setAttributes({ field: v }); }
             }),
             el(C.TextControl, {
-              label: __('Label before the value', 'sepo-wp-bridge'), value: a.label,
+              label: __('Label before the value', 'sepo-bridge'), value: a.label,
               onChange: function (v) { props.setAttributes({ label: v }); }
             })
           )
@@ -58,7 +58,7 @@
           urlQueryArgs: postId ? { post_id: postId } : {},
           EmptyResponsePlaceholder: function () {
             return el('p', { className: 'sepo-field-empty', style: { opacity: .6 } },
-              (a.label ? a.label + ' ' : '') + '[' + a.field + '] ' + __('— empty for this post', 'sepo-wp-bridge'));
+              (a.label ? a.label + ' ' : '') + '[' + a.field + '] ' + __('— empty for this post', 'sepo-bridge'));
           }
         }) : el('p', null, '[' + a.field + ']')
       );
@@ -67,15 +67,15 @@
   });
 
   // ------------------------------------------------------------ Field group block
-  var groupOptions = [{ value: '', label: __('Every group for this post type', 'sepo-wp-bridge') }].concat(cfg.groups || []);
+  var groupOptions = [{ value: '', label: __('Every group for this post type', 'sepo-bridge') }].concat(cfg.groups || []);
 
   wp.blocks.registerBlockType('sepo/field-group', {
     apiVersion: 2,
-    title: __('Field group', 'sepo-wp-bridge'),
-    description: __('Shows all the fields of a group for the current post, as a table, a grid or inline.', 'sepo-wp-bridge'),
+    title: __('Field group', 'sepo-bridge'),
+    description: __('Shows all the fields of a group for the current post, as a table, a grid or inline.', 'sepo-bridge'),
     icon: 'list-view',
     category: 'theme',
-    keywords: [__('custom fields', 'sepo-wp-bridge'), __('meta', 'sepo-wp-bridge'), __('details', 'sepo-wp-bridge')],
+    keywords: [__('custom fields', 'sepo-bridge'), __('meta', 'sepo-bridge'), __('details', 'sepo-bridge')],
     usesContext: ['postId', 'postType'],
     attributes: {
       group: { type: 'string', default: '' },
@@ -88,37 +88,37 @@
       var blockProps = useBlockProps ? useBlockProps() : {};
       var postId = props.context && props.context.postId;
       if (!cfg.groups || !cfg.groups.length) {
-        return el('div', blockProps, el(C.Placeholder, { icon: 'list-view', label: __('Field group', 'sepo-wp-bridge') },
-          __('Create a field group under WP Bridge → Meta fields first.', 'sepo-wp-bridge')));
+        return el('div', blockProps, el(C.Placeholder, { icon: 'list-view', label: __('Field group', 'sepo-bridge') },
+          __('Create a field group under WP Bridge → Meta fields first.', 'sepo-bridge')));
       }
       return el('div', blockProps,
         el(InspectorControls, null,
-          el(C.PanelBody, { title: __('Fields', 'sepo-wp-bridge'), initialOpen: true },
+          el(C.PanelBody, { title: __('Fields', 'sepo-bridge'), initialOpen: true },
             el(C.SelectControl, {
-              label: __('Group', 'sepo-wp-bridge'), value: a.group, options: groupOptions,
+              label: __('Group', 'sepo-bridge'), value: a.group, options: groupOptions,
               onChange: function (v) { props.setAttributes({ group: v }); }
             }),
             el(C.SelectControl, {
-              label: __('Style', 'sepo-wp-bridge'), value: a.style,
+              label: __('Style', 'sepo-bridge'), value: a.style,
               options: [
-                { value: '', label: __('As set for the group', 'sepo-wp-bridge') },
-                { value: 'table', label: __('Table', 'sepo-wp-bridge') },
-                { value: 'grid', label: __('Grid', 'sepo-wp-bridge') },
-                { value: 'inline', label: __('Inline', 'sepo-wp-bridge') }
+                { value: '', label: __('As set for the group', 'sepo-bridge') },
+                { value: 'table', label: __('Table', 'sepo-bridge') },
+                { value: 'grid', label: __('Grid', 'sepo-bridge') },
+                { value: 'inline', label: __('Inline', 'sepo-bridge') }
               ],
               onChange: function (v) { props.setAttributes({ style: v }); }
             }),
             el(C.SelectControl, {
-              label: __('Group title', 'sepo-wp-bridge'), value: a.showTitle,
+              label: __('Group title', 'sepo-bridge'), value: a.showTitle,
               options: [
-                { value: 'group', label: __('As set for the group', 'sepo-wp-bridge') },
-                { value: 'yes', label: __('Show', 'sepo-wp-bridge') },
-                { value: 'no', label: __('Hide', 'sepo-wp-bridge') }
+                { value: 'group', label: __('As set for the group', 'sepo-bridge') },
+                { value: 'yes', label: __('Show', 'sepo-bridge') },
+                { value: 'no', label: __('Hide', 'sepo-bridge') }
               ],
               onChange: function (v) { props.setAttributes({ showTitle: v }); }
             }),
             el(C.ToggleControl, {
-              label: __('List empty fields too', 'sepo-wp-bridge'), checked: !!a.showEmpty,
+              label: __('List empty fields too', 'sepo-bridge'), checked: !!a.showEmpty,
               onChange: function (v) { props.setAttributes({ showEmpty: v }); }
             })
           )
@@ -129,9 +129,9 @@
           urlQueryArgs: postId ? { post_id: postId } : {},
           EmptyResponsePlaceholder: function () {
             return el('p', { className: 'sepo-field-empty', style: { opacity: .6, padding: '12px', border: '1px dashed currentColor', borderRadius: '8px' } },
-              __('Field group — no values for this post yet. Fill them in the field box below the editor.', 'sepo-wp-bridge'));
+              __('Field group — no values for this post yet. Fill them in the field box below the editor.', 'sepo-bridge'));
           }
-        }) : el('p', null, __('Field group', 'sepo-wp-bridge'))
+        }) : el('p', null, __('Field group', 'sepo-bridge'))
       );
     },
     save: function () { return null; }
@@ -160,18 +160,18 @@
       return el(Fragment, null,
         el(BlockEdit, props),
         el(InspectorControls, null,
-          el(C.PanelBody, { title: __('Visibility', 'sepo-wp-bridge') + (active ? ' •' : ''), initialOpen: !!active },
+          el(C.PanelBody, { title: __('Visibility', 'sepo-bridge') + (active ? ' •' : ''), initialOpen: !!active },
             el(C.SelectControl, {
-              label: __('Show to', 'sepo-wp-bridge'), value: v.who || 'everyone',
+              label: __('Show to', 'sepo-bridge'), value: v.who || 'everyone',
               options: [
-                { value: 'everyone', label: __('Everyone', 'sepo-wp-bridge') },
-                { value: 'logged_in', label: __('Signed-in users only', 'sepo-wp-bridge') },
-                { value: 'guests', label: __('Signed-out visitors only', 'sepo-wp-bridge') }
+                { value: 'everyone', label: __('Everyone', 'sepo-bridge') },
+                { value: 'logged_in', label: __('Signed-in users only', 'sepo-bridge') },
+                { value: 'guests', label: __('Signed-out visitors only', 'sepo-bridge') }
               ],
               onChange: function (x) { set({ who: x }); }
             }),
             v.who === 'guests' ? null : el(Fragment, null,
-              el('p', { style: { margin: '8px 0 4px', fontWeight: 600 } }, __('Roles (none = any)', 'sepo-wp-bridge')),
+              el('p', { style: { margin: '8px 0 4px', fontWeight: 600 } }, __('Roles (none = any)', 'sepo-bridge')),
               cfg.roles.map(function (r) {
                 return el(C.CheckboxControl, {
                   key: r.value, label: r.label, checked: roles.indexOf(r.value) !== -1,
@@ -183,19 +183,19 @@
                 });
               }),
               cfg.tiers.length ? el(C.SelectControl, {
-                label: __('Members of tier', 'sepo-wp-bridge'), value: v.tier || '',
-                options: [{ value: '', label: __('Any (no tier needed)', 'sepo-wp-bridge') }].concat(cfg.tiers.map(function (t) {
-                  return { value: t.value, label: t.label + ' ' + __('and above', 'sepo-wp-bridge') };
+                label: __('Members of tier', 'sepo-bridge'), value: v.tier || '',
+                options: [{ value: '', label: __('Any (no tier needed)', 'sepo-bridge') }].concat(cfg.tiers.map(function (t) {
+                  return { value: t.value, label: t.label + ' ' + __('and above', 'sepo-bridge') };
                 })),
                 onChange: function (x) { set({ tier: x }); }
               }) : null,
               v.tier ? el(C.ToggleControl, {
-                label: __('Show a lock instead of hiding it', 'sepo-wp-bridge'), checked: !!v.locked,
+                label: __('Show a lock instead of hiding it', 'sepo-bridge'), checked: !!v.locked,
                 onChange: function (x) { set({ locked: x }); }
               }) : null
             ),
             el('p', { style: { opacity: .7, fontSize: '12px', margin: '8px 0 0' } },
-              __('The editor always shows the block; the rule applies on the site.', 'sepo-wp-bridge'))
+              __('The editor always shows the block; the rule applies on the site.', 'sepo-bridge'))
           )
         )
       );

@@ -1,18 +1,50 @@
-/* Sepo WordPress Bridge — admin panel. Flat: borders, no shadows. */
+/* Sepo Bridge — admin panel. Flat: borders, no shadows. */
 .wb-app, .wb-modal { --wb-accent: #0b3d33; --wb-line: #dcdcde; --wb-soft: #f6f7f7; --wb-muted: #646970; --wb-danger: #b32d2e; color: #1d2327; }
-.wb-app { max-width: 1080px; }
+.wb-app { max-width: 1280px; margin-top: 12px; }
 .wb-app *, .wb-modal * { box-sizing: border-box; }
-.wb-head { margin: 8px 0 16px; }
-.wb-kicker { font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--wb-muted); }
-.wb-title { margin: 2px 0 6px; padding: 0; font-size: 23px; line-height: 1.25; font-weight: 600; }
-.wb-sub { margin: 0; color: #50575e; max-width: 70ch; line-height: 1.55; font-size: 14px; }
 
-.wb-tabs { display: flex; flex-wrap: wrap; gap: 2px; border-bottom: 1px solid var(--wb-line); margin: 18px 0 14px; }
-.wb-tab { background: transparent; border: 1px solid transparent; border-bottom: 0; margin-bottom: -1px; padding: 9px 14px; font: inherit; font-size: 14px; color: #50575e; cursor: pointer; border-radius: 6px 6px 0 0; }
-.wb-tab:hover { color: #1d2327; }
-.wb-tab.is-on { background: #fff; border-color: var(--wb-line); color: #1d2327; font-weight: 600; }
+/* page header */
+.wb-top { display: flex; align-items: center; gap: 14px; padding: 16px 20px; background: #fff; border: 1px solid var(--wb-line); border-radius: 12px; }
+.wb-top-logo { display: grid; place-items: center; width: 44px; height: 44px; flex: none; border-radius: 10px; background: var(--wb-accent); color: #fff; }
+.wb-top-text { min-width: 0; flex: 1; }
+.wb-app .wb-title { margin: 0; padding: 0; font-size: 20px; line-height: 1.25; font-weight: 600; }
+.wb-top-sub { margin: 2px 0 0; color: var(--wb-muted); font-size: 13px; }
+.wb-top-ver { padding: 3px 10px; border-radius: 999px; background: var(--wb-soft); border: 1px solid var(--wb-line); color: var(--wb-muted); font-size: 12px; white-space: nowrap; }
+.wb-wrap .wp-header-end { margin: 0; border: 0; visibility: hidden; }
+.wb-wrap > .notice, .wb-wrap > .error, .wb-wrap > .updated, .wb-app > .notice { margin: 12px 0 0; }
+
+/* two columns: side menu and section */
+.wb-layout { display: grid; grid-template-columns: 232px minmax(0, 1fr); gap: 20px; align-items: start; margin-top: 16px; }
+.wb-side { position: sticky; top: 46px; padding: 10px; background: #fff; border: 1px solid var(--wb-line); border-radius: 12px; }
+.wb-side-pick { display: none; }
+.wb-tabs { display: flex; flex-direction: column; gap: 2px; }
+.wb-side-group { margin: 12px 10px 4px; color: var(--wb-muted); font-size: 11px; font-weight: 600; letter-spacing: .07em; text-transform: uppercase; }
+.wb-side-group:first-child { margin-top: 4px; }
+.wb-tab { display: flex; align-items: center; gap: 10px; width: 100%; min-height: 38px; padding: 8px 10px; border: 0; border-radius: 8px; background: transparent; color: #3c434a; font: inherit; font-size: 14px; text-align: left; cursor: pointer; }
+.wb-tab .wb-ico { flex: none; color: #646970; }
+.wb-tab:hover { background: var(--wb-soft); color: #1d2327; }
+.wb-tab.is-on { background: #e6efec; color: var(--wb-accent); font-weight: 600; }
+.wb-tab.is-on .wb-ico { color: var(--wb-accent); }
 .wb-tab:focus:not(:focus-visible) { outline: none; box-shadow: none; }
 .wb-tab:focus-visible { outline: 2px solid #2271b1; outline-offset: -2px; box-shadow: none; }
+
+.wb-main { min-width: 0; }
+.wb-panel { background: #fff; border: 1px solid var(--wb-line); border-radius: 12px; }
+.wb-section-head { display: flex; align-items: flex-start; gap: 14px; padding: 20px 24px; border-bottom: 1px solid var(--wb-line); }
+.wb-section-icon { display: grid; place-items: center; width: 40px; height: 40px; flex: none; border-radius: 10px; background: #e6efec; color: var(--wb-accent); }
+.wb-app .wb-section-title { margin: 0; padding: 0; font-size: 18px; line-height: 1.3; font-weight: 600; }
+.wb-section-desc { margin: 4px 0 0; color: #50575e; font-size: 13px; line-height: 1.55; max-width: 72ch; }
+.wb-section-body { padding: 20px 24px 24px; }
+.wb-section-body > :first-child { margin-top: 0; }
+
+@media (max-width: 960px) {
+  .wb-layout { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+  .wb-side { position: static; padding: 0; border: 0; background: transparent; }
+  .wb-tabs { display: none; }
+  .wb-side-pick { display: block; }
+  .wb-side-pick select { width: 100%; max-width: none; min-height: 40px; border-radius: 8px; }
+  .wb-section-head, .wb-section-body { padding-left: 16px; padding-right: 16px; }
+}
 .wb-panel[hidden], .wb-app [hidden], .wb-modal [hidden] { display: none !important; }
 
 .wb-toolbar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 4px 0 14px; }

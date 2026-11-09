@@ -138,7 +138,7 @@ final class NavVisibility
             $label = (new TierStore())->label($rule['tier']);
             return '<p class="sp-block-lock">&#128274; <a href="' . esc_url(self::lockUrl('')) . '">'
                 /* translators: %s: tier label */
-                . esc_html(sprintf(__('For %s members — sign in or join to see this.', 'sepo-wp-bridge'), $label))
+                . esc_html(sprintf(__('For %s members — sign in or join to see this.', 'sepo-bridge'), $label))
                 . '</a></p>';
         }
         return $html;
@@ -183,7 +183,7 @@ final class NavVisibility
                 try {
                     $hasTier = (new TierStore())->hasLevel((int) get_current_user_id(), $tier);
                 } catch (Throwable $e) {
-                    error_log('[sepo-wb] nav tier: ' . $e->getMessage());
+                    do_action('sepo_wb_error', 'nav tier', $e);
                 }
             }
         }
@@ -309,7 +309,7 @@ final class NavVisibility
         $home = wp_parse_url(home_url());
         $base = ($home['scheme'] ?? 'https') . '://' . ($home['host'] ?? '')
             . (isset($home['port']) ? ':' . $home['port'] : '');
-        $uri = (string) ($_SERVER['REQUEST_URI'] ?? '/');
+        $uri = esc_url_raw(wp_unslash((string) ($_SERVER['REQUEST_URI'] ?? '/')));
         return esc_url_raw($base . ($uri !== '' && $uri[0] === '/' ? $uri : '/'));
     }
 
@@ -327,18 +327,18 @@ final class NavVisibility
         $roles  = wp_roles()->get_names();
 
         echo '<fieldset class="sepo-wb-navvis" style="margin:8px 0;padding:8px 10px;border:1px solid #dcdcde;border-radius:4px;clear:both">';
-        echo '<legend style="padding:0 4px;font-weight:600">' . esc_html__('Visibility', 'sepo-wp-bridge') . '</legend>';
+        echo '<legend style="padding:0 4px;font-weight:600">' . esc_html__('Visibility', 'sepo-bridge') . '</legend>';
         echo '<input type="hidden" name="sp_nav_vis_nonce[' . (int) $itemId . ']" value="'
             . esc_attr(wp_create_nonce('sp_nav_vis_' . $itemId)) . '">';
 
-        echo '<p><label>' . esc_html__('Show to', 'sepo-wp-bridge') . '<br><select name="' . esc_attr($base) . '[who]">';
-        foreach (['everyone' => __('Everyone', 'sepo-wp-bridge'), 'logged_in' => __('Signed-in users only', 'sepo-wp-bridge'), 'guests' => __('Signed-out visitors only', 'sepo-wp-bridge')] as $v => $l) {
+        echo '<p><label>' . esc_html__('Show to', 'sepo-bridge') . '<br><select name="' . esc_attr($base) . '[who]">';
+        foreach (['everyone' => __('Everyone', 'sepo-bridge'), 'logged_in' => __('Signed-in users only', 'sepo-bridge'), 'guests' => __('Signed-out visitors only', 'sepo-bridge')] as $v => $l) {
             printf('<option value="%s"%s>%s</option>',
                 esc_attr($v), selected($rule['who'], $v, false), esc_html($l));
         }
         echo '</select></label></p>';
 
-        echo '<p><strong>' . esc_html__('Roles', 'sepo-wp-bridge') . '</strong> ' . esc_html__('(none ticked = any role)', 'sepo-wp-bridge') . '</p><p style="display:flex;flex-wrap:wrap;gap:4px 12px">';
+        echo '<p><strong>' . esc_html__('Roles', 'sepo-bridge') . '</strong> ' . esc_html__('(none ticked = any role)', 'sepo-bridge') . '</p><p style="display:flex;flex-wrap:wrap;gap:4px 12px">';
         foreach ($roles as $slug => $name) {
             printf(
                 '<label><input type="checkbox" name="%s[roles][]" value="%s"%s> %s</label>',
@@ -351,12 +351,12 @@ final class NavVisibility
         echo '</p>';
 
         $tiers = (new TierStore())->tiers();
-        echo '<p><label>' . esc_html__('Members of tier', 'sepo-wp-bridge') . '<br><select class="widefat" name="' . esc_attr($base) . '[tier]">';
-        echo '<option value="">' . esc_html__('Any (no tier needed)', 'sepo-wp-bridge') . '</option>';
+        echo '<p><label>' . esc_html__('Members of tier', 'sepo-bridge') . '<br><select class="widefat" name="' . esc_attr($base) . '[tier]">';
+        echo '<option value="">' . esc_html__('Any (no tier needed)', 'sepo-bridge') . '</option>';
         foreach ($tiers as $t) {
             printf('<option value="%s"%s>%s</option>', esc_attr($t['id']), selected($rule['tier'], $t['id'], false),
                 /* translators: %s: tier label */
-                esc_html(sprintf(__('%s and above', 'sepo-wp-bridge'), $t['label'])));
+                esc_html(sprintf(__('%s and above', 'sepo-bridge'), $t['label'])));
         }
         if ($rule['tier'] !== '' && !in_array($rule['tier'], array_column($tiers, 'id'), true)) {
             printf('<option value="%s" selected>%s</option>', esc_attr($rule['tier']), esc_html($rule['tier'] . ' (?)'));
@@ -367,7 +367,7 @@ final class NavVisibility
             '<p><label><input type="checkbox" name="%s[locked]" value="1"%s> %s</label></p>',
             esc_attr($base),
             checked($rule['locked'], true, false),
-            esc_html__('Show it with a lock to people without the tier (instead of hiding it)', 'sepo-wp-bridge')
+            esc_html__('Show it with a lock to people without the tier (instead of hiding it)', 'sepo-bridge')
         );
 
         echo '</fieldset>';
@@ -388,7 +388,7 @@ final class NavVisibility
         }
 
         $posted = isset($_POST['sp_nav_vis'][$itemId]) && is_array($_POST['sp_nav_vis'][$itemId])
-            ? wp_unslash($_POST['sp_nav_vis'][$itemId])
+            ? map_deep(wp_unslash($_POST['sp_nav_vis'][$itemId]), 'sanitize_text_field')
             : [];
 
         $rule = self::normaliseRule($posted);

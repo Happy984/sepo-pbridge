@@ -9,7 +9,7 @@ defined('ABSPATH') || exit;
 
 final class AdminController
 {
-    public const SLUG = 'sepo-wp-bridge';
+    public const SLUG = 'sepo-bridge';
 
     private FeatureRegistry $registry;
     private FeatureState    $state;
@@ -28,12 +28,12 @@ final class AdminController
         add_action('admin_menu', [$this, 'registerMenu']);
         add_action('admin_enqueue_scripts', [$this, 'enqueueAssets']);
         add_filter('plugin_action_links_' . SEPO_WB_BASENAME, static function (array $links): array {
-            array_unshift($links, '<a href="' . esc_url(admin_url('admin.php?page=' . self::SLUG)) . '">' . esc_html__('Settings', 'sepo-wp-bridge') . '</a>');
+            array_unshift($links, '<a href="' . esc_url(admin_url('admin.php?page=' . self::SLUG)) . '">' . esc_html__('Settings', 'sepo-bridge') . '</a>');
             return $links;
         });
         if (defined('SEPO_WB_SAFE_MODE') && SEPO_WB_SAFE_MODE) {
             add_action('admin_notices', static function (): void {
-                echo '<div class="notice notice-warning"><p>' . esc_html__('Sepo WordPress Bridge is in safe mode (SEPO_WB_SAFE_MODE): feature toggles are not being applied.', 'sepo-wp-bridge') . '</p></div>';
+                echo '<div class="notice notice-warning"><p>' . esc_html__('Sepo Bridge is in safe mode (SEPO_WB_SAFE_MODE): feature toggles are not being applied.', 'sepo-bridge') . '</p></div>';
             });
         }
     }
@@ -41,8 +41,8 @@ final class AdminController
     public function registerMenu(): void
     {
         $this->hookSuffix = (string) add_menu_page(
-            __('WordPress Configuration', 'sepo-wp-bridge'),
-            __('WP Bridge', 'sepo-wp-bridge'),
+            __('WordPress Configuration', 'sepo-bridge'),
+            __('WP Bridge', 'sepo-bridge'),
             'manage_options',
             self::SLUG,
             [$this, 'render'],
@@ -58,13 +58,14 @@ final class AdminController
         }
         wp_enqueue_style('sepo-wb-admin', SEPO_WB_URL . 'assets/css/admin.css', [], self::assetVersion('assets/css/admin.css'));
         wp_enqueue_script('sepo-wb-admin', SEPO_WB_URL . 'assets/js/admin.js', ['wp-i18n'], self::assetVersion('assets/js/admin.js'), true);
-        wp_set_script_translations('sepo-wb-admin', 'sepo-wp-bridge');
+        wp_set_script_translations('sepo-wb-admin', 'sepo-bridge');
         wp_enqueue_style('sepo-wb-cookies-admin', SEPO_WB_URL . 'assets/css/cookies-admin.css', ['sepo-wb-admin'], self::assetVersion('assets/css/cookies-admin.css'));
         wp_enqueue_script('sepo-wb-cookies-admin', SEPO_WB_URL . 'assets/js/cookies-admin.js', ['sepo-wb-admin'], self::assetVersion('assets/js/cookies-admin.js'), true);
-        wp_set_script_translations('sepo-wb-cookies-admin', 'sepo-wp-bridge');
+        wp_set_script_translations('sepo-wb-cookies-admin', 'sepo-bridge');
         wp_enqueue_style('sepo-wb-signin-admin', SEPO_WB_URL . 'assets/css/signin-admin.css', ['sepo-wb-admin'], self::assetVersion('assets/css/signin-admin.css'));
         wp_enqueue_script('sepo-wb-signin-admin', SEPO_WB_URL . 'assets/js/signin-admin.js', ['sepo-wb-admin'], self::assetVersion('assets/js/signin-admin.js'), true);
-        wp_set_script_translations('sepo-wb-signin-admin', 'sepo-wp-bridge');
+        wp_set_script_translations('sepo-wb-signin-admin', 'sepo-bridge');
+        \SepoWB\Site\AdminAssets::enqueue();
         wp_localize_script('sepo-wb-admin', 'SepoWB', [
             'api'       => esc_url_raw(rest_url('sepo-wb/v1')),
             'nonce'     => wp_create_nonce('wp_rest'),
@@ -83,7 +84,7 @@ final class AdminController
     public function render(): void
     {
         if (!current_user_can('manage_options')) {
-            wp_die(esc_html__('Access denied.', 'sepo-wp-bridge'));
+            wp_die(esc_html__('Access denied.', 'sepo-bridge'));
         }
         View::page();
     }

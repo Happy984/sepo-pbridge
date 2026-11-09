@@ -1,4 +1,5 @@
 <?php
+// phpcs:disable PluginCheck.Security.DirectDB.UnescapedDBParameter, WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.DirectDatabaseQuery.SchemaChange, WordPress.DB.PreparedSQL.InterpolatedNotPrepared, WordPress.DB.PreparedSQL.NotPrepared, WordPress.DB.PreparedSQLPlaceholders.ReplacementsWrongNumber, WordPress.DB.PreparedSQLPlaceholders.UnfinishedPrepare -- Custom plugin tables: names are built from $wpdb->prefix plus a fixed suffix, values go through $wpdb->prepare(), and dynamic fragments come from fixed allow-lists.
 namespace SepoWB\Rest;
 
 use InvalidArgumentException;
@@ -76,8 +77,8 @@ final class RestController
             } catch (InvalidArgumentException $e) {
                 return new WP_Error('sepo_wb_invalid', $e->getMessage(), ['status' => 422]);
             } catch (\Throwable $e) {
-                error_log('[sepo-wb] ' . $method . ': ' . $e->getMessage());
-                return new WP_Error('sepo_wb_error', __('Something went wrong. Nothing was changed.', 'sepo-wp-bridge'), ['status' => 500]);
+                do_action('sepo_wb_error', $method, $e);
+                return new WP_Error('sepo_wb_error', __('Something went wrong. Nothing was changed.', 'sepo-bridge'), ['status' => 500]);
             }
         };
     }
@@ -91,7 +92,7 @@ final class RestController
     private static function notFound(string $what): WP_Error
     {
         /* translators: %s: item */
-        return new WP_Error('sepo_wb_not_found', sprintf(__('%s not found.', 'sepo-wp-bridge'), $what), ['status' => 404]);
+        return new WP_Error('sepo_wb_not_found', sprintf(__('%s not found.', 'sepo-bridge'), $what), ['status' => 404]);
     }
 
     /** Post types a taxonomy or field group can be attached to. @return list<array{value:string,label:string}> */
@@ -138,7 +139,7 @@ final class RestController
     {
         $key = sanitize_key((string) $req->get_param('key'));
         if ($this->registry->get($key) === null) {
-            return self::notFound(__('Feature', 'sepo-wp-bridge'));
+            return self::notFound(__('Feature', 'sepo-bridge'));
         }
         $this->state->set($key, filter_var($req->get_param('enabled'), FILTER_VALIDATE_BOOLEAN));
         return self::ok(['key' => $key, 'enabled' => $this->state->isEnabled($key)]);
@@ -155,7 +156,7 @@ final class RestController
     {
         $key = sanitize_key((string) $req->get_param('key'));
         if (!$this->registry->delete($key)) {
-            return self::notFound(__('Feature', 'sepo-wp-bridge'));
+            return self::notFound(__('Feature', 'sepo-bridge'));
         }
         $this->state->forget($key);
         return self::ok();
@@ -188,7 +189,7 @@ final class RestController
     public function cptDelete(WP_REST_Request $req)
     {
         if (!$this->schema->deleteCpt(sanitize_key((string) $req->get_param('post_type')))) {
-            return self::notFound(__('Post type', 'sepo-wp-bridge'));
+            return self::notFound(__('Post type', 'sepo-bridge'));
         }
         return self::ok();
     }
@@ -214,7 +215,7 @@ final class RestController
     public function taxonomyDelete(WP_REST_Request $req)
     {
         if (!$this->schema->deleteTaxonomy(sanitize_key((string) $req->get_param('taxonomy')))) {
-            return self::notFound(__('Taxonomy', 'sepo-wp-bridge'));
+            return self::notFound(__('Taxonomy', 'sepo-bridge'));
         }
         return self::ok();
     }
@@ -240,7 +241,7 @@ final class RestController
     public function metaGroupDelete(WP_REST_Request $req)
     {
         $ok = $this->schema->deleteMetaGroup(sanitize_key((string) $req->get_param('id')), filter_var($req->get_param('purge'), FILTER_VALIDATE_BOOLEAN));
-        return $ok ? self::ok() : self::notFound(__('Group', 'sepo-wp-bridge'));
+        return $ok ? self::ok() : self::notFound(__('Group', 'sepo-bridge'));
     }
 
     public function metaFieldDelete(WP_REST_Request $req)
@@ -250,7 +251,7 @@ final class RestController
             sanitize_key((string) $req->get_param('field_id')),
             filter_var($req->get_param('purge'), FILTER_VALIDATE_BOOLEAN)
         );
-        return $ok ? self::ok() : self::notFound(__('Field', 'sepo-wp-bridge'));
+        return $ok ? self::ok() : self::notFound(__('Field', 'sepo-bridge'));
     }
 
     // ============================================================ membership

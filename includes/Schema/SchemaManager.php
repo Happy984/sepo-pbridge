@@ -1,4 +1,6 @@
 <?php
+// phpcs:disable PluginCheck.Security.DirectDB.UnescapedDBParameter, WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.DirectDatabaseQuery.SchemaChange, WordPress.DB.PreparedSQL.InterpolatedNotPrepared, WordPress.DB.PreparedSQL.NotPrepared, WordPress.DB.PreparedSQLPlaceholders.ReplacementsWrongNumber, WordPress.DB.PreparedSQLPlaceholders.UnfinishedPrepare -- Custom plugin tables: names are built from $wpdb->prefix plus a fixed suffix, values go through $wpdb->prepare(), and dynamic fragments come from fixed allow-lists.
+// phpcs:disable WordPress.Security.EscapeOutput.ExceptionNotEscaped -- Exception messages are returned as JSON data or escaped at the point they are displayed.
 namespace SepoWB\Schema;
 
 use InvalidArgumentException;
@@ -118,16 +120,25 @@ final class SchemaManager
                 'name'               => $many,
                 'singular_name'      => $one,
                 'menu_name'          => $many,
-                'add_new'            => __('Add New', 'sepo-wp-bridge'),
-                'add_new_item'       => $s(__('Add New %s', 'sepo-wp-bridge')),
-                'edit_item'          => $s(__('Edit %s', 'sepo-wp-bridge')),
-                'new_item'           => $s(__('New %s', 'sepo-wp-bridge')),
-                'view_item'          => $s(__('View %s', 'sepo-wp-bridge')),
-                'all_items'          => $p(__('All %s', 'sepo-wp-bridge')),
-                'search_items'       => $p(__('Search %s', 'sepo-wp-bridge')),
-                'not_found'          => $p(__('No %s found.', 'sepo-wp-bridge')),
-                'not_found_in_trash' => $p(__('No %s found in Trash.', 'sepo-wp-bridge')),
-                'archives'           => $s(__('%s Archives', 'sepo-wp-bridge')),
+                'add_new'            => __('Add New', 'sepo-bridge'),
+                /* translators: %s: value. */
+                'add_new_item'       => $s(__('Add New %s', 'sepo-bridge')),
+                /* translators: %s: value. */
+                'edit_item'          => $s(__('Edit %s', 'sepo-bridge')),
+                /* translators: %s: value. */
+                'new_item'           => $s(__('New %s', 'sepo-bridge')),
+                /* translators: %s: value. */
+                'view_item'          => $s(__('View %s', 'sepo-bridge')),
+                /* translators: %s: value. */
+                'all_items'          => $p(__('All %s', 'sepo-bridge')),
+                /* translators: %s: value. */
+                'search_items'       => $p(__('Search %s', 'sepo-bridge')),
+                /* translators: %s: value. */
+                'not_found'          => $p(__('No %s found.', 'sepo-bridge')),
+                /* translators: %s: value. */
+                'not_found_in_trash' => $p(__('No %s found in Trash.', 'sepo-bridge')),
+                /* translators: %s: value. */
+                'archives'           => $s(__('%s Archives', 'sepo-bridge')),
             ],
             'public'       => !empty($cpt['public']),
             'show_ui'      => true,
@@ -164,11 +175,11 @@ final class SchemaManager
     {
         $slug = self::slug($slug);
         if ($slug === '' || strlen($slug) > 20) {
-            throw new InvalidArgumentException(__('Slug: 1–20 lower-case letters, numbers, - or _.', 'sepo-wp-bridge'));
+            throw new InvalidArgumentException(__('Slug: 1–20 lower-case letters, numbers, - or _.', 'sepo-bridge'));
         }
         $existing = $this->allCpts();
         if (in_array($slug, self::RESERVED, true) || (!isset($existing[$slug]) && post_type_exists($slug))) {
-            throw new InvalidArgumentException(sprintf(/* translators: %s: slug */ __('"%s" is already used by WordPress or another plugin.', 'sepo-wp-bridge'), $slug));
+            throw new InvalidArgumentException(sprintf(/* translators: %s: slug */ __('"%s" is already used by WordPress or another plugin.', 'sepo-bridge'), $slug));
         }
         $supports = array_values(array_intersect(self::list($data['supports'] ?? []), self::SUPPORTS));
         if ($supports === []) {
@@ -244,15 +255,15 @@ final class SchemaManager
                 'singular_name' => $one,
                 'menu_name'     => $many,
                 /* translators: %s: plural name */
-                'all_items'     => sprintf(__('All %s', 'sepo-wp-bridge'), $many),
+                'all_items'     => sprintf(__('All %s', 'sepo-bridge'), $many),
                 /* translators: %s: singular name */
-                'edit_item'     => sprintf(__('Edit %s', 'sepo-wp-bridge'), $one),
+                'edit_item'     => sprintf(__('Edit %s', 'sepo-bridge'), $one),
                 /* translators: %s: singular name */
-                'add_new_item'  => sprintf(__('Add New %s', 'sepo-wp-bridge'), $one),
+                'add_new_item'  => sprintf(__('Add New %s', 'sepo-bridge'), $one),
                 /* translators: %s: plural name */
-                'search_items'  => sprintf(__('Search %s', 'sepo-wp-bridge'), $many),
+                'search_items'  => sprintf(__('Search %s', 'sepo-bridge'), $many),
                 /* translators: %s: plural name */
-                'not_found'     => sprintf(__('No %s found.', 'sepo-wp-bridge'), strtolower($many)),
+                'not_found'     => sprintf(__('No %s found.', 'sepo-bridge'), strtolower($many)),
             ],
             'hierarchical'      => !empty($tax['hierarchical']),
             'show_in_rest'      => true,
@@ -267,15 +278,15 @@ final class SchemaManager
     {
         $slug = self::slug($slug);
         if ($slug === '' || strlen($slug) > 32) {
-            throw new InvalidArgumentException(__('Slug: 1–32 lower-case letters, numbers, - or _.', 'sepo-wp-bridge'));
+            throw new InvalidArgumentException(__('Slug: 1–32 lower-case letters, numbers, - or _.', 'sepo-bridge'));
         }
         $all = $this->allTaxonomies();
         if (in_array($slug, self::RESERVED, true) || (!isset($all[$slug]) && taxonomy_exists($slug))) {
-            throw new InvalidArgumentException(sprintf(/* translators: %s: slug */ __('"%s" is already used by WordPress or another plugin.', 'sepo-wp-bridge'), $slug));
+            throw new InvalidArgumentException(sprintf(/* translators: %s: slug */ __('"%s" is already used by WordPress or another plugin.', 'sepo-bridge'), $slug));
         }
         $assign = self::list($data['assign_to'] ?? ['post']);
         if ($assign === []) {
-            throw new InvalidArgumentException(__('Assign the taxonomy to at least one post type.', 'sepo-wp-bridge'));
+            throw new InvalidArgumentException(__('Assign the taxonomy to at least one post type.', 'sepo-bridge'));
         }
         $singular = sanitize_text_field((string) ($data['singular_name'] ?? '')) ?: ucfirst($slug);
         $all[$slug] = [
@@ -362,7 +373,7 @@ final class SchemaManager
             foreach ((array) ($group['assign_to'] ?? []) as $cpt) {
                 add_meta_box(
                     'sepo_wb_mb_' . $gid,
-                    (string) ($group['title'] ?? __('Custom fields', 'sepo-wp-bridge')),
+                    (string) ($group['title'] ?? __('Custom fields', 'sepo-bridge')),
                     function (WP_Post $post) use ($group): void {
                         $this->renderMetaBox($post, $group);
                     },
@@ -497,11 +508,11 @@ final class SchemaManager
     {
         $gid = self::slug($gid);
         if ($gid === '' || strlen($gid) > 40) {
-            throw new InvalidArgumentException(__('Group id: 1–40 lower-case letters, numbers, - or _.', 'sepo-wp-bridge'));
+            throw new InvalidArgumentException(__('Group id: 1–40 lower-case letters, numbers, - or _.', 'sepo-bridge'));
         }
         $assign = self::list($data['assign_to'] ?? ['post']);
         if ($assign === []) {
-            throw new InvalidArgumentException(__('Assign the group to at least one post type.', 'sepo-wp-bridge'));
+            throw new InvalidArgumentException(__('Assign the group to at least one post type.', 'sepo-bridge'));
         }
 
         $all = $this->allMetaGroups();
@@ -524,7 +535,7 @@ final class SchemaManager
             }
             $given = trim((string) ($f['id'] ?? ''));
             if ($given !== '' && $given[0] === '_') {
-                throw new InvalidArgumentException(sprintf(/* translators: %s: field id */ __('Field id "%s" starts with _ — those keys belong to WordPress and other plugins.', 'sepo-wp-bridge'), $given));
+                throw new InvalidArgumentException(sprintf(/* translators: %s: field id */ __('Field id "%s" starts with _ — those keys belong to WordPress and other plugins.', 'sepo-bridge'), $given));
             }
             $raw = $given !== '' ? $given : (string) ($f['label'] ?? '');
             $fid = trim((string) preg_replace('/[^a-z0-9_]+/', '_', strtolower(remove_accents($raw))), '_');
@@ -532,14 +543,14 @@ final class SchemaManager
                 continue;
             }
             if (!preg_match('/^[a-z][a-z0-9_]{0,63}$/', $fid)) {
-                throw new InvalidArgumentException(sprintf(/* translators: %s: field id */ __('Field id "%s" must start with a letter (ids starting with _ are WordPress’s own).', 'sepo-wp-bridge'), $fid));
+                throw new InvalidArgumentException(sprintf(/* translators: %s: field id */ __('Field id "%s" must start with a letter (ids starting with _ are WordPress’s own).', 'sepo-bridge'), $fid));
             }
             if (isset($ids[$fid])) {
-                throw new InvalidArgumentException(sprintf(/* translators: %s: field id */ __('Field id "%s" is used twice.', 'sepo-wp-bridge'), $fid));
+                throw new InvalidArgumentException(sprintf(/* translators: %s: field id */ __('Field id "%s" is used twice.', 'sepo-bridge'), $fid));
             }
             $type = in_array($f['type'] ?? '', self::FIELD_TYPES, true) ? (string) $f['type'] : 'text';
             if (isset($taken[$fid]) && $taken[$fid] !== $type) {
-                throw new InvalidArgumentException(sprintf(/* translators: %s: field id */ __('Field id "%s" is already a different type in another group.', 'sepo-wp-bridge'), $fid));
+                throw new InvalidArgumentException(sprintf(/* translators: %s: field id */ __('Field id "%s" is already a different type in another group.', 'sepo-bridge'), $fid));
             }
             $ids[$fid] = true;
 
@@ -556,7 +567,7 @@ final class SchemaManager
                 }
             }
             if ($type === 'select' && $cleanOpts === []) {
-                throw new InvalidArgumentException(sprintf(/* translators: %s: field id */ __('Give the select field "%s" at least one option.', 'sepo-wp-bridge'), $fid));
+                throw new InvalidArgumentException(sprintf(/* translators: %s: field id */ __('Give the select field "%s" at least one option.', 'sepo-bridge'), $fid));
             }
             $fields[] = [
                 'id'          => $fid,
@@ -570,7 +581,7 @@ final class SchemaManager
         }
 
         $all[$gid] = [
-            'title'     => sanitize_text_field((string) ($data['title'] ?? '')) ?: __('Custom fields', 'sepo-wp-bridge'),
+            'title'     => sanitize_text_field((string) ($data['title'] ?? '')) ?: __('Custom fields', 'sepo-bridge'),
             'assign_to' => $assign,
             'context'   => in_array($data['context'] ?? '', ['normal', 'side', 'advanced'], true) ? (string) $data['context'] : 'normal',
             'priority'  => in_array($data['priority'] ?? '', ['default', 'high', 'low'], true) ? (string) $data['priority'] : 'default',

@@ -24,7 +24,7 @@ final class Blocks
     {
         register_block_type('sepo/dynamic-field', [
             'api_version'     => 2,
-            'title'           => __('Post field', 'sepo-wp-bridge'),
+            'title'           => __('Post field', 'sepo-bridge'),
             'category'        => 'theme',
             'render_callback' => [__CLASS__, 'render'],
             'attributes'      => [
@@ -37,7 +37,7 @@ final class Blocks
         ]);
         register_block_type('sepo/field-group', [
             'api_version'     => 2,
-            'title'           => __('Field group', 'sepo-wp-bridge'),
+            'title'           => __('Field group', 'sepo-bridge'),
             'category'        => 'theme',
             'render_callback' => [__CLASS__, 'renderGroup'],
             'attributes'      => [
@@ -78,7 +78,7 @@ final class Blocks
             'tiers'  => array_map(static fn($t) => ['value' => $t['id'], 'label' => $t['label']], (new TierStore())->tiers()),
             'roles'  => array_map(static fn($slug, $name) => ['value' => $slug, 'label' => translate_user_role($name)], array_keys(wp_roles()->get_names()), wp_roles()->get_names()),
         ]);
-        wp_set_script_translations('sepo-wb-editor', 'sepo-wp-bridge');
+        wp_set_script_translations('sepo-wb-editor', 'sepo-bridge');
     }
 
     /**
@@ -123,9 +123,9 @@ final class Blocks
         if ($block instanceof \WP_Block && !empty($block->context['postId'])) {
             return (int) $block->context['postId'];
         }
-        // phpcs:ignore WordPress.Security.NonceVerification -- the editor preview passes the post being edited.
+        // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- the editor preview passes the post being edited; access is checked with current_user_can().
         if (defined('REST_REQUEST') && REST_REQUEST && isset($_GET['post_id']) && current_user_can('edit_post', absint($_GET['post_id']))) {
-            return absint($_GET['post_id']);
+            return absint($_GET['post_id']); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
         }
         return (int) get_the_ID();
     }

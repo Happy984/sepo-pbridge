@@ -1,4 +1,4 @@
-/* Sepo WordPress Bridge — admin panel. */
+/* Sepo Bridge — admin panel. */
 (function () {
   'use strict';
   var root = document.querySelector('.wb-app');
@@ -6,7 +6,7 @@
 
   var cfg = window.SepoWB;
   var i18n = (window.wp && window.wp.i18n) || { __: function (s) { return s; }, sprintf: function (f) { var a = [].slice.call(arguments, 1), i = 0; return f.replace(/%(\d\$)?[sd]/g, function () { return a[i++]; }); } };
-  var __ = function (s) { return i18n.__(s, 'sepo-wp-bridge'); };
+  var __ = function (s) { return i18n.__(s, 'sepo-bridge'); };
   var sprintf = i18n.sprintf;
 
   // ------------------------------------------------------------------ utils
@@ -123,6 +123,8 @@
       if (on && focus) b.focus();
     });
     root.querySelectorAll('[data-wb-panel]').forEach(function (p) { p.hidden = p.getAttribute('data-wb-panel') !== slug; });
+    var pick = root.querySelector('[data-wb-pick]');
+    if (pick && pick.value !== slug) pick.value = slug;
     try {
       var u = new URL(location.href);
       u.searchParams.set('tab', slug);
@@ -139,11 +141,14 @@
     var tabs = [].slice.call(root.querySelectorAll('[data-wb-tab]'));
     var i = tabs.indexOf(document.activeElement);
     if (i === -1) return;
-    var n = { ArrowRight: i + 1, ArrowLeft: i - 1, Home: 0, End: tabs.length - 1 }[ev.key];
+    var n = { ArrowDown: i + 1, ArrowRight: i + 1, ArrowUp: i - 1, ArrowLeft: i - 1, Home: 0, End: tabs.length - 1 }[ev.key];
     if (n === undefined) return;
     ev.preventDefault();
     showTab(tabs[(n + tabs.length) % tabs.length].getAttribute('data-wb-tab'), true);
   });
+
+  var pickEl = root.querySelector('[data-wb-pick]');
+  if (pickEl) pickEl.addEventListener('change', function () { showTab(pickEl.value); });
 
   // ------------------------------------------------------------------ filter
   root.addEventListener('input', function (ev) {

@@ -39,6 +39,7 @@ final class Plugin
     public static function deactivate(): void
     {
         wp_clear_scheduled_hook(Consent\ConsentLog::CRON);
+        wp_clear_scheduled_hook(Site\Activity::CRON);
         flush_rewrite_rules();
     }
 
@@ -47,6 +48,13 @@ final class Plugin
     {
         (new FeatureRegistry())->mergeNewDefaults();
         Consent\ConsentLog::install();
+        Site\Activity::install();
+        Site\Activity::schedule();
+        // Administrators can always open the activity log; other roles are given it on the Roles tab.
+        $admin = get_role('administrator');
+        if ($admin !== null && !$admin->has_cap(Site\Activity::CAP)) {
+            $admin->add_cap(Site\Activity::CAP);
+        }
 
         // 1.0 kept handler settings in a separate option.
         $params = get_option('sepo_wb_handler_params', null);
@@ -102,6 +110,7 @@ final class Plugin
         Integration\Elementor::hook();
         Consent\Consent::hook();
         SignIn\SignIn::hook();
+        Site\Site::hook();
 
         if (is_admin()) {
             Integration\MembershipAdmin::hook();
@@ -111,10 +120,6 @@ final class Plugin
         add_action('rest_api_init', function (): void {
             (new Rest\RestController($this->registry, $this->state, $this->schema))->registerRoutes();
             Consent\ConsentRest::register();
-        });
-
-        add_action('init', static function (): void {
-            load_plugin_textdomain('sepo-wp-bridge', false, dirname(SEPO_WB_BASENAME) . '/languages');
         });
     }
 
@@ -149,7 +154,7 @@ final class Plugin
                 $args = Features\Handlers::sanitizeParams($row['handler'], $row['params']);
                 call_user_func_array([$handlers, $row['handler']], $args);   // string keys = named arguments
             } catch (\Throwable $e) {
-                error_log(sprintf('[sepo-wb] feature "%s" failed: %s', $key, $e->getMessage()));
+                do_action('sepo_wb_error', 'feature ' . $key, $e);
             }
         }
     }

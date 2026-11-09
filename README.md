@@ -1,9 +1,6 @@
-# Sepo WordPress Bridge
+# Sepo Bridge
 
-![Version](https://img.shields.io/badge/version-1.5.1-0b3d33)
-![WordPress](https://img.shields.io/badge/WordPress-6.0%2B-21759b)
-![PHP](https://img.shields.io/badge/PHP-8.0%2B-777bb4)
-![License](https://img.shields.io/badge/license-GPL--2.0--or--later-blue)
+By [Euneolink Solutions](https://edu.sepodesk.com/) · Plugin page: [edu.sepodesk.com](https://edu.sepodesk.com/)
 
 One WordPress panel that brings together:
 
@@ -14,7 +11,13 @@ One WordPress panel that brings together:
 - social sign-in with two-factor authentication;
 - menu and block visibility.
 
+![Version](https://img.shields.io/badge/version-1.8.0-0b3d33)
+![WordPress](https://img.shields.io/badge/WordPress-6.1%2B-21759b)
+![PHP](https://img.shields.io/badge/PHP-8.0%2B-777bb4)
+![License](https://img.shields.io/badge/license-GPL--2.0--or--later-blue)
+
 It has no outside dependency. Everything lives under **WP Bridge** in the admin menu.
+
 
 <p align="center">
   <a href="https://edu.sepodesk.com/sponsor/projects-maintenance/">
@@ -129,18 +132,56 @@ There are several ways to show fields on the site:
 - Administrators can reset two-factor for someone who has lost their phone. The reset is recorded.
 - Client secrets and authenticator secrets are stored encrypted.
 
+### Search appearance (Search tab)
+
+- Search titles and descriptions for the home page and for each post, with the excerpt or opening text used when a post has none.
+- Canonical addresses, a "Hide from search engines" choice per post, and rules for search results and later archive pages.
+- Social previews (Open Graph and card tags) with a default image, and structured data for the site and articles.
+- Google and Bing verification codes.
+- The XML sitemap at `/wp-sitemap.xml`: choose its content types and groupings, add author pages, and leave out hidden posts. Each entry carries the date it last changed.
+- When Yoast SEO, Rank Math, All in One SEO, SEOPress, The SEO Framework or Slim SEO is active, those tags are left to that plugin.
+
+### Share buttons (Sharing tab)
+
+- Facebook, X, WhatsApp, LinkedIn, Telegram, email, copy link and the phone's own share menu.
+- Plain links: nothing loads from the networks until someone clicks.
+- Choose the post types, the position (before, after or both) and a filled or outlined look.
+- Site-wide or per post: with "Let each post show or hide the buttons" on, every post offers *As set for the site*, *Show* or *Hide*.
+
+### Table of contents (Contents tab)
+
+- Built from a post's headings (H2 only, H2–H3 or H2–H4). Each heading gets an address that can be linked to.
+- Shown on the left or right of the opening text, or across the top. On phones it spans the full width.
+- Appears once a post has the chosen number of headings, on the chosen post types, or wherever `[sepo_toc]` is placed. Each post can show or hide it.
+
+### Activity (Activity tab and WP Bridge → Activity)
+
+- A master switch turns recording on or off for the whole site.
+- **Page views:** counted after the page loads, so cached pages count too. No cookies are set and no IP addresses are stored.
+- **Activity log:** sign-ins, failed sign-ins, accounts, role changes, publishing, updates, deletions, uploads, comments, plugins and theme changes.
+- Choose which roles are recorded, including visitors who are not signed in.
+- Reports by period and role: views per day, most viewed pages, roles, devices and referring sites. The log can be filtered by role, action and date.
+- Records older than the chosen number of days are removed automatically.
+
+### Roles (Roles tab)
+
+- Add roles, starting from an existing role or from reading only.
+- Tick what each role may do, in groups: posts, pages, media and comments, people, appearance and site, reports, and permissions from other plugins.
+- Switch activity recording on or off for any role, including WordPress's own.
+- Deleting a role moves its people to the role you choose.
+
 ## Requirements
 
 | | Minimum |
 |---|---|
-| WordPress | 6.0 |
+| WordPress | 6.1 |
 | PHP | 8.0 |
 
 ## Installation
 
 ### Upload the zip (recommended)
 
-1. Download `sepo-wp-bridge.zip`.
+1. Download `sepo-bridge.zip`.
 2. In your WordPress dashboard, go to **Plugins → Add New Plugin → Upload Plugin**.
 3. Choose the zip file and click **Install Now**.
 4. Click **Activate**.
@@ -148,11 +189,11 @@ There are several ways to show fields on the site:
 ### Upload the folder
 
 1. Unzip the download.
-2. Copy the `sepo-wp-bridge` folder into `wp-content/plugins/` on your server.
-3. Go to **Plugins** and activate **Sepo WordPress Bridge**.
+2. Copy the `sepo-bridge` folder into `wp-content/plugins/` on your server.
+3. Go to **Plugins** and activate **Sepo Bridge**.
 
 > [!NOTE]
-> GitHub's **Code → Download ZIP** names the folder after the branch, for example `sepo-wp-pbridge-main`. Rename it to `sepo-wp-bridge` before uploading.
+> GitHub's **Code → Download ZIP** names the folder after the branch, for example `sepo-bridge-main`. Rename it to `sepo-bridge` before uploading.
 
 ## Getting started
 
@@ -192,6 +233,8 @@ Secrets are encrypted when you save and are never shown again. To change one, pa
 | `[sepo_cookie_list]` | The full cookie table and the visitor's current choice, for your cookie policy. |
 | `[sepo_social_login]` | The provider buttons. |
 | `[sepo_account_security]` | A front-end page for linked accounts and two-factor. |
+| `[sepo_share]` | Share buttons. Option: `networks="whatsapp,facebook,copy"`. |
+| `[sepo_toc]` | The table of contents, at that spot in the post. |
 
 The blocks are **Post field** and **Field group**. Every block also gets a **Visibility** panel.
 
@@ -299,6 +342,9 @@ Add `data-sepo-allow` to a script or iframe that the banner should never hold ba
 | `sepo_wb_social_user_created` | A provider sign-in created an account. |
 | `sepo_wb_consent_saved` | A visitor's choice was recorded. |
 | `sepo_wb_consent_settings_saved` | The cookie banner settings were saved. |
+| `sepo_wb_activity` | Call it to add a line to the activity log: `do_action('sepo_wb_activity', $action, $type, $id, $title)`. |
+| `sepo_wb_error` | Something failed while handling a request. Receives a context string and the exception. |
+| `sepo_wb_sign_in_log` | A sign-in event worth noting. Receives the level, message and context. |
 
 ### Styling field output
 
@@ -320,6 +366,41 @@ Restyle the `.sepo-fields` classes with these custom properties:
 | Users | `_sepo_wb_tier`, `_sepo_wb_social`, `_sepo_wb_social_<provider>`, `_sepo_wb_2fa`, `_sepo_wb_2fa_counter`, `_sepo_wb_2fa_log` |
 
 ## Changelog
+
+### 1.8.0
+- The plugin's folder, main file and text domain are now sepo-bridge, to match its name. Settings, tiers, post types, fields and cookie choices are kept: deactivate and delete the old Sepo Bridge (folder sepo-wp-bridge), then install and activate this one. The settings page address is now admin.php?page=sepo-bridge; the Sepo Bridge menu leads there as before.
+
+### 1.7.1
+- The plugin is by Euneolink Solutions. Its plugin page and author page are edu.sepodesk.com.
+
+### 1.7.0
+- The settings page has a side menu grouped into Site, Content, People and Visitors, with an icon for each section and a header that says what the section does. On narrow screens the menu becomes a list to choose from.
+
+### 1.6.3
+- Readme: screenshots and their captions for the plugin directory.
+
+### 1.6.2
+- Admin screens: settings shown as cards, lists in a rounded frame, rounded fields and buttons, pill-shaped tabs and filters, and notices on tinted backgrounds.
+
+### 1.6.1
+- Roles: the Add a role form lines up its name, starting point and button on one row, with even spacing, and wraps neatly on narrow screens.
+
+### 1.6.0
+- Search tab: search titles and descriptions, canonical addresses, robots rules, social previews, structured data, verification codes and sitemap choices.
+- Sharing tab: share buttons, site-wide or chosen per post.
+- Contents tab: a table of contents on the left, the right or across the top.
+- Activity tab and WP Bridge → Activity: page views and an activity log, with a master switch and roles to record.
+- Roles tab: add roles, tick their permissions, and set activity recording per role.
+- Each post gets a "Search, sharing and contents" box.
+
+### 1.5.2
+- The plugin is now called Sepo Bridge.
+- Requires WordPress 6.1 or newer.
+- "Turn off automatic updates" uses WordPress's single switch for every background update.
+- Errors are passed to the sepo_wb_error action and sign-in messages to sepo_wb_sign_in_log, instead of the PHP error log.
+- The Google consent defaults print through wp_print_inline_script_tag().
+- Passes the WordPress Plugin Check: translator comments on every string with placeholders, escaped output, sanitised request data and documented database access to the plugin's own tables.
+- Tested up to WordPress 7.1.
 
 ### 1.5.1
 - Provider client secrets pasted on the Sign-in tab are stored encrypted. Setup is done entirely in the admin.
