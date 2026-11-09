@@ -1,0 +1,40 @@
+/* Sepo Bridge — Sign-in tab. Flat: borders and tints, no shadows. */
+.wb-si { --wb-si-tint: #eef6f2; --wb-si-warn: #fcf9e8; --wb-si-warn-ink: #6b4f00; --wb-si-bad: #fcf0f1; --wb-si-bad-ink: #8a1f1f; --wb-si-good-ink: #0a5c36; }
+.wb-si-status { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; padding: 16px 18px; margin-bottom: 14px; border: 1px solid var(--wb-line); border-radius: 8px; background: var(--wb-si-tint); }
+.wb-si.is-off .wb-si-status { background: #fff; }
+.wb-si-status__text { flex: 1 1 260px; display: flex; flex-direction: column; gap: 2px; }
+.wb-si-status__text strong { font-size: 15px; }
+.wb-si-status__text span { color: #50575e; font-size: 13px; }
+.wb-si-status__actions { display: flex; gap: 8px; flex-wrap: wrap; }
+
+.wb-si-note { margin: 0 0 12px; padding: 10px 14px; border-radius: 8px; font-size: 13px; line-height: 1.55; background: var(--wb-si-warn); color: var(--wb-si-warn-ink); border: 1px solid #f0e2a8; }
+.wb-si-note--bad { background: var(--wb-si-bad); color: var(--wb-si-bad-ink); border-color: #f1c7c9; }
+.wb-si-note strong { display: block; margin-bottom: 2px; }
+.wb-si-note code { background: rgba(0, 0, 0, .06); }
+
+.wb-si-card { background: #fff; border: 1px solid var(--wb-line); border-radius: 8px; padding: 16px 18px; margin-bottom: 14px; }
+.wb-si-card > .wb-help:last-child { margin-bottom: 0; }
+
+.wb-si-providers { display: grid; gap: 10px; margin-bottom: 14px; }
+.wb-si-prov { background: #fff; border: 1px solid var(--wb-line); border-radius: 8px; }
+.wb-si-prov__head { display: flex; align-items: center; gap: 12px; padding: 12px 14px; }
+.wb-si-prov__name { display: flex; align-items: center; gap: 8px; font-weight: 600; font-size: 14px; flex: 1 1 auto; }
+.wb-si-prov__name svg { width: 18px; height: 18px; flex: none; }
+.wb-si-prov__body { padding: 4px 14px 14px; border-top: 1px solid #f0f0f1; }
+.wb-si-prov.is-off .wb-si-prov__body { display: none; }
+.wb-si-prov__toggle { background: none; border: 0; padding: 4px; color: #2271b1; cursor: pointer; font: inherit; font-size: 13px; }
+.wb-si-prov__toggle:hover { text-decoration: underline; }
+.wb-si-pill { display: inline-block; padding: 1px 8px; border-radius: 999px; font-size: 11px; font-weight: 600; background: #f0f0f1; color: #50575e; white-space: nowrap; }
+.wb-si-pill--ready { background: #e7f5ee; color: var(--wb-si-good-ink); }
+.wb-si-pill--incomplete { background: var(--wb-si-warn); color: var(--wb-si-warn-ink); }
+
+.wb-si-uri { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 10px 0 4px; }
+.wb-si-uri code { flex: 1 1 280px; min-width: 0; padding: 7px 9px; border: 1px solid var(--wb-line); border-radius: 6px; background: var(--wb-soft); font-size: 12px; word-break: break-all; }
+.wb-si-label { display: block; margin-top: 10px; font-size: 13px; font-weight: 600; }
+.wb-si-src { display: inline-block; margin-left: 6px; font-size: 11px; font-weight: 400; color: var(--wb-muted); }
+.wb-si-secret-row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.wb-si-secret-row input { flex: 1 1 220px; }
+
+@media (max-width: 782px) {
+  .wb-si-prov__head { flex-wrap: wrap; }
+}
