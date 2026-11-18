@@ -53,7 +53,7 @@ final class FeatureRegistry
             'hide_admin_notices'       => $f(__('Hide admin notices for non-admins', 'sepo-bridge'), 'admin', false, 'hideAdminNotices', __('Hides plugin and update notices for users who cannot manage the site. Administrators still see them.', 'sepo-bridge')),
 
             // ---- branding
-            'style_login'              => $f(__('Styled login page', 'sepo-bridge'), 'branding', true, 'styleLoginPage', __('Turns the log in, lost password and register screens into one clean card in your colours, with your logo and a footer line. Logo: leave empty to use the Site Icon or the theme logo. Footer: {year} and {site} are filled in.', 'sepo-bridge'), ['heading' => '', 'footer' => '© {year} {site}', 'logo' => '', 'color' => '#00bcd4', 'colorDark' => '#2e6b76']),
+            'style_login'              => $f(__('Styled login page', 'sepo-bridge'), 'branding', true, 'styleLoginPage', __('Restyles the log in, lost password and register screens in your colours, with your logo and a footer line, in one of five looks: a clean card, a card on a gradient, a photo beside the form, the form beside a panel with your headline, or the form beside a quote. Logo: leave empty to use the Site Icon or the theme logo. Footer: {year} and {site} are filled in.', 'sepo-bridge'), ['heading' => '', 'footer' => '© {year} {site}', 'logo' => '', 'color' => '#00bcd4', 'colorDark' => '#2e6b76', 'template' => 'card', 'image' => '', 'headline' => '', 'tagline' => '', 'quote' => '', 'quoteBy' => '']),
 
             // ---- media
             'allow_webp'               => $f(__('Allow WebP uploads', 'sepo-bridge'), 'media', true, 'allowWebpUploads', __('Lets the media library accept .webp images on servers that refuse them.', 'sepo-bridge')),
@@ -170,6 +170,12 @@ final class FeatureRegistry
                 $rows[$key]['description'] = $row['description'];
                 $rows[$key]['params'] = $rows[$key]['params'] ?: $row['params'];
             }
+            $changed = true;
+        }
+        // A shipped feature whose text was never edited takes the new text, so new settings are described.
+        $defs = self::defaults();
+        if (isset($rows['style_login'], $defs['style_login']) && str_starts_with((string) $rows['style_login']['description'], 'Turns the log in, lost password and register screens into one clean card')) {
+            $rows['style_login']['description'] = $defs['style_login']['description'];
             $changed = true;
         }
         if ($changed) {

@@ -4,7 +4,7 @@ Tags: custom post types, custom fields, membership, cookie consent, security
 Requires at least: 6.1
 Tested up to: 7.1
 Requires PHP: 8.0
-Stable tag: 1.8.0
+Stable tag: 1.9.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -27,7 +27,7 @@ Showing custom fields:
 * **Shortcodes** — `[sepo_field field="price" label="Price:"]` for one value; `[sepo_fields group="event_details" style="grid"]` for a group (`style` table, grid or inline; `title` yes or no; `empty` yes to list empty fields; `post` for another post's values).
 * **Elementor** — a "Sepo fields" widget category with **Post field** and **Field group** widgets, each with colour, typography and spacing controls; and dynamic tags (**Custom field** for any text or number, **Custom field link** for any button or link), so Elementor's own widgets can show field values.
 * A group placed by hand on a page is not repeated by the automatic display.
-* **Styled login page** — a clean single-card login in your colours and logo (Features → Branding).
+* **Styled login page** — the login page in your colours and logo, in one of five looks: card, gradient, photo beside the form, brand panel with a headline, or a quote (Features → Branding).
 * **Membership** — ranked tiers (Gold includes Silver), a site-wide default tier for chosen post types, join and account links.
 * **Cookies** — a cookie consent banner, a site scanner, the cookie list, blocking rules and proof-of-consent records.
 
@@ -119,6 +119,21 @@ Deleting the plugin removes its settings only if "Delete this plugin's settings�
 The plugin now installs in a folder named sepo-bridge. Deactivate and delete the old copy (folder sepo-wp-bridge), then install this one. Your settings are kept.
 
 == Changelog ==
+
+= 1.9.1 =
+* Improvement: the login page fits in the window in every look, on laptops and phones alike. Spacing, the logo and the title grow tighter on shorter windows, and the page no longer scrolls by a few pixels.
+
+= 1.9.0 =
+* New: five looks for the styled login page, chosen under Look in its settings: Card, Gradient, Photo, Brand panel and Quote.
+* New: a picture for the Photo, Brand panel and Quote looks, chosen from the media library, plus a headline and a line under it for Brand panel, and a quote and who said it for Quote.
+* Improvement: every look covers log in, lost password, reset password and register; on phones the form stands alone.
+
+= 1.8.2 =
+* Plugin URI removed from the plugin header; the Author URI stays.
+
+= 1.8.1 =
+* Share buttons redesigned: an even height and a clean sans-serif typeface everywhere, so themes and reading layouts can no longer stretch or restyle them.
+* Outline style shows a small dot in each network's colour, and the label sits beside the buttons on wide screens and above them on phones.
 
 = 1.8.0 =
 * The plugin's folder, main file and text domain are now sepo-bridge, to match its name. Settings, tiers, post types, fields and cookie choices are kept: deactivate and delete the old Sepo Bridge (folder sepo-wp-bridge), then install and activate this one. The settings page address is now admin.php?page=sepo-bridge; the Sepo Bridge menu leads there as before.

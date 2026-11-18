@@ -2,14 +2,14 @@
 # This file is distributed under the GPL-2.0-or-later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Sepo Bridge 1.8.0\n"
+"Project-Id-Version: Sepo Bridge 1.9.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/sepo-bridge\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-11-09T14:49:59+00:00\n"
+"POT-Creation-Date: 2026-11-18T19:29:13+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 "X-Domain: sepo-bridge\n"
@@ -21,12 +21,6 @@ msgstr ""
 msgid "Sepo Bridge"
 msgstr ""
 
-#. Plugin URI of the plugin
-#. Author URI of the plugin
-#: sepo-bridge.php
-msgid "https://edu.sepodesk.com/"
-msgstr ""
-
 #. Description of the plugin
 #: sepo-bridge.php
 msgid "Feature toggles, custom post types, taxonomies, meta-field groups, membership gates, a cookie consent banner, social sign-in with two-factor authentication, search appearance and sitemap, share buttons, tables of contents, activity tracking, custom roles, menu and block visibility, and security/performance hardening — one panel, no outside dependency."
@@ -35,6 +29,11 @@ msgstr ""
 #. Author of the plugin
 #: sepo-bridge.php
 msgid "Euneolink Solutions"
+msgstr ""
+
+#. Author URI of the plugin
+#: sepo-bridge.php
+msgid "https://edu.sepodesk.com/"
 msgstr ""
 
 #: includes/Admin/AdminController.php:31
@@ -1936,7 +1935,7 @@ msgid "Styled login page"
 msgstr ""
 
 #: includes/FeatureRegistry.php:56
-msgid "Turns the log in, lost password and register screens into one clean card in your colours, with your logo and a footer line. Logo: leave empty to use the Site Icon or the theme logo. Footer: {year} and {site} are filled in."
+msgid "Restyles the log in, lost password and register screens in your colours, with your logo and a footer line, in one of five looks: a clean card, a card on a gradient, a photo beside the form, the form beside a panel with your headline, or the form beside a quote. Logo: leave empty to use the Site Icon or the theme logo. Footer: {year} and {site} are filled in."
 msgstr ""
 
 #: includes/FeatureRegistry.php:59
@@ -2039,26 +2038,36 @@ msgstr ""
 msgid "This SVG contains scripts or external links and was refused."
 msgstr ""
 
-#: includes/Features/Handlers.php:486
+#: includes/Features/Handlers.php:513
 msgid "Reset your password"
 msgstr ""
 
-#: includes/Features/Handlers.php:490
+#: includes/Features/Handlers.php:517
 msgid "Choose a new password"
 msgstr ""
 
-#: includes/Features/Handlers.php:493
+#: includes/Features/Handlers.php:520
 #: includes/Integration/MembershipGate.php:224
 msgid "Create an account"
 msgstr ""
 
-#: includes/Features/Handlers.php:496
+#: includes/Features/Handlers.php:523
 #: includes/SignIn/TwoFactor.php:200
 msgid "Verification code"
 msgstr ""
 
-#: includes/Features/Handlers.php:504
+#: includes/Features/Handlers.php:531
 msgid "Welcome back"
+msgstr ""
+
+#. translators: %s: site name
+#: includes/Features/Handlers.php:554
+msgid "Everything for %s, in one place"
+msgstr ""
+
+#. translators: %s: site name
+#: includes/Features/Handlers.php:559
+msgid "Signing in to %s takes a moment, and everything is right where I left it."
 msgstr ""
 
 #: includes/Integration/Blocks.php:27
@@ -3429,7 +3438,7 @@ msgstr ""
 msgid "Save changes"
 msgstr ""
 
-#: sepo-bridge.php:21
+#: sepo-bridge.php:20
 msgid "Sepo Bridge needs PHP 8.0 or newer. The plugin is installed but not running."
 msgstr ""
 

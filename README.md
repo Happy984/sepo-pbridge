@@ -11,13 +11,12 @@ One WordPress panel that brings together:
 - social sign-in with two-factor authentication;
 - menu and block visibility.
 
-![Version](https://img.shields.io/badge/version-1.8.0-0b3d33)
+![Version](https://img.shields.io/badge/version-1.9.1-0b3d33)
 ![WordPress](https://img.shields.io/badge/WordPress-6.1%2B-21759b)
 ![PHP](https://img.shields.io/badge/PHP-8.0%2B-777bb4)
 ![License](https://img.shields.io/badge/license-GPL--2.0--or--later-blue)
 
 It has no outside dependency. Everything lives under **WP Bridge** in the admin menu.
-
 
 <p align="center">
   <a href="https://edu.sepodesk.com/sponsor/projects-maintenance/">
@@ -55,7 +54,13 @@ It has no outside dependency. Everything lives under **WP Bridge** in the admin 
   - password length and rate limits;
   - roles and JPEG quality;
   - REST namespaces left open.
-- **Styled login page:** a clean single-card login in your colours, with your logo (**Features → Branding**).
+- **Styled login page:** the login page in your colours, with your logo (**Features → Branding**), in one of five looks chosen under **Look** in its settings:
+  - **Card:** one clean card on a soft background.
+  - **Gradient:** a light card on a full gradient of your main and hover colours, with underlined fields and a button in the same gradient.
+  - **Photo:** your picture filling one half of a framed page, the form on the other.
+  - **Brand panel:** the form beside a panel in your colour with a picture, a headline and a line under it.
+  - **Quote:** the form beside a soft panel with a quote, who said it, and an optional picture below it.
+  The picture is chosen from the media library with **Choose**, or pasted as an address. Every look covers log in, lost password, reset password and register, and on phones and narrow windows the form stands alone.
 
 ### Post types, taxonomies and fields
 
@@ -366,6 +371,21 @@ Restyle the `.sepo-fields` classes with these custom properties:
 | Users | `_sepo_wb_tier`, `_sepo_wb_social`, `_sepo_wb_social_<provider>`, `_sepo_wb_2fa`, `_sepo_wb_2fa_counter`, `_sepo_wb_2fa_log` |
 
 ## Changelog
+
+### 1.9.1
+- Improvement: the login page fits in the window in every look, on laptops and phones alike. Spacing, the logo and the title grow tighter on shorter windows, and the page no longer scrolls by a few pixels.
+
+### 1.9.0
+- New: five looks for the styled login page, chosen under Look in its settings: Card, Gradient, Photo, Brand panel and Quote.
+- New: a picture for the Photo, Brand panel and Quote looks, chosen from the media library, plus a headline and a line under it for Brand panel, and a quote and who said it for Quote.
+- Improvement: every look covers log in, lost password, reset password and register; on phones the form stands alone.
+
+### 1.8.2
+- Plugin URI removed from the plugin header; the Author URI stays.
+
+### 1.8.1
+- Share buttons redesigned: an even height and a clean sans-serif typeface everywhere, so themes and reading layouts can no longer stretch or restyle them.
+- Outline style shows a small dot in each network's colour, and the label sits beside the buttons on wide screens and above them on phones.
 
 ### 1.8.0
 - The plugin's folder, main file and text domain are now sepo-bridge, to match its name. Settings, tiers, post types, fields and cookie choices are kept: deactivate and delete the old Sepo Bridge (folder sepo-wp-bridge), then install and activate this one. The settings page address is now admin.php?page=sepo-bridge; the Sepo Bridge menu leads there as before.

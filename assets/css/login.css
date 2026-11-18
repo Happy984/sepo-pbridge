@@ -6,6 +6,7 @@
    Colours, logo, title and footer come from the feature's settings.
    ========================================================================== */
 
+html,
 body.login {
   --primary: #00bcd4;
   --primary-dark: #2e6b76;
@@ -43,6 +44,7 @@ body.login {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  box-sizing: border-box;
   min-height: 100vh;
   height: auto;
   margin: 0;
@@ -462,4 +464,353 @@ body.login {
     padding-top: 8px;
     border-top: 0;
   }
+}
+
+/* ==========================================================================
+   Looks. "card" is everything above; the others build on it.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Gradient: a light card on a full gradient of the two colours, with
+   underlined fields and a button in the same gradient.
+   -------------------------------------------------------------------------- */
+
+body.login.sepo-login--gradient {
+  background: linear-gradient(120deg, var(--primary), var(--primary-dark));
+  background-attachment: fixed;
+}
+
+body.sepo-login--gradient #login {
+  max-width: 420px;
+  padding: 34px 40px 24px;
+  background: #f4f4f5;
+  border: 0;
+  border-radius: 14px;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+
+body.sepo-login--gradient #login .sepo-login-title {
+  margin-bottom: 20px;
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: #111;
+}
+
+body.sepo-login--gradient #login form input[type="text"],
+body.sepo-login--gradient #login form input[type="password"],
+body.sepo-login--gradient #login form input[type="email"] {
+  padding: 10px 6px;
+  margin-bottom: 18px;
+  border: 0;
+  border-bottom: 2px solid #a9a9ae;
+  border-radius: 0;
+  background: transparent;
+  font-size: 16px;
+}
+
+body.sepo-login--gradient #login form .wp-pwd { margin-bottom: 18px; }
+body.sepo-login--gradient #login form .wp-pwd input { margin-bottom: 0; }
+
+body.sepo-login--gradient #login form input:focus {
+  border-bottom-color: var(--primary-dark);
+  box-shadow: none;
+}
+
+body.sepo-login--gradient #login .button-primary {
+  padding: 12px;
+  border-radius: 6px;
+  background: linear-gradient(90deg, var(--primary), var(--primary-dark)) !important;
+}
+
+body.sepo-login--gradient #login .button-primary:hover,
+body.sepo-login--gradient #login .button-primary:focus {
+  background: var(--primary-dark) !important;
+}
+
+body.sepo-login--gradient #login #nav,
+body.sepo-login--gradient #login #backtoblog {
+  border-top: 0;
+}
+
+body.sepo-login--gradient .sepo-login-footer,
+body.sepo-login--gradient .language-switcher {
+  color: #fff;
+}
+
+/* --------------------------------------------------------------------------
+   Split looks: one framed page in two halves. The panel comes from the
+   plugin (aside.sepo-login-aside); the form keeps everything above.
+   -------------------------------------------------------------------------- */
+
+html:has(body.sepo-login--split) {
+  min-height: 100%;
+  background: color-mix(in srgb, var(--primary) 6%, #ececec);
+}
+
+html:has(body.sepo-login--quote) {
+  background: color-mix(in srgb, var(--primary-dark) 82%, #000);
+}
+
+body.login.sepo-login--split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-rows: 1fr auto auto;
+  align-items: center;
+  justify-items: center;
+  width: calc(100% - 48px);
+  max-width: 1180px;
+  min-height: calc(100vh - 48px);
+  margin: 24px auto;
+  padding: 0;
+  overflow: hidden;
+  border-radius: 24px;
+  background: #fff;
+}
+
+body.sepo-login--split > *:not(.sepo-login-aside) {
+  grid-column: 2;
+}
+
+body.sepo-login--split .sepo-login-aside {
+  grid-column: 1;
+  grid-row: 1 / span 3;
+  align-self: stretch;
+  justify-self: stretch;
+  position: relative;
+  overflow: hidden;
+}
+
+/* The form on the left and the panel on the right */
+body.sepo-login--brand > *:not(.sepo-login-aside),
+body.sepo-login--quote > *:not(.sepo-login-aside) {
+  grid-column: 1;
+}
+
+body.sepo-login--brand .sepo-login-aside,
+body.sepo-login--quote .sepo-login-aside {
+  grid-column: 2;
+  margin: 14px;
+  border-radius: 18px;
+}
+
+body.sepo-login--split #login {
+  max-width: 420px;
+  padding: 32px 36px 16px;
+  background: transparent;
+  border: 0;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+
+body.sepo-login--split .sepo-login-footer {
+  margin: 0 0 22px;
+}
+
+body.sepo-login--split .language-switcher {
+  margin: 0 0 12px;
+}
+
+body.sepo-login--split #login .sepo-login-title {
+  font-size: 1.55rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+/* Photo */
+.sepo-login-aside-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* The body cannot clip its children (its overflow belongs to the window), so the photo rounds its own corners. */
+body.sepo-login--photo .sepo-login-aside {
+  border-radius: 24px 0 0 24px;
+}
+
+.sepo-login-aside--photo .sepo-login-aside-img {
+  position: absolute;
+  inset: 0;
+}
+
+.sepo-login-aside-fill {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(150deg, var(--primary), var(--primary-dark));
+}
+
+/* Brand panel: deep main colour, a picture, a headline and a line under it */
+.sepo-login-aside--brand {
+  display: flex;
+  align-items: flex-end;
+  background: color-mix(in srgb, var(--primary-dark) 82%, #000);
+  color: #fff;
+}
+
+.sepo-login-aside-inner {
+  width: 100%;
+  margin: 0;
+  padding: 48px;
+}
+
+.sepo-login-aside--brand .sepo-login-aside-pic {
+  margin: 0 0 36px;
+}
+
+.sepo-login-aside-pic .sepo-login-aside-img {
+  height: auto;
+  max-height: 46vh;
+  border-radius: 16px;
+}
+
+.sepo-login-aside-head {
+  margin: 0 0 12px;
+  font-size: clamp(1.6rem, 2.4vw, 2.2rem);
+  font-weight: 700;
+  line-height: 1.2;
+  color: #fff;
+}
+
+.sepo-login-aside-text {
+  margin: 0;
+  max-width: 34em;
+  font-size: 1.02rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+/* Quote: a soft panel with large quotation marks and an optional picture */
+.sepo-login-aside--quote {
+  display: flex;
+  align-items: stretch;
+  background: color-mix(in srgb, var(--primary) 10%, #fbf8f1);
+  color: var(--text-main);
+}
+
+.sepo-login-aside--quote .sepo-login-aside-inner {
+  display: flex;
+  flex-direction: column;
+  padding: 56px 52px 0;
+}
+
+.sepo-login-quote {
+  position: relative;
+  margin: 0;
+  padding: 34px 0 0;
+}
+
+.sepo-login-quote::before {
+  content: "\201C";
+  position: absolute;
+  top: -18px;
+  left: -4px;
+  font: 700 72px/1 Georgia, serif;
+  color: var(--primary-dark);
+}
+
+.sepo-login-quote p {
+  margin: 0;
+  font-size: clamp(1.25rem, 1.8vw, 1.55rem);
+  font-weight: 600;
+  line-height: 1.5;
+  color: #1d2522;
+}
+
+.sepo-login-quote-by {
+  margin: 22px 0 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #4a5551;
+}
+
+.sepo-login-quote-by::before {
+  content: "— ";
+}
+
+.sepo-login-aside--quote .sepo-login-aside-pic {
+  margin-top: auto;
+  padding-top: 36px;
+}
+
+.sepo-login-aside--quote .sepo-login-aside-pic .sepo-login-aside-img {
+  max-height: 42vh;
+  border-radius: 14px 14px 0 0;
+  object-fit: cover;
+}
+
+/* Phones and narrow windows: the form alone, the panel steps aside */
+@media (max-width: 860px) {
+  html:has(body.sepo-login--split),
+  html:has(body.sepo-login--quote) {
+    background: #fff;
+  }
+
+  body.login.sepo-login--split {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 24px 16px;
+    border-radius: 0;
+  }
+
+  body.sepo-login--split .sepo-login-aside {
+    display: none;
+  }
+
+  body.sepo-login--split #login {
+    padding: 28px 8px 16px;
+  }
+
+  body.sepo-login--gradient #login {
+    padding: 40px 26px 28px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Short windows (laptops, browsers with many bars): everything closer
+   together, so the whole form fits without scrolling in every look.
+   -------------------------------------------------------------------------- */
+
+@media (max-height: 900px) {
+  body.login { padding-top: 16px; padding-bottom: 16px; }
+  #login { padding-top: 26px; padding-bottom: 18px; }
+  #login h1 a,
+  #login .wp-login-logo a { width: 56px !important; height: 56px !important; }
+  #login .sepo-login-title,
+  body.sepo-login--gradient #login .sepo-login-title,
+  body.sepo-login--split #login .sepo-login-title { margin-bottom: 14px; font-size: 1.4rem; }
+  #login form input[type="text"],
+  #login form input[type="password"],
+  #login form input[type="email"] { padding-top: 9px; padding-bottom: 9px; margin-bottom: 12px; }
+  #login form .wp-pwd,
+  body.sepo-login--gradient #login form .wp-pwd { margin-bottom: 12px; }
+  body.sepo-login--gradient #login form input[type="text"],
+  body.sepo-login--gradient #login form input[type="password"],
+  body.sepo-login--gradient #login form input[type="email"] { margin-bottom: 12px; }
+  #login form label { margin-bottom: 3px; }
+  #login form .forgetmenot { margin: 0 0 12px; }
+  #login .button-primary,
+  body.sepo-login--gradient #login .button-primary { padding: 10px; }
+  #login #nav,
+  #login #backtoblog { margin-top: 12px; padding-top: 10px; }
+  .sepo-login-footer { margin-top: 10px; }
+  body.login.sepo-login--split { margin: 16px auto; min-height: calc(100vh - 32px); }
+  body.sepo-login--split #login { padding-top: 20px; }
+  .sepo-login-aside-inner { padding: 36px; }
+  .sepo-login-aside--quote .sepo-login-aside-inner { padding: 40px 40px 0; }
+  #login .sepo-si-btn { min-height: 40px; padding-top: 8px; padding-bottom: 8px; }
+  #login .sepo-si-rule { margin: 10px 0 10px; }
+}
+
+@media (max-height: 720px) {
+  #login h1,
+  #login .wp-login-logo { margin-bottom: 2px; }
+  #login h1 a,
+  #login .wp-login-logo a { width: 44px !important; height: 44px !important; }
+  #login .sepo-login-title,
+  body.sepo-login--gradient #login .sepo-login-title,
+  body.sepo-login--split #login .sepo-login-title { margin-bottom: 10px; font-size: 1.25rem; }
 }

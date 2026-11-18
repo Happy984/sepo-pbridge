@@ -168,3 +168,7 @@
 .wb-copy-code:hover { background: #fff; }
 .wb-copy-code code { background: none; padding: 0; font-size: 11px; }
 .wb-mf-flags { margin-top: 2px; font-size: 13px; }
+
+/* A picture address with a Choose button beside it. */
+.wb-pick { display: flex; gap: 8px; align-items: center; }
+.wb-pick input { flex: 1 1 auto; min-width: 0; }

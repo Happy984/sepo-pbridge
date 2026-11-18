@@ -261,11 +261,28 @@
   var paramLabels = {
     heading: __('Title above the login form'), footer: __('Footer line'), logo: __('Logo image address'),
     color: __('Main colour'), colorDark: __('Hover colour'), max: __('Attempts allowed'), lock: __('Lock-out minutes'),
-    minLength: __('Minimum length'), window: __('Per how many seconds'), roles: __('Roles'), allow: __('Namespaces left open'), quality: __('Quality (1–100)')
+    minLength: __('Minimum length'), window: __('Per how many seconds'), roles: __('Roles'), allow: __('Namespaces left open'), quality: __('Quality (1–100)'),
+    template: __('Look'), image: __('Picture'), headline: __('Headline beside the form'), tagline: __('Line under the headline'), quote: __('Quote beside the form'), quoteBy: __('Who said it')
+  };
+  // Settings chosen from a list rather than typed.
+  var paramOptions = {
+    template: [
+      ['card', __('Card: one clean card on a soft background')],
+      ['gradient', __('Gradient: a card on a full gradient of your two colours')],
+      ['photo', __('Photo: your picture on one side, the form on the other')],
+      ['brand', __('Brand panel: the form beside a panel in your colour with a headline')],
+      ['quote', __('Quote: the form beside a quote, with an optional picture')]
+    ]
   };
   var paramHints = {
     heading: __('Empty: "Welcome back".'), footer: __('{year} and {site} are filled in. Empty: © {year} {site}.'),
-    logo: __('Empty: your Site Icon, else the theme logo, else the WordPress logo.')
+    logo: __('Empty: your Site Icon, else the theme logo, else the WordPress logo.'),
+    template: __('Each look works for log in, lost password and register, and on phones the form comes first.'),
+    image: __('For Photo, Brand panel and Quote. Empty: Photo uses your main colour.'),
+    headline: __('For Brand panel. Empty: "Everything for your site, in one place".'),
+    tagline: __('For Brand panel. Empty: your site\'s tagline.'),
+    quote: __('For Quote. Empty: a short line about signing in.'),
+    quoteBy: __('For Quote: a name, and a place or role if you like.')
   };
 
   function paramsHtml(handler, values) {
@@ -279,6 +296,19 @@
       }
       if (p.type === 'array') {
         return '<label class="wb-field">' + esc(label) + '<input type="text" data-p="' + esc(p.name) + '" data-type="array" value="' + esc((v || []).join(', ')) + '"><small>' + esc(__('Separate with commas.')) + '</small></label>';
+      }
+      if (paramOptions[p.name]) {
+        return '<label class="wb-field">' + esc(paramLabels[p.name] || label) + '<select data-p="' + esc(p.name) + '" data-type="' + esc(p.type) + '">' + paramOptions[p.name].map(function (o) {
+          return '<option value="' + esc(o[0]) + '"' + (o[0] === v ? ' selected' : '') + '>' + esc(o[1]) + '</option>';
+        }).join('') + '</select>' + (paramHints[p.name] ? '<small>' + esc(paramHints[p.name]) + '</small>' : '') + '</label>';
+      }
+      if (p.name === 'image') {
+        return '<div class="wb-field">' + '<label for="wb-p-image">' + esc(paramLabels.image) + '</label><div class="wb-pick"><input id="wb-p-image" type="url" data-p="image" data-type="string" value="' + esc(v == null ? '' : v) + '" placeholder="https://">'
+          + (window.wp && wp.media ? '<button type="button" class="wb-btn wb-btn--sm" data-wb-pick-image>' + esc(__('Choose')) + '</button>' : '') + '</div>'
+          + '<small>' + esc(paramHints.image) + '</small></div>';
+      }
+      if (p.name === 'quote') {
+        return '<label class="wb-field">' + esc(paramLabels.quote) + '<textarea data-p="quote" data-type="string" rows="3">' + esc(v == null ? '' : v) + '</textarea><small>' + esc(paramHints.quote) + '</small></label>';
       }
       var isColor = /^colou?r/i.test(p.name);
       var inputType = p.type === 'int' ? 'number' : isColor ? 'color' : /logo|url/i.test(p.name) ? 'url' : 'text';
@@ -312,6 +342,19 @@
         key.addEventListener('input', function () { key.dataset.touched = '1'; });
         card.querySelector('[data-f="handler"]').addEventListener('change', function (e) {
           card.querySelector('[data-params]').innerHTML = paramsHtml(e.target.value, {});
+        });
+        // A picture from the media library for the login page's side panel.
+        var frame = null;
+        card.addEventListener('click', function (e) {
+          var b = e.target.closest('[data-wb-pick-image]');
+          if (!b || !window.wp || !wp.media) return;
+          var input = card.querySelector('[data-p="image"]');
+          frame = frame || wp.media({ title: __('Picture for the login page'), library: { type: 'image' }, multiple: false, button: { text: __('Use this picture') } });
+          frame.off('select').on('select', function () {
+            var a = frame.state().get('selection').first().toJSON();
+            input.value = a.url || '';
+          });
+          frame.open();
         });
       },
       onOk: function (card) {

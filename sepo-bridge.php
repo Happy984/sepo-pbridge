@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       Sepo Bridge
  * Description:       Feature toggles, custom post types, taxonomies, meta-field groups, membership gates, a cookie consent banner, social sign-in with two-factor authentication, search appearance and sitemap, share buttons, tables of contents, activity tracking, custom roles, menu and block visibility, and security/performance hardening — one panel, no outside dependency.
- * Version:           1.8.0
+ * Version:           1.9.1
  * Requires at least: 6.1
  * Requires PHP:      8.0
  * Author:            Euneolink Solutions
@@ -23,7 +23,7 @@ if (version_compare(PHP_VERSION, '8.0', '<')) {
     return;
 }
 
-define('SEPO_WB_VERSION', '1.8.0');
+define('SEPO_WB_VERSION', '1.9.1');
 define('SEPO_WB_FILE', __FILE__);
 define('SEPO_WB_DIR', plugin_dir_path(__FILE__));
 define('SEPO_WB_URL', plugin_dir_url(__FILE__));

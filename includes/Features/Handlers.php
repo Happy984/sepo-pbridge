@@ -436,19 +436,45 @@ class Handlers
 
     // ============================================================ BRANDING
 
+    /** The looks the login page can have. */
+    public const LOGIN_TEMPLATES = ['card', 'gradient', 'photo', 'brand', 'quote'];
+
     /**
-     * Restyle wp-login.php (log in, lost/reset password, register) as one card.
-     * {year} and {site} in the footer are replaced; leave a setting empty to
-     * use the default (the logo falls back to the Site Icon, then the theme's
-     * custom logo, then the WordPress logo).
+     * Restyle wp-login.php (log in, lost/reset password, register) in one of
+     * five looks: a single card, a card on a full gradient, a photo beside the
+     * form, the form beside a panel in the main colour with a headline, or the
+     * form beside a quote. {year} and {site} in the footer are replaced; leave
+     * a setting empty to use the default (the logo falls back to the Site Icon,
+     * then the theme's custom logo, then the WordPress logo).
      */
     public function styleLoginPage(
         string $heading = '',
         string $footer = '© {year} {site}',
         string $logo = '',
         string $color = '#00bcd4',
-        string $colorDark = '#2e6b76'
+        string $colorDark = '#2e6b76',
+        string $template = 'card',
+        string $image = '',
+        string $headline = '',
+        string $tagline = '',
+        string $quote = '',
+        string $quoteBy = ''
     ): void {
+        $template = in_array($template, self::LOGIN_TEMPLATES, true) ? $template : 'card';
+        $image = $image !== '' ? esc_url_raw($image) : '';
+        add_filter('login_body_class', static function ($classes) use ($template) {
+            $classes[] = 'sepo-login--' . $template;
+            if (in_array($template, ['photo', 'brand', 'quote'], true)) {
+                $classes[] = 'sepo-login--split';
+            }
+            return $classes;
+        });
+        // The side panel of the split looks: the photo, the headline, or the quote.
+        if (in_array($template, ['photo', 'brand', 'quote'], true)) {
+            add_action('login_header', static function () use ($template, $image, $headline, $tagline, $quote, $quoteBy): void {
+                echo self::loginAside($template, $image, $headline, $tagline, $quote, $quoteBy); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- built from escaped parts.
+            });
+        }
         add_action('login_enqueue_scripts', static function () use ($logo, $color, $colorDark): void {
             wp_enqueue_style('sepo-wb-login', SEPO_WB_URL . 'assets/css/login.css', ['login'], SEPO_WB_VERSION);
 
@@ -456,7 +482,8 @@ class Handlers
             $primary = sanitize_hex_color($color);
             $dark = sanitize_hex_color($colorDark);
             if ($primary || $dark) {
-                $css .= 'body.login{' . ($primary ? '--primary:' . $primary . ';' : '') . ($dark ? '--primary-dark:' . $dark . ';' : '') . '}';
+                // On the page itself too, so the frame around the split looks takes the colours.
+                $css .= 'html,body.login{' . ($primary ? '--primary:' . $primary . ';' : '') . ($dark ? '--primary-dark:' . $dark . ';' : '') . '}';
             }
             $url = $logo !== '' ? esc_url_raw($logo) : '';
             if ($url === '') {
@@ -511,5 +538,31 @@ class Handlers
             $text = strtr($text, ['{year}' => wp_date('Y'), '{site}' => get_bloginfo('name', 'display')]);
             echo '<p class="sepo-login-footer">' . esc_html($text) . '</p>';
         });
+    }
+
+    /** The side panel for the split login looks, from escaped parts. */
+    private static function loginAside(string $template, string $image, string $headline, string $tagline, string $quote, string $quoteBy): string
+    {
+        $site = get_bloginfo('name', 'display');
+        $img = $image !== '' ? '<img class="sepo-login-aside-img" src="' . esc_url($image) . '" alt="" decoding="async">' : '';
+        $out = '<aside class="sepo-login-aside sepo-login-aside--' . esc_attr($template) . '" aria-hidden="' . ($template === 'photo' ? 'true' : 'false') . '">';
+        if ($template === 'photo') {
+            $out .= $img !== '' ? $img : '<span class="sepo-login-aside-fill"></span>';
+        } elseif ($template === 'brand') {
+            $out .= '<div class="sepo-login-aside-inner">';
+            $out .= $img !== '' ? '<div class="sepo-login-aside-pic">' . $img . '</div>' : '';
+            $out .= '<p class="sepo-login-aside-head">' . esc_html($headline !== '' ? $headline : sprintf(/* translators: %s: site name */ __('Everything for %s, in one place', 'sepo-bridge'), $site)) . '</p>';
+            $out .= '<p class="sepo-login-aside-text">' . esc_html($tagline !== '' ? $tagline : get_bloginfo('description', 'display')) . '</p>';
+            $out .= '</div>';
+        } else {
+            $out .= '<figure class="sepo-login-aside-inner">';
+            $out .= '<blockquote class="sepo-login-quote"><p>' . esc_html($quote !== '' ? $quote : sprintf(/* translators: %s: site name */ __('Signing in to %s takes a moment, and everything is right where I left it.', 'sepo-bridge'), $site)) . '</p></blockquote>';
+            if ($quoteBy !== '' || $quote === '') {
+                $out .= '<figcaption class="sepo-login-quote-by">' . esc_html($quoteBy !== '' ? $quoteBy : $site) . '</figcaption>';
+            }
+            $out .= $img !== '' ? '<div class="sepo-login-aside-pic">' . $img . '</div>' : '';
+            $out .= '</figure>';
+        }
+        return $out . '</aside>';
     }
 }
